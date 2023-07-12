@@ -68,13 +68,26 @@ const images = [
     "headphones_c_1.webp"
 ]
 
-const productsWithImgs = products.map((item,index)=>{
-    return{
-        ...item,
-        image : `./images/${images[index]}`,
-        id : `product-${index}`
+const phoneColors = [
+  { name: "Black", hex: "#000000" },
+  { name: "Silver", hex: "#C0C0C0" },
+  { name: "Rose Gold", hex: "#B76E79" },
+  { name: "Midnight Blue", hex: "#57798c" },
+  { name: "Champagne Gold", hex: "#D4AF37" },
+  // Add more colors here if needed
+];
 
-    }
-})
+
+
+
+const productsWithImgs = products.map((item, index) => {
+  return {
+    ...item,
+    image: `./images/${images[index]}`,
+    colors: phoneColors.map((color) => color.hex),
+    id: `product-${index}`,
+  };
+});
+
 
 export default productsWithImgs
