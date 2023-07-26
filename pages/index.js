@@ -1,16 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter, Lexend } from "@next/font/google";
+import { Inter,Outfit } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import HeroBanner from "./components/HeroBanner/HeroBanner";
-import Navbar from "./components/Navbar/Navbar";
-import Layout from "./components/Layout";
-import Product from "./components/Product";
-import Cart from "./components/Cart";
-import Footer from "./components/Footer";
-import FooterBanner from "./components/FooterBanner";
+import Layout from "./components/Layout/Layout";
+
+
 
 const inter = Inter({ subsets: ["latin"] });
+
 
 export default function Home() {
   return (
@@ -21,8 +18,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+<main>
+<Layout/>
+</main>
 
-      <Layout />
-    </>
+
+      
+          </>
   );
 }
