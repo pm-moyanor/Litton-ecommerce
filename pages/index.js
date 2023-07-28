@@ -1,12 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter,Outfit } from "@next/font/google";
+import { Inter,Lexend_Deca, Quicksand} from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Layout from "./components/Layout/Layout";
 
 
 
-const inter = Inter({ subsets: ["latin"] });
+
+const lexend= Lexend_Deca({ 
+  weight: ['400', '900'],
+  subsets: ["latin"] });
+
+  const quickSand = Quicksand({subsets:["latin"]})
 
 
 export default function Home() {
