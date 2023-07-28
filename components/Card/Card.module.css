@@ -1,0 +1,67 @@
+.main-container {
+  background-color: white;
+  border-radius: 4%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+  width: 440px;
+
+  /* flex: 1; */
+
+  display: flex;
+  height: 55vh;
+
+  box-shadow: 0 10px 20px rgba(81, 81, 81, 0.112),
+    0 6px 6px rgba(83, 83, 83, 0.072);
+}
+
+.product-info {
+  font-family: "Mulish", sans-serif;
+  margin: 10px 20px 30px 10px;
+  align-self: flex-start;
+  font-size: 22px;
+}
+
+.product-info h4 {
+  color: #161616;
+  font-size: clamp(1.75rem, 5vw, 2.125rem);
+  font-weight: 900;
+  line-height: 1.16;
+  letter-spacing: -1px;
+
+  /* word-break: keep-all; */
+}
+.product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.product-img {
+  margin: 0px 30px 30px 30px;
+  width: auto;
+
+  /* overflow: hidden; */
+}
+
+.product-img img {
+  /* border: solid 3px olive; */
+  width: 100%; /* Make the image take up the full width of the parent div */
+  height: auto; /* Make the image take up the full height of the parent div */
+}
+
+.product-color-options ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.color-options-circles {
+  width: 26px;
+  height: 26px;
+
+  margin: 5px;
+  border-radius: 50%;
+  list-style: none;
+}

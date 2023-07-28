@@ -1,0 +1,34 @@
+.footer-hero {
+  height: 90vh;
+  background-size: cover;
+
+  display: flex;
+  justify-content: end;
+  background-image: url("../../public/images/dan-farrell-FnR2U1lXsBQ-unsplash.jpg");
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content:first baseline;
+  padding-right: 25%;
+  margin-top: 150px;
+  margin-left: 40px;
+}
+
+.footer-hero h4 {
+  font-size: 56px;
+  color: #ffffff;
+}
+.button {
+    margin-top: 10px;
+  border-radius: 50px;
+  width: 250px;
+  height: 40px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  background: #e01e3c;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
