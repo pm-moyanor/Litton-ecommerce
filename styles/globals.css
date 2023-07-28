@@ -12,40 +12,31 @@ body {
   overflow-x: hidden;
 }
 
-body{
+body {
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
 
 }
 
-
-
-
-
-.shopping-icon{
-
+.shopping-icon {
   font-size: 24px;
   border: 1px solid green;
 }
-.footer-container{
- margin: auto 0;
+.footer-container {
+  margin: auto 0;
   display: flex;
   justify-content: space-evenly;
   padding: 10px 20px;
 }
-.footer-container > *{
+.footer-container > * {
   padding: 20px;
 }
-.footer-container p{
+.footer-container p {
   font-size: 14px;
 }
-.footer-icons > *{
-  margin:  0px 5px;
+.footer-icons > * {
+  margin: 0px 5px;
   font-size: 24px;
 }
-
-
-
-
-
