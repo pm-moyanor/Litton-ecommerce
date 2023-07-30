@@ -1,3 +1,5 @@
+
+
 .main-container {
   background-color: white;
   border-radius: 4%;
@@ -7,11 +9,12 @@
   margin: 10px;
   padding: 20px;
   width: 440px;
+  font-family: "Mulish",sans-serif;
 
   /* flex: 1; */
 
   display: flex;
-  height: 55vh;
+  height: 70vh;
 
   box-shadow: 0 10px 20px rgba(81, 81, 81, 0.112),
     0 6px 6px rgba(83, 83, 83, 0.072);
@@ -52,16 +55,40 @@
   height: auto; /* Make the image take up the full height of the parent div */
 }
 
-.product-color-options ul {
-  display: flex;
-  flex-direction: row;
+.product-description {
+
 }
 
 .color-options-circles {
   width: 26px;
+
   height: 26px;
 
   margin: 5px;
   border-radius: 50%;
   list-style: none;
 }
+.line{
+  list-style: circle;
+  font-family: "Mulish", sans-serif;
+  font-size: 18px;
+}
+
+.button {
+  margin-top: 10px;
+  border-radius: 2px;
+  width: 240px;
+  height: 40px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  background:#e01e3c;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+
+.main-container.shop-mode{ 
+
+
+  }

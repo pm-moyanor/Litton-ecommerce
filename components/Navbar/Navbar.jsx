@@ -18,12 +18,12 @@ export default function () {
 
         <div className="nav">
           <ul className={`${styles.navLinks}`}>
-            <li> DISCOVER </li>
             <li>
-         
-              <a href="/shop">
-              SHOP</a>
-           
+              {" "}
+              <a href="/Layout">DISCOVER</a>
+            </li>
+            <li>
+              <a href="/shop">SHOP</a>
             </li>
             <li>SUPPORT</li>
           </ul>
