@@ -1,11 +1,17 @@
 import styles from "./Card.module.css";
 import { useState } from "react";
-export default function Card({ product, inShop }) {
+
+export default function Card({ product, inShop, onAddToCart }) {
   const [inShopState, setInShopState] = useState(inShop);
   const { title, price, description, image, colors, id, inStock } = product;
 
   const descriptionLines = description.split("\n");
-console.log(colors)
+  //console.log(onAddToCart)
+  
+  // const handleAddToCart = () => {
+  //   onAddToCart(product);
+  // };
+
   return (
     <div
       className={`${styles["main-container"]} ${
@@ -20,10 +26,15 @@ console.log(colors)
               <img src={image} alt="main-img" className={styles.image} />
             </div>
             <div className={styles["color-options-container"]}>
-              {colors.map((color,index) => (
-                color.inStock && 
-                <div style={{ backgroundColor: color.hex }} key={id + color.hex}></div>
-              ))}
+              {colors.map(
+                (color, index) =>
+                  color.inStock && (
+                    <div
+                      style={{ backgroundColor: color.hex }}
+                      key={id + color.hex}
+                    ></div>
+                  )
+              )}
             </div>
           </div>
 
@@ -42,7 +53,9 @@ console.log(colors)
                   </li>
                 ))}
               </ul>
-              <button className={styles.button}>add to cart</button>
+              <button className={styles.button} onClick={()=>onAddToCart(product)}> 
+                add to cart
+              </button>
             </div>
           </div>
         </>
@@ -59,10 +72,15 @@ console.log(colors)
             <img src={image} alt="main-img" className={styles.image} />
           </div>
           <div className={styles["color-options-container"]}>
-            {colors.map((color) => (
-              color.inStock &&
-              <div style={{ backgroundColor: color.hex }} key={id+color.hex}></div>
-            ))}
+            {colors.map(
+              (color) =>
+                color.inStock && (
+                  <div
+                    style={{ backgroundColor: color.hex }}
+                    key={id + color.hex}
+                  ></div>
+                )
+            )}
           </div>
         </>
       )}

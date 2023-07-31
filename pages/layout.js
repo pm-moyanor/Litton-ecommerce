@@ -3,6 +3,7 @@ import products from "./data";
 import styles from "../styles/Layout.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
+import Cart from "../components/Cart"
 import Footer from "../components/Footer/Footer";
 import SeamlessShoppingBanner from "../components/SeamlessShoppingBanner/SeamlessShoppingBanner";
 import Card from "../components/Card/Card";
@@ -36,6 +37,7 @@ export default function Layout() {
         <FooterHero />
         <Newsletter />
       </main>
+      <Cart/>
       <footer className="layout__footer footer-container">
         <Footer />
       </footer>
