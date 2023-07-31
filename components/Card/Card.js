@@ -5,7 +5,7 @@ export default function Card({ product, inShop }) {
   const { title, price, description, image, colors, id, inStock } = product;
 
   const descriptionLines = description.split("\n");
-
+console.log(colors)
   return (
     <div
       className={`${styles["main-container"]} ${
@@ -21,7 +21,8 @@ export default function Card({ product, inShop }) {
             </div>
             <div className={styles["color-options-container"]}>
               {colors.map((color,index) => (
-                <div style={{ backgroundColor: color }} key={id + "color" + index}></div>
+                color.inStock && 
+                <div style={{ backgroundColor: color.hex }} key={id + color.hex}></div>
               ))}
             </div>
           </div>
@@ -59,7 +60,8 @@ export default function Card({ product, inShop }) {
           </div>
           <div className={styles["color-options-container"]}>
             {colors.map((color) => (
-              <div style={{ backgroundColor: color }} key={color}></div>
+              color.inStock &&
+              <div style={{ backgroundColor: color.hex }} key={id+color.hex}></div>
             ))}
           </div>
         </>

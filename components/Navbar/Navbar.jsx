@@ -20,7 +20,7 @@ export default function () {
           <ul className={`${styles.navLinks}`}>
             <li>
               {" "}
-              <a href="/Layout">DISCOVER</a>
+              <a href="/layout">DISCOVER</a>
             </li>
             <li>
               <a href="/shop">SHOP</a>

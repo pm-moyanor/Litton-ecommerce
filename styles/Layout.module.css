@@ -28,6 +28,7 @@
 .title-container {
   text-align: center;
 }
+
 .title-container h2 {
   text-align: center;
   font-size: clamp(1.5rem, 8vw, 1.813rem);

@@ -14,7 +14,7 @@ body {
 
 body {
   min-height: 100vh;
-
+ font-family: "Mulish", sans-serif;
   display: flex;
   flex-direction: column;
 

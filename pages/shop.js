@@ -10,6 +10,7 @@ export default function Shop() {
     <>
       <Navbar />
       <div className={styles.container}>
+        <h2>Wireless Headphones</h2>
         <ul>
         {products.map((product) => {
           return (
