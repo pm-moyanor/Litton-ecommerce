@@ -1,14 +1,10 @@
-// Card.js
 import styles from "./Card.module.css";
 import { useState } from "react";
-
-export default function Card({ product, showDescription, inShop }) {
-  const [showDescriptionState, setShowDescriptionState] =
-    useState(showDescription);
+export default function Card({ product, inShop }) {
   const [inShopState, setInShopState] = useState(inShop);
-  console.log(inShopState, inShop);
-  const threeCards = product.colors.slice(0, 3);
-  const descriptionLines = product.description.split("\n");
+  const { title, price, description, image, colors, id, inStock } = product;
+
+  const descriptionLines = description.split("\n");
 
   return (
     <div
@@ -16,36 +12,57 @@ export default function Card({ product, showDescription, inShop }) {
         inShopState ? styles["shop-mode"] : ""
       }`}
     >
-      <div className={styles["product-info"]}>
-        <h6 style={{ color: "red", fontSize: 16 }}>NEW</h6>
-        <h4>{product.title}</h4>
-        <h5 className={styles["product-price"]}>{`$${product.price}`}</h5>
-      </div>
-      <div className={styles["product-img"]}>
-        <img src={product.image} alt="main-img" className={styles.image} />
-      </div>
-      <div className={styles["product-color-options"]}>
-        <div>
-          {threeCards.map((color) => (
-            <div
-              className={styles["color-options-circles"]}
-              style={{ backgroundColor: color }}
-              key={color}
-            ></div>
-          ))}
-        </div>
-      </div>
-      {showDescriptionState && inShopState && (
-        <div className={styles["product-description"]}>
-          <div>
-            {descriptionLines.map((line, index) => (
-              <div key={index} className={styles.line}>
-                {line}
-              </div>
+      {inShopState ? (
+        <>
+          {/* Image comes first */}
+          <div className={styles["img-colors-container"]}>
+            <div className={styles["product-img"]}>
+              <img src={image} alt="main-img" className={styles.image} />
+            </div>
+            <div className={styles["color-options-container"]}>
+              {colors.map((color,index) => (
+                <div style={{ backgroundColor: color }} key={id + "color" + index}></div>
+              ))}
+            </div>
+          </div>
+
+          {/* Configuration and info */}
+          <div className={styles["product-info"]}>
+            <h6 style={{ color: "red", fontSize: 16 }}>NEW</h6>
+            <h4>{title}</h4>
+            <h5 className={styles["product-price"]}>{`$${price}`}</h5>
+            <div className={styles["product-color-options"]}></div>
+
+            <div className={styles["product-color-options"]}>
+              <ul className={styles["description-container"]}>
+                {descriptionLines.map((line, index) => (
+                  <li key={id + "line" + index} className={styles["line"]}>
+                    {line}
+                  </li>
+                ))}
+              </ul>
+              <button className={styles.button}>add to cart</button>
+            </div>
+          </div>
+        </>
+      ) : (
+        // Default order for non-shop mode
+        <>
+          <div className={styles["product-info"]}>
+            <h6 style={{ color: "red", fontSize: 16 }}>NEW</h6>
+            <h4>{title}</h4>
+            <h5 className={styles["product-price"]}>{`$${price}`}</h5>
+          </div>
+
+          <div className={styles["product-img"]}>
+            <img src={image} alt="main-img" className={styles.image} />
+          </div>
+          <div className={styles["color-options-container"]}>
+            {colors.map((color) => (
+              <div style={{ backgroundColor: color }} key={color}></div>
             ))}
           </div>
-          <button className={styles.button}>add to cart</button>
-        </div>
+        </>
       )}
     </div>
   );

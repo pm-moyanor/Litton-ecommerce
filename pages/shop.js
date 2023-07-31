@@ -1,5 +1,5 @@
 // Shop.js
-import productsWithImgs from "./data";
+import products from "./data";
 import styles from "../styles/Shop.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
@@ -11,10 +11,10 @@ export default function Shop() {
       <Navbar />
       <div className={styles.container}>
         <ul>
-        {productsWithImgs.map((product) => {
+        {products.map((product) => {
           return (
             <li key={product.id} className={styles['card-container']}>
-              <Card product={product} showDescription={true} inShop={true} />
+              <Card product={product}  inShop={true} />
             </li>
           );
         })}

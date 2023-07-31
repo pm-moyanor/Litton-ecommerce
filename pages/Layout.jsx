@@ -1,5 +1,5 @@
 // Layout.js
-import productsWithImgs from "./data";
+import products from "./data";
 import styles from "../styles/Layout.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
@@ -10,6 +10,9 @@ import Newsletter from "../components/Newsletter/Newsletter";
 import FooterHero from "../components/FooterHero/FooterHero";
 
 export default function Layout() {
+
+  const threeCards = products.slice(6, 10);
+
   return (
     <div className={styles["layout"]}>
       <header className="layout__header">
@@ -22,13 +25,11 @@ export default function Layout() {
             <h2>Popular Now</h2>
           </div>
 
-          <div className={styles["products"]}>
-            <ul>
-              {productsWithImgs.map((product) => (
-                <Card product={product} key={product.id} showDescription={false} inShop={false}/>
-              ))}
-            </ul>
-          </div>
+          <ul className={styles["products"]}>
+            {threeCards.map((product) => (
+              <Card product={product} key={product.id} inShop={false} />
+            ))}
+          </ul>
         </div>
 
         <SeamlessShoppingBanner />
