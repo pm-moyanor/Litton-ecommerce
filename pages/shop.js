@@ -1,36 +1,18 @@
-// Shop.js
+import { useContext } from "react";
+import { CartContext } from "../CartContext";
 
-import { useState } from "react";
 import products from "./data";
 import styles from "../styles/Shop.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
-import Cart from "../components/Cart";
+import Cart from "../pages/cart";
+
 
 export default function Shop() {
-  const [cartItems, setCartItems] = useState([]);
 
-
-
-  const handleAddToCart = (product) => {
-    const itemInCart = cartItems.find((item) => item.id === product.id);
-
-    if (itemInCart) {
-      setCartItems((prevCart) =>
-        prevCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-
-      setCartItems((prevCart) => [...prevCart, { ...product, quantity: 1 }]);
-    }
-  };
-
-
+  const { cartItems, handleAddToCart } = useContext(CartContext);
+  
   return (
     <>
       <Navbar />
@@ -50,7 +32,7 @@ export default function Shop() {
           })}
         </ul>
       </div>
-      <Cart cartItems={cartItems} />
+   
       <Footer />
     </>
   );

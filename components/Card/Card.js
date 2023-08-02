@@ -6,7 +6,7 @@ export default function Card({ product, inShop, onAddToCart }) {
   const { title, price, description, image, colors, id, inStock } = product;
 
   const descriptionLines = description.split("\n");
-  //console.log(onAddToCart)
+
   
   // const handleAddToCart = () => {
   //   onAddToCart(product);

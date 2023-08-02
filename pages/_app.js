@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-
+import CartProvider from "../CartContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCube,
@@ -15,8 +15,8 @@ library.add(faTruckFast, faShop, faCube);
 
 export default function App({ Component, pageProps }) {
   return (
-    <div >
+    <CartProvider>
       <Component {...pageProps} />
-    </div>
+    </CartProvider>
   );
 }

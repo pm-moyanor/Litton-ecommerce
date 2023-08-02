@@ -8,8 +8,6 @@
   padding: 30px;
   width: 440px;
   font-family: "Mulish", sans-serif;
- 
-  /* flex: 1; */
 
   display: flex;
  
@@ -80,8 +78,7 @@ width: 45%;
   width: 90%
 }
 .product-img img {
-  width: 100%; /* Make the image take up the full width of the parent div */
-  /* Make the image take up the full height of the parent div */
+  width: 100%;
 }
 
 .color-options-container{
