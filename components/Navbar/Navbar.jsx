@@ -1,11 +1,22 @@
 import styles from "./Navbar.module.css";
-import Link from 'next/link';
+import Link from "next/link";
 import { AiOutlineShopping } from "react-icons/ai";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from "../../CartContext";
+import { useContext } from "react";
 
 export default function Navbar() {
+  const { cartItems } = useContext(CartContext);
+
+  const countItems = (list) => {
+    return list.reduce((totalCount, item) => totalCount + item.quantity, 0);
+  };
+  
+
+
+  console.log( "in navbar" + cartItems.length);
   return (
     <>
       <div className={styles.navbarContainer}>
@@ -28,12 +39,15 @@ export default function Navbar() {
           </ul>
         </div>
         <div className={styles.cartIcon}>
-          <Link href="/cart">
-          <AiOutlineShopping className="shopping-icon" />
-          </Link>
-
-          <span style={{ padding: "5px" }}>0</span>
-        </div>
+  <Link href="/cart">
+    <AiOutlineShopping className="shopping-icon" />
+  </Link>
+  {cartItems.length > 0 ? (
+    <p style={{ padding: "5px" }}>{countItems(cartItems)}</p>
+  ) : (
+    <p>0</p>
+  )}
+</div>
       </div>
       <div className={styles["free-delivery-container"]}>
         <Link href="/pickup" className={styles["free-delivery-link"]}>

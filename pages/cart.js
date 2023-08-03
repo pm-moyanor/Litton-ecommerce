@@ -9,7 +9,7 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 export default function Cart() {
   const { cartItems, setCartItems } = useContext(CartContext);
 
-  console.log(cartItems);
+  console.log("in cart" + cartItems);
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
@@ -66,7 +66,7 @@ export default function Cart() {
                         <div className={styles["item-description"]}>
                           <h3> {item.title} </h3>
                           <p>
-                            color:{item.colors.name} this is the description{" "}
+                           this is the description{" "}
                           </p>
                         </div>
 
@@ -86,7 +86,7 @@ export default function Cart() {
                           <h4> ${item.price}</h4>
                         </div>
                       </div>
-                      <div className={styles["delete-icon"]}>
+                      <div className={styles["delete-icon"]} onClick={()=> setCartItems (cartItems.filter( cartItem =>  cartItem.id !== item.id))}>
                         <FontAwesomeIcon icon={faTrashCan} size="lg" />{" "}
                       </div>
                     </div>
