@@ -1,12 +1,14 @@
 import styles from "../styles/Cart.module.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "../components/Navbar/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../CartContext";
 import { NodeNextResponse } from "next/dist/server/base-http/node";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart() {
   const { cartItems, setCartItems } = useContext(CartContext);
+
   console.log(cartItems);
 
   const handleDecrease = (item) => {
@@ -17,8 +19,11 @@ export default function Cart() {
           : cartItem
       );
       setCartItems(updatedCart);
+
     }
   };
+
+
 
   const handleIncrease = (item) => {
     const updatedCart = cartItems.map((cartItem) =>
@@ -27,7 +32,20 @@ export default function Cart() {
         : cartItem
     );
     setCartItems(updatedCart);
+
   };
+
+  const calculateSubtotal = () => {
+    const subtotal = cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    const tax = subtotal * 0.08875; // 8.875% tax rate
+    return { subtotal, tax };
+  };
+
+  const { subtotal, tax } = calculateSubtotal();
+
 
   return (
     <>
@@ -42,7 +60,7 @@ export default function Cart() {
                 {cartItems.map((item) => (
                   <li style={{ listStyle: "none" }} key={item.id}>
                     <div className={styles["item-container"]}>
-                      <img src={item.image} style={{ width: "200px" }} />
+                      <img src={item.image} />
 
                       <div className={styles["item-info"]}>
                         <div className={styles["item-description"]}>
@@ -68,6 +86,9 @@ export default function Cart() {
                           <h4> ${item.price}</h4>
                         </div>
                       </div>
+                      <div className={styles["delete-icon"]}>
+                        <FontAwesomeIcon icon={faTrashCan} size="lg" />{" "}
+                      </div>
                     </div>
                   </li>
                 ))}
@@ -77,7 +98,7 @@ export default function Cart() {
               <h2>Order Summary</h2>
               <div className={styles["summary-detail"]}>
                 <h4>Subtotal</h4>
-                <p>$123</p>
+                <p>${subtotal.toFixed(2)}</p>
               </div>
               <div className={styles["summary-detail"]}>
                 <h4>Standard Shipping</h4>
@@ -85,11 +106,11 @@ export default function Cart() {
               </div>
               <div className={styles["summary-detail"]}>
                 <h4>Tax</h4>
-                <p>$12</p>
+                <p>${tax.toFixed(2)}</p>
               </div>
               <div className={styles["summary-detail"]}>
                 <h4>Total</h4>
-                <p>$135</p>
+                <p>${(subtotal + tax).toFixed(2)}</p>
               </div>
               <button className={styles["checkout-button"]}>
                 Proceed to Checkout
