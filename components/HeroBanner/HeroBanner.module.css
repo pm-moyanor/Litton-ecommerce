@@ -1,5 +1,5 @@
 .banner {
-  background-color: rgba(176, 165, 145, 0.662);
+  background-color: rgb(221, 215, 205);
   display: flex;
   flex-direction: row;
   height: 80vh;
@@ -11,18 +11,21 @@
   align-items:;
   justify-content:space-around;
   margin: 200px 100px;
-  line-height: 0.9
+  line-height: 0.9;
+
 ;
 }
 
 .banner h2 {
   font-size: 32px;
   margin: 10px;
+
 }
 
 .banner h3 {
   font-size: 80px;
   margin: 5px;
+  letter-spacing: -6px
 }
 
 .banner h4 {
@@ -30,6 +33,7 @@
   margin-left: -15px;
   color: #ffffff;
   font-weight:bolder;  
+  letter-spacing: -10px
 }
 
 .button {

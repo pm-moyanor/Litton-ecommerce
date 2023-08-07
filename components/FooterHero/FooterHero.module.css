@@ -1,26 +1,38 @@
 .footer-hero {
-  height: 90vh;
+  height: 100vh;
   background-size: cover;
-
   display: flex;
-  justify-content: end;
-  background-image: url("../../public/images/dan-farrell-FnR2U1lXsBQ-unsplash.jpg");
+  justify-content: start;
+  background-image: url("../../public/images/good-faces-yWTUg04EZU8-unsplash.jpg");
 }
 
 .text-block {
   display: flex;
   flex-direction: column;
-  justify-content:first baseline;
-  padding-right: 25%;
-  margin-top: 150px;
-  margin-left: 40px;
+  
+  color: #292925;
+  align-items:right;
+  justify-content :start;
+  width: 70%;
+  margin: 60px;
+
+
 }
 
 .footer-hero h4 {
-  font-size: 56px;
-  color: #ffffff;
+  font-size: calc(8vw + 14px);
+  letter-spacing: -6px;
+  line-height: 95%;
+
 }
-.button {
+
+.footer-hero p{
+  font-size: 24px;
+  font-weight: 500;
+  margin: 20px;
+  width: 50%;
+}
+/* .button {
     margin-top: 10px;
   border-radius: 50px;
   width: 250px;
@@ -31,4 +43,4 @@
   background: #e01e3c;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-}
+} */

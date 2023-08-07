@@ -12,6 +12,8 @@ const VideoHero = () => {
         </video>
         <div className={styles.overlay}>
           <h1>Sound shaped just for you</h1>
+      
+         <p> Made for every ear type, Bose QuietComfort Earbuds II use CustomTune technology to personalize your listening experience with a perfect fit and balanced sound.</p>
         
         </div>
       </div>
