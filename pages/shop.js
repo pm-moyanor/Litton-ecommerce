@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
+import { useCart } from "../CartContext";
 
 import products from "./data";
 import styles from "../styles/Shop.module.css";
@@ -11,7 +12,11 @@ import Cart from "../pages/cart";
 
 export default function Shop() {
 
-  const { cartItems, handleAddToCart } = useContext(CartContext);
+  const { cartState , dispatch} = useCart();
+
+  const handleAddToCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item.id });
+  };
   
   return (
     <>

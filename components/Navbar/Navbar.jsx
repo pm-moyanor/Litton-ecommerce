@@ -4,19 +4,22 @@ import { AiOutlineShopping } from "react-icons/ai";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { CartContext } from "../../CartContext";
-import { useContext } from "react";
+// import { CartContext } from "../../CartContext";
+// import { useContext } from "react";
+import { useCart } from "../../CartContext";
+
 
 export default function Navbar() {
-  const { cartItems } = useContext(CartContext);
+ // const { cartItems } = useContext(CartContext);
+  const { cartState } = useCart();
 
   const countItems = (list) => {
     return list.reduce((totalCount, item) => totalCount + item.quantity, 0);
   };
+
+  
   
 
-
-  console.log( "in navbar" + cartItems.length);
   return (
     <>
       <div className={styles.navbarContainer}>
@@ -42,9 +45,9 @@ export default function Navbar() {
   <Link href="/cart">
     <AiOutlineShopping className="shopping-icon" />
   </Link>
-  {cartItems.length > 0 ? (
-    <p style={{ padding: "5px" }}>{countItems(cartItems)}</p>
-  ) : (
+  {cartState.items.length > 0 ? (
+          <p style={{ padding: "5px" }}>{countItems(cartState.items)}</p>
+          ) : (
     <p>0</p>
   )}
 </div>

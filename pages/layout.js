@@ -13,6 +13,7 @@ import VideoHero from "../components/VideoHero/VideoHero";
 export default function Layout() {
   const threeCards = products.slice(6, 10);
 
+
   return (
     <div className={styles["layout"]}>
       <header className="layout__header">

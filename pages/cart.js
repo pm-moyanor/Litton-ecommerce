@@ -1,42 +1,34 @@
+import React from "react";
+import { useCart } from "../CartContext";
+import products from "./data";
 import styles from "../styles/Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "../components/Navbar/Navbar";
-import { useContext, useState } from "react";
-import { CartContext } from "../CartContext";
-import { NodeNextResponse } from "next/dist/server/base-http/node";
+import Card from "../components/Card/Card";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart() {
-  const { cartItems, setCartItems } = useContext(CartContext);
 
-  console.log("in cart" + cartItems);
+  const { cartState, dispatch } = useCart();
+  const threeCards = products.slice(6, 10);
+
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
-      const updatedCart = cartItems.map((cartItem) =>
-        cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity - 1 }
-          : cartItem
-      );
-      setCartItems(updatedCart);
-
+      dispatch({ type: "DECREASE_QUANTITY", payload: item.id });
     }
   };
 
-
-
   const handleIncrease = (item) => {
-    const updatedCart = cartItems.map((cartItem) =>
-      cartItem.id === item.id
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
-        : cartItem
-    );
-    setCartItems(updatedCart);
+    dispatch({ type: "INCREASE_QUANTITY", payload: item.id });
+  };
 
+  const handleRemoveItem = (item) => {
+    dispatch({ type: "REMOVE_ITEM", payload: item.id });
   };
 
   const calculateSubtotal = () => {
-    const subtotal = cartItems.reduce(
+    const subtotal = cartState.items.reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
@@ -46,28 +38,36 @@ export default function Cart() {
 
   const { subtotal, tax } = calculateSubtotal();
 
+  const totalCount = cartState.items.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <>
       <Navbar />
-      <h1 className={styles["main-title"]}>Your Cart</h1>
+      <h1 className={styles["title"]}>Your Cart</h1>
+
       <div>
-        {cartItems && cartItems.length > 0 ? (
+        {cartState.items && cartState.items.length > 0 ? (
           <div className={styles["cart-container"]}>
             <div className={styles["item-list-container"]}>
-              <h2>Products</h2>
+              <div className={styles["acount-sign-in"]}>
+                <h5>Do you have a My Bose Account?</h5>
+                <p>Enjoy member benefits and faster checkout Sign-in</p>
+              </div>
+              <h2>Products ({totalCount})</h2>
+
               <ul>
-                {cartItems.map((item) => (
+                {cartState.items.map((item) => (
                   <li style={{ listStyle: "none" }} key={item.id}>
                     <div className={styles["item-container"]}>
-                      <img src={item.image} />
+                      <img src={item.image} alt={item.title} />
 
                       <div className={styles["item-info"]}>
                         <div className={styles["item-description"]}>
-                          <h3> {item.title} </h3>
-                          <p>
-                           this is the description{" "}
-                          </p>
+                          <h3>{item.title}</h3>
+                          <p>this is the description</p>
                         </div>
 
                         <div className={styles["price-quantity-container"]}>
@@ -79,15 +79,17 @@ export default function Cart() {
                               {item.quantity}
                             </p>
                             <button onClick={() => handleIncrease(item)}>
-                              {" "}
-                              +{" "}
+                              +
                             </button>
                           </div>
-                          <h4> ${item.price}</h4>
+                          <h4>${item.price}</h4>
                         </div>
                       </div>
-                      <div className={styles["delete-icon"]} onClick={()=> setCartItems (cartItems.filter( cartItem =>  cartItem.id !== item.id))}>
-                        <FontAwesomeIcon icon={faTrashCan} size="lg" />{" "}
+                      <div
+                        className={styles["delete-icon"]}
+                        onClick={() => handleRemoveItem(item)}
+                      >
+                        <FontAwesomeIcon icon={faTrashCan} size="lg" />
                       </div>
                     </div>
                   </li>
@@ -116,14 +118,20 @@ export default function Cart() {
                 Proceed to Checkout
               </button>
             </div>
-
-            {/* <Form /> */}
           </div>
         ) : (
           <div>
             <p>Cart is currently empty</p>
           </div>
         )}
+        <div className={styles.suggested}>
+          <h2 className={styles["title"]}>You may also like</h2>
+          <ul className={styles["products"]}>
+            {threeCards.map((product) => (
+              <Card product={product} key={product.id} inShop={false} />
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
