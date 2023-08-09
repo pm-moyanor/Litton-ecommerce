@@ -19,11 +19,11 @@
   flex-direction: column;
   justify-content: center;
   position: absolute;
-  text-align: left;
+  align-items: flex-end;
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.243);
   
-  padding-left: 60px;
+ 
 
 
 }
@@ -38,6 +38,7 @@
   font-size: calc(8vw + 14px);
   font-weight: 900;
   line-height: 95%;
+  width: 70%;
   letter-spacing: -8px;
   text-align: left;
 }
@@ -45,8 +46,8 @@
 .overlay > p {
   font-size: 24px;
   font-weight: 500;
-margin-top: 20px;
-  width: 80%;
+ margin-top: 30px;
+  width: 40%;
 }
 
 @media (max-width: 768px) {

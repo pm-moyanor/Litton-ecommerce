@@ -1,12 +1,13 @@
 .main-container {
   background-color: white;
-  border-radius: 4%;
+  /* border-radius: 4%; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px;
   padding: 30px;
-  width: 440px;
+  width: 500px;
+  height: 600px;
   font-family: "Mulish", sans-serif;
 
   display: flex;

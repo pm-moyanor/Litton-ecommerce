@@ -3,34 +3,37 @@
   background-size: cover;
   display: flex;
   justify-content: start;
+
   background-image: url("../../public/images/good-faces-yWTUg04EZU8-unsplash.jpg");
 }
 
-.text-block {
+.overlay {
   display: flex;
   flex-direction: column;
   
   color: #292925;
   align-items:right;
   justify-content :start;
-  width: 70%;
-  margin: 60px;
+  width: 80%;
+  margin: 150px 100px;
 
 
 }
 
-.footer-hero h4 {
+.overlay > h1 {
   font-size: calc(8vw + 14px);
-  letter-spacing: -6px;
+  font-weight: 900;
   line-height: 95%;
-
+  width: 100%;
+  letter-spacing: -8px;
+  text-align: left;
 }
 
-.footer-hero p{
+.overlay > p {
   font-size: 24px;
   font-weight: 500;
-  margin: 20px;
-  width: 50%;
+margin-top: 30px;
+  width: 40%;
 }
 /* .button {
     margin-top: 10px;
