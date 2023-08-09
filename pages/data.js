@@ -152,10 +152,7 @@ const products = [
     ],
     inStock: true,
   },
-];
 
-
-const earphoneProducts = [
   {
     title: "Beyer DT 770 Pro",
     id: "PR009",
@@ -319,4 +316,4 @@ const earphoneProducts = [
 ];
 
 export default products;
-export { earphoneProducts };
+

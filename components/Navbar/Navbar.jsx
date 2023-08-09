@@ -12,7 +12,6 @@ export default function Navbar() {
   const { cartState } = useCart();
   const [showSubmenu, setShowSubmenu] = useState(false); // State to control submenu visibility
 
-
   const countItems = (list) => {
     return list.reduce((totalCount, item) => totalCount + item.quantity, 0);
   };
@@ -28,30 +27,29 @@ export default function Navbar() {
         />
 
         <div className="nav">
-        <ul className={`${styles.navLinks}`}>
-          <li>
-            <Link
-              href="/layout"
-              style={{ color: "black", textDecoration: "none" }}
+          <ul className={`${styles.navLinks}`}>
+            <li>
+              <Link
+                href="/layout"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                DISCOVER
+              </Link>
+            </li>
+            <li
+              onMouseEnter={() => setShowSubmenu(true)} // Show submenu on mouse enter
+              onMouseLeave={() => setShowSubmenu(false)} // Hide submenu on mouse leave
             >
-              DISCOVER
-            </Link>
-          </li>
-          <li
-            onMouseEnter={() => setShowSubmenu(true)} // Show submenu on mouse enter
-            onMouseLeave={() => setShowSubmenu(false)} // Hide submenu on mouse leave
-          >
-            <Link
-              href="/shop"
-              style={{ color: "black", textDecoration: "none" }}
-            >
-              SHOP
-            </Link>
-            {/* Conditionally render submenu */}
-            {showSubmenu && <CategorySubmenu />}
-          </li>
-          <li>SUPPORT</li>
-        </ul>
+              <Link
+                href="/shop"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                SHOP
+              </Link>
+              {showSubmenu && <CategorySubmenu />}
+            </li>
+            <li>SUPPORT</li>
+          </ul>
         </div>
         <div className={styles.cartIcon}>
           <Link href="/cart">

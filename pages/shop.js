@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { CartContext } from "../CartContext";
+
 import { useCart } from "../CartContext";
 
 import products from "./data";
@@ -8,11 +7,12 @@ import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
 import Cart from "../pages/cart";
+import CategorySubmenu from "../components/CategorieSubmenu/CategorySubmenu";
 
 
 export default function Shop() {
 
-  const { cartState , dispatch} = useCart();
+  const { dispatch} = useCart();
 
   const handleAddToCart = (item) => {
     dispatch({ type: "ADD_TO_CART", payload: item.id });
@@ -22,6 +22,7 @@ export default function Shop() {
     <>
       <Navbar />
       <div className={styles.container}>
+        <CategorySubmenu inShop={true}/>
         <h2>Wireless Headphones</h2>
         <ul>
           {products.map((product) => {
