@@ -5,7 +5,7 @@ import { useCart } from "../../CartContext";
 export default function Card({ product, inShop }) {
   const { dispatch } = useCart();
   const [inShopState, setInShopState] = useState(inShop);
-  console.log(inShop);
+
   const { title, price, description, image, colors, id, inStock } = product;
 
   const descriptionLines = description.split("\n");

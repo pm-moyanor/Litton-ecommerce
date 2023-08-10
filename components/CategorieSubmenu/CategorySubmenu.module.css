@@ -10,18 +10,22 @@
 }
 
 .subMenu-ul * {
-    font-size: 1.5rem;
-    color: black;
+    font-size: 1rem;
+   color: black;
     text-decoration: none;
+    border-bottom: none;
+    margin: 20px;
 }
 
 .shop-menu-mode{
     display: flex;
     flex-direction: row;
-    background-color: aqua;
+ 
     list-style: none;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
 }
 
+
+  

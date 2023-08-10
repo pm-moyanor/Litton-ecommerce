@@ -15,8 +15,7 @@
   text-decoration: none;
 }
 .navLinks li{
-  color: black;
-  text-decoration: none;
+
   padding-bottom: 10px;
   margin: 30px;
   border-bottom: 4px solid transparent;
@@ -25,6 +24,8 @@
 .navLinks li:hover {
   border-color: red;
 }
+
+
 
 .cartIcon {
   display: flex;

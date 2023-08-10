@@ -1,23 +1,26 @@
-// CategorySubmenu.js
+import React from "react";
+import styles from "./CategorySubmenu.module.css";
 import Link from "next/link";
-import styles from "./CategorySubmenu.module.css"; // Create a CSS module for styling
-import { useState } from "react";
 
-export default function CategorySubmenu({ inShop }) {
-  const [inShopMenu, setInShopMenu] = useState(inShop);
+export default function CategorySubmenu({ isShopPage, isSubmenuHovered, showAll }) {
+  const categories = showAll
+    ? ["headphones", "earphones", "all"]
+    : ["headphones", "earphones"];
+
   return (
-    <div  className={styles["subMenu-wrapper"]}>
+    <div className={`${styles["subMenu-wrapper"]} ${isSubmenuHovered ? styles["submenu-hovered"] : ""}`}>
       <ul
         className={`${styles["subMenu-ul"]} ${
-          inShopMenu ? styles["shop-menu-mode"] : ""
+          isShopPage ? styles["shop-menu-mode"] : ""
         }`}
       >
-        <li>
-          <Link href="/category/headphones">Headphones</Link>
-        </li>
-        <li>
-          <Link href="/category/earbuds">Earbuds</Link>
-        </li>
+       {categories.map((category) => (
+          <li key={category}>
+            <Link href={`/shop?category=${category}`} passHref>
+              {category}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

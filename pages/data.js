@@ -1,7 +1,7 @@
 const products = [
   {
     title: "Sony WH-1000XM4",
-    id: "PR001",
+    id: "H001",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 349.99,
@@ -18,7 +18,7 @@ const products = [
   },
   {
     title: "Bose QuietC 35 II",
-    id: "PR002",
+    id: "H002",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 299.99,
@@ -35,7 +35,7 @@ const products = [
   },
   {
     title: "Sennhe 3 Wireless",
-    id: "PR003",
+    id: "H003",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 399.95,
@@ -52,7 +52,7 @@ const products = [
   },
   {
     title: "Jabra Elite 85h",
-    id: "PR004",
+    id: "H004",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 249.99,
@@ -69,7 +69,7 @@ const products = [
   },
   {
     title: "Apple AirPods Pro",
-    id: "PR005",
+    id: "H005",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 249.0,
@@ -86,7 +86,7 @@ const products = [
   },
   {
     title: "Beats Studio3",
-    id: "PR006",
+    id: "H006",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 349.95,
@@ -103,7 +103,7 @@ const products = [
   },
   {
     title: "JBL Quantum 800",
-    id: "PR007",
+    id: "H007",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 199.95,
@@ -120,7 +120,7 @@ const products = [
   },
   {
     title: "Audio-Tech ATH-M50",
-    id: "PR008",
+    id: "H008",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 199.0,
@@ -137,7 +137,7 @@ const products = [
   },
   {
     title: "Beyer DT 770 Pro",
-    id: "PR009",
+    id: "H009",
     description:
       "Flexible, secure-fit wingtips\nActive Noise Cancelling (ANC) and Transparency mode\nUp to 6 hours of listening time3; 24 hours with charging case4\nAuto Play/Pause connection via Apple H1 chip",
     price: 179.0,

@@ -17,7 +17,7 @@ export default function Layout() {
   return (
     <div className={styles["layout"]}>
       <header className="layout__header">
-        <Navbar />
+        <Navbar currentPage={"layout"}/>
         <HeroBanner />
       </header>
       <main className={`layout__main ${styles["main-container"]}`}>

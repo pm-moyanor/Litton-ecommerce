@@ -8,12 +8,26 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../../CartContext";
 import CategorySubmenu from "../CategorieSubmenu/CategorySubmenu";
 
-export default function Navbar() {
-  const { cartState } = useCart();
-  const [showSubmenu, setShowSubmenu] = useState(false); // State to control submenu visibility
+export default function Navbar({ currentPage, showSubmenu }) {
+  const [submenuVisible, setSubmenuVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
+  const { cartState } = useCart();
+  const isLayoutPage = currentPage === "layout"; // Check if the current page is "Layout"
+
+  // How many items in cart
   const countItems = (list) => {
     return list.reduce((totalCount, item) => totalCount + item.quantity, 0);
+  };
+
+  const handleMouseEnter = () => {
+    if (isLayoutPage) {
+      setIsHovered(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   return (
@@ -36,17 +50,16 @@ export default function Navbar() {
                 DISCOVER
               </Link>
             </li>
-            <li
-              onMouseEnter={() => setShowSubmenu(true)} // Show submenu on mouse enter
-              onMouseLeave={() => setShowSubmenu(false)} // Hide submenu on mouse leave
-            >
+            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               <Link
                 href="/shop"
                 style={{ color: "black", textDecoration: "none" }}
               >
                 SHOP
               </Link>
-              {showSubmenu && <CategorySubmenu />}
+              {isHovered && isLayoutPage && (
+                <CategorySubmenu isShopPage={currentPage === "shop"} isSubmenuHovered={isHovered} />
+              )}
             </li>
             <li>SUPPORT</li>
           </ul>
