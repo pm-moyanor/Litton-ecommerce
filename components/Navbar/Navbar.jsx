@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
 import Link from "next/link";
@@ -8,8 +9,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../../CartContext";
 import CategorySubmenu from "../CategorieSubmenu/CategorySubmenu";
 
-export default function Navbar({ currentPage, showSubmenu }) {
-  const [submenuVisible, setSubmenuVisible] = useState(false);
+export default function Navbar({ currentPage }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const { cartState } = useCart();
@@ -20,29 +20,23 @@ export default function Navbar({ currentPage, showSubmenu }) {
     return list.reduce((totalCount, item) => totalCount + item.quantity, 0);
   };
 
-  const handleMouseEnter = () => {
-    if (isLayoutPage) {
-      setIsHovered(true);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   return (
     <>
-      <div className={styles.navbarContainer}>
-        <Image
-          src="./litton-3.svg"
-          alt="Picture of the author"
-          width={80}
-          height={80}
-        />
+      <div
+        className={`${styles.navbarContainer} ${isHovered ? styles.active : ""} `}
+      >
+        <div className={styles.logoWrapper}>
+          <Image
+            src="./litton-3.svg"
+            alt="Picture of the author"
+            width={80}
+            height={80}
+          />
+        </div>
 
-        <div className="nav">
-          <ul className={`${styles.navLinks}`}>
-            <li>
+        <div className={styles.nav}>
+          <ul className={styles.navLinks}>
+            <li className={styles.navLinkItem}>
               <Link
                 href="/layout"
                 style={{ color: "black", textDecoration: "none" }}
@@ -50,7 +44,19 @@ export default function Navbar({ currentPage, showSubmenu }) {
                 DISCOVER
               </Link>
             </li>
-            <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+
+            {/* SHOP LINK */}
+            <li
+              onMouseEnter={() => {
+                setIsHovered(true);
+              }}
+              onMouseLeave={() => {
+                setIsHovered(false);
+              }}
+              className={`${styles.navLinkItem} ${styles.shopLink} ${
+                isHovered ? styles.open : ""
+              } `}
+            >
               <Link
                 href="/shop"
                 style={{ color: "black", textDecoration: "none" }}
@@ -58,15 +64,20 @@ export default function Navbar({ currentPage, showSubmenu }) {
                 SHOP
               </Link>
               {isHovered && isLayoutPage && (
-                <CategorySubmenu isShopPage={currentPage === "shop"} isSubmenuHovered={isHovered} />
+                <CategorySubmenu
+                  isShopPage={currentPage === "shop"}
+                  isSubmenuHovered={isHovered}
+                 
+                />
               )}
             </li>
-            <li>SUPPORT</li>
+
+            <li className={styles.navLinkItem}>SUPPORT</li>
           </ul>
         </div>
         <div className={styles.cartIcon}>
           <Link href="/cart">
-            <AiOutlineShopping className="shopping-icon" />
+            <AiOutlineShopping className={styles.shoppingIcon} />
           </Link>
           {cartState.items.length > 0 ? (
             <p style={{ padding: "5px" }}>{countItems(cartState.items)}</p>
@@ -75,11 +86,11 @@ export default function Navbar({ currentPage, showSubmenu }) {
           )}
         </div>
       </div>
-      <div className={styles["free-delivery-container"]}>
-        <Link href="/pickup" className={styles["free-delivery-link"]}>
+      <div className={styles.freeDeliveryContainer}>
+        <Link href="/pickup" className={styles.freeDeliveryLink}>
           FAST AND FREE DELIVERY
         </Link>
-        <div className={styles["icon-container"]}>
+        <div className={styles.linkIconContainer}>
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </div>
       </div>

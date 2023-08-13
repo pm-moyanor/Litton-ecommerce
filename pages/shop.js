@@ -50,7 +50,7 @@ export default function Shop() {
 
   return (
     <>
-      <Navbar currentPage={"shop"} showSubmenu={false} />
+      <Navbar currentPage={"shop"}  />
       <div className={styles.container}>
         <CategorySubmenu
           isShopPage={true}

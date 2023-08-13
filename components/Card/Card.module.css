@@ -1,66 +1,63 @@
-.main-container {
+.mainContainer {
   background-color: white;
-  /* border-radius: 4%; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px;
   padding: 30px;
   width: 500px;
+  /* min-width: 500px; */
   height: 600px;
   font-family: "Mulish", sans-serif;
-
   display: flex;
- 
-
-  box-shadow: 0 10px 20px rgba(81, 81, 81, 0.112),
-    0 6px 6px rgba(83, 83, 83, 0.072);
+  box-shadow: 0 10px 20px rgba(81, 81, 81, 0.112), 0 6px 6px rgba(83, 83, 83, 0.072);
 }
 
-.img-colors-container {
+.imgColorsContainer {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
 }
 
-.shop-mode > .img-colors-container {
-background-color: rgba(171, 166, 166, 0.157);
-border-radius: 4% ;
-
-display: flex;
-width: 45%;
+.shopMode > .imgColorsContainer {
+  background-color: rgba(171, 166, 166, 0.157);
+  box-shadow: 0 10px 20px rgba(81, 81, 81, 0.112), 0 6px 6px rgba(83, 83, 83, 0.072);
+  display: flex;
+  width: 45%;
   padding: 40px 30px;
 }
 
-.product-info {
+.productInfo {
   font-family: "Mulish", sans-serif;
-  
   font-size: 22px;
 }
 
-.product-info h4 {
+.newLabel {
+  color: red;
+  font-size: 16px;
+}
+
+.productInfo h4 {
   color: #161616;
   font-size: clamp(1.75rem, 5vw, 2.125rem);
   font-weight: 900;
   line-height: 1.16;
   letter-spacing: -1px;
-  padding:  3px 0px;
-  /* word-break: keep-all; */
+  padding: 3px 0px;
 }
 
-.main-container.shop-mode {
+.mainContainer.shopMode {
   display: flex;
   margin: 0;
   box-shadow: none;
   flex-direction: row;
-
   justify-content: space-around;
   width: 70%;
   height: 600px;
 }
-.shop-mode > .product-info {
+
+.shopMode > .productInfo {
   margin-left: 50px;
   display: flex;
   flex-direction: column;
@@ -68,38 +65,39 @@ width: 45%;
   align-self: auto;
 }
 
-.product-price {
+.productPrice {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.5;
 }
 
-
-.product-img{
-  width: 90%
+.productImg {
+  width: 90%;
 }
-.product-img img {
+
+.productImg img {
   width: 100%;
 }
 
-.color-options-container{
+.colorOptionsContainer {
   display: flex;
   flex-direction: row;
-
-
+  padding-top: 1cap;
 }
-.color-options-container > div {
-  width: 30px;
-  height: 30px;
+
+.colorOptionsContainer > div {
+  width: 27px;
+  height: 27px;
   margin: 5px;
   border-radius: 50%;
   list-style: none;
 }
-.description-container {
+
+.descriptionContainer {
   margin: 40px 0px 40px 0px;
 }
 
-.description-container li {
+.descriptionContainer li {
   list-style-type: disc;
   font-family: "Mulish", sans-serif;
   font-size: 16px;

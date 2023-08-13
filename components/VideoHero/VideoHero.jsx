@@ -8,6 +8,7 @@ const VideoHero = () => {
         <source src="videos/production_id_4594932.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+   
       <div className={`${styles.overlay} ${styles.fadeIn}`}>
         <h1>Sound shaped just for you</h1>
 

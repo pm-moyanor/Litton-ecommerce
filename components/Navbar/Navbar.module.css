@@ -1,27 +1,45 @@
+/* Navbar.module.css */
 .navbarContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+  justify-content: center;
+ height: 100px;
+ transition: height 0.3s ease; 
+
+
 }
 
-.navLinks  {
+.navbarContainer.active{
+  height: 170px;
+ 
+}
+
+.logoWrapper {
+  position: absolute;
+  left: 20px;
+
+}
+
+.navLinks {
   display: flex;
+  justify-content:center;
+
+  align-items: center;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   list-style: none;
   color: black;
+
   text-decoration: none;
 }
-.navLinks li{
 
-  padding-bottom: 10px;
+.navLinkItem {
+
+
+  border-bottom: 1px solid transparent;
   margin: 30px;
-  border-bottom: 4px solid transparent;
 }
 
-.navLinks li:hover {
+.navLinkItem:hover {
   border-color: red;
 }
 
@@ -30,6 +48,9 @@
 .cartIcon {
   display: flex;
   align-items: center;
+  position: absolute;
+  top: 30px;
+  right: 20px;
 }
 
 .blackRibbon {
@@ -40,7 +61,8 @@
   justify-content: center;
   align-items: center;
 }
-.free-delivery-container {
+
+.freeDeliveryContainer {
   font-size: 14px;
   background-color: black;
   height: 60px;
@@ -50,12 +72,13 @@
   align-items: center;
   justify-content: center;
 }
-.free-delivery-link {
+
+.freeDeliveryLink {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
 
-.icon-container {
+.linkIconContainer {
   padding-top: 3px;
   margin-left: 10px;
   width: 15px;

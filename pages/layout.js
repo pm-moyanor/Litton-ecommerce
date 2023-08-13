@@ -2,16 +2,15 @@ import products from "./data";
 import styles from "../styles/Layout.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
-import Cart from "../pages/cart";
+import CardGallery from "../components/CardGallery/CardGallery";
 import Footer from "../components/Footer/Footer";
 import SeamlessShoppingBanner from "../components/SeamlessShoppingBanner/SeamlessShoppingBanner";
-import Card from "../components/Card/Card";
 import Newsletter from "../components/Newsletter/Newsletter";
 import FooterHero from "../components/FooterHero/FooterHero";
 import VideoHero from "../components/VideoHero/VideoHero";
 
 export default function Layout() {
-  const threeCards = products.slice(6, 10);
+
 
 
   return (
@@ -25,11 +24,7 @@ export default function Layout() {
           <div className={styles["title-container"]}>
             <h2>Popular Now</h2>
           </div>
-          <ul className={styles["products"]}>
-            {threeCards.map((product) => (
-              <Card product={product} key={product.id} inShop={false} />
-            ))}
-          </ul>
+          <CardGallery cards={products} />
         </div>
         <VideoHero />
         <SeamlessShoppingBanner />

@@ -15,24 +15,20 @@
 .videoHero .overlay {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   position: absolute;
-  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.243);
+  flex-direction: column;
   color: rgb(255, 255, 255);
-  background-color: rgba(0, 0, 0, 0.243);
-  
- 
-
-
+  margin-left: 40%;
 }
 
 .overlay .fadeIn {
-    animation: fadeIn 1s ease-in-out forwards;
-    /* Adjust animation duration, timing function, and fill mode as needed */
-    /* You can also use media queries to customize for different screen sizes */
-  }
+  animation: fadeIn 1s ease-in-out forwards;
+  /* Adjust animation duration, timing function, and fill mode as needed */
+  /* You can also use media queries to customize for different screen sizes */
+}
 
 .overlay > h1 {
   font-size: calc(8vw + 14px);
@@ -46,7 +42,7 @@
 .overlay > p {
   font-size: 24px;
   font-weight: 500;
- margin-top: 30px;
+  margin-top: 30px;
   width: 40%;
 }
 
@@ -64,17 +60,12 @@
 }
 
 @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px); /* Start slightly below */
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
   }
-  
-
-  
-  
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
