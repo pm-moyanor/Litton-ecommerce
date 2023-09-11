@@ -36,12 +36,12 @@ export default function Contact() {
         <div className={styles.contactInfo}>
           <div className={styles.contactInfoItem}>
             <h3>General Inquiries</h3>
-            <p className={styles.contactInfoEmail}>Email: contact@status.co</p>
+            <p className={styles.contactInfoEmail}>Email: contact@litton.com</p>
           </div>
           <div className={styles.contactInfoItem}>
             <h3>Mailing Address</h3>
-            <p>Status Audio</p>
-            <p>325 Stagg Street</p>
+            <p>Litton Audio</p>
+            <p>326 Stanley Street</p>
             <p>Brooklyn, NY 11249</p>
           </div>
         </div>
