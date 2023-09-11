@@ -72,7 +72,14 @@ export default function Navbar({ currentPage }) {
               )}
             </li>
 
-            <li className={styles.navLinkItem}>SUPPORT</li>
+            <li className={styles.navLinkItem}>
+            <Link
+                href="/contact"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                CONTACT
+              </Link>
+            </li>
           </ul>
         </div>
         <div className={styles.cartIcon}>

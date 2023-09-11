@@ -1,0 +1,83 @@
+/* ContactForm.module.css */
+
+
+.contactForm {
+ 
+
+    margin: 0 auto;
+border: 1px solid red;
+width: 70%;
+    margin: 100px 50px;
+    display: flex; /* Display the h2 and form in a row */
+    justify-content: space-between; /* Create space between h2 and form */
+
+  }
+.infoContainer{
+    border: 1px solid gainsboro;
+ 
+    height: 100%;
+}
+  .contactInfo {
+    flex-direction: column;
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px; /* Add margin to create separation from the form */
+  }
+  
+  .contactInfoItem {
+padding-top: 50px;
+ 
+
+  }
+  
+  .contactInfoItem h3 {
+    margin-bottom: 10px; /* Reset margin to remove spacing */
+  }
+  
+  .contactInfoEmail {
+    margin-bottom: 0; /* Reset margin to remove spacing */
+  }
+  
+  .contactForm h2 {
+    font-size: 42px;
+  margin: 0px 0px30px 30px;
+  }
+  
+  .formContainer {
+    width: 60%;
+    max-width:700px;
+    /* flex: 1;  */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .contactForm label {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .contactForm input,
+  .contactForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Add a border for input fields */
+    border-radius: 4px; /* Add rounded corners */
+  }
+  
+  .contactForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #282828;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .contactForm button:hover {
+    background-color: #7d8085;
+  }
+  

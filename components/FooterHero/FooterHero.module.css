@@ -1,13 +1,19 @@
 .footer-hero {
-  height: 100vh;
-  background-size: cover;
+  
   display: flex;
-  justify-content: start;
 
-  background-image: url("../../public/images/good-faces-yWTUg04EZU8-unsplash.jpg");
+
 }
 
-.overlay {
+.image{
+
+}
+
+.image img{
+
+}
+
+.text{
   display: flex;
   flex-direction: column;
   
@@ -15,12 +21,12 @@
   align-items:right;
   justify-content :start;
   width: 80%;
-  margin: 150px 100px;
+
 
 
 }
 
-.overlay > h1 {
+.text > h1 {
   font-size: calc(8vw + 14px);
   font-weight: 900;
   line-height: 95%;
@@ -29,7 +35,7 @@
   text-align: left;
 }
 
-.overlay > p {
+.text > p {
   font-size: 24px;
   font-weight: 500;
 margin-top: 30px;
