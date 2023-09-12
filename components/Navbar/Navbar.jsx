@@ -63,7 +63,7 @@ export default function Navbar({ currentPage }) {
               >
                 SHOP
               </Link>
-              {isHovered && isLayoutPage && (
+              {isHovered && (
                 <CategorySubmenu
                   isShopPage={currentPage === "shop"}
                   isSubmenuHovered={isHovered}

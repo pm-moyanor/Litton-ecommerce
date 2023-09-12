@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
 import CategorySubmenu from "../components/CategorieSubmenu/CategorySubmenu";
+import SeamlessShoppingBanner from "../components/SeamlessShoppingBanner/SeamlessShoppingBanner";
 
 export default function Shop() {
   const { dispatch } = useCart();
@@ -74,6 +75,8 @@ export default function Shop() {
           ))}
         </ul>
       </div>
+      <SeamlessShoppingBanner/>
+      <Footer/>
     </>
   );
 }

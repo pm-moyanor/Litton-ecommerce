@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-top:200px
+  padding-top:100px
 }
 .banner{
   width: 100%;
@@ -33,7 +33,7 @@
   background-color: #bebebe25;
   display: flex;
   justify-content: center;
- align-items: center;
+  align-items: center;
 
 }
 

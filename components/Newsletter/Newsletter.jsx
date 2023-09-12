@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Newsletter = () => {
   return (
     <div className={styles.newsletter}>
-    
-        <FontAwesomeIcon icon={faEnvelope} className={styles['envelope-icon']}/>
+    <div className={styles['envelope-icon']}>
+    <FontAwesomeIcon icon={faEnvelope} size='xl'/>
+
+    </div>
         
       
       <h2 className={styles.title}>Join our List</h2>

@@ -7,3 +7,12 @@
   text-align: center;
   padding: 40px;
 }
+
+
+.footer-container a{
+  color: black;
+}
+
+.footer-container a:hover{
+  color: rgb(88, 88, 88);
+}

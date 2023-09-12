@@ -29,8 +29,9 @@ export default function Layout() {
 
         <FooterHero />
         <Newsletter />
-      </main>
 
+      </main>
+<footer><Footer/></footer>
      
     </div>
   );

@@ -12,9 +12,10 @@
 }
 
 .envelope-icon{
+    width: 100px;
 
-    width: 45px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .title {

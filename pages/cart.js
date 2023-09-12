@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import Footer from "../components/Footer/Footer";
 
 export default function Cart() {
 
@@ -133,6 +134,7 @@ export default function Cart() {
           </ul>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
