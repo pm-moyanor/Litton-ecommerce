@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import styles from "../styles/Contact.module.css";
 
 export default function Contact() {
@@ -32,21 +33,27 @@ export default function Contact() {
       <Navbar />
       <div className={styles.contactForm}>
         <div className={styles.infoContainer}>
-        <h2>Contact Us</h2>
-        <div className={styles.contactInfo}>
-          <div className={styles.contactInfoItem}>
-            <h3>General Inquiries</h3>
-            <p className={styles.contactInfoEmail}>Email: contact@litton.com</p>
-          </div>
-          <div className={styles.contactInfoItem}>
-            <h3>Mailing Address</h3>
-            <p>Litton Audio</p>
-            <p>326 Stanley Street</p>
-            <p>Brooklyn, NY 11249</p>
+          <h2>Contact Us</h2>
+          <div className={styles.contactInfo}>
+            <div className={styles.contactInfoItem}>
+              <h3>General Inquiries</h3>
+              <p className={styles.contactInfoEmail}>
+                Email: contact@litton.com
+              </p>
+            </div>
+            <div className={styles.contactInfoItem}>
+              <h3>Mailing Address</h3>
+              <p>Litton Audio</p>
+              <p>326 Stanley Street</p>
+              <p>Brooklyn, NY 11249</p>
+            </div>
+            <div className={styles.contactInfoItem}>
+              <h3>Additional Departments</h3>
+              <p className={styles.contactInfoEmail}>press@litton.com</p>
+              <p className={styles.contactInfoEmail}>partnerships@litton.com</p>
+            </div>
           </div>
         </div>
-        </div>
-      
 
         <div className={styles.formContainer}>
           <form onSubmit={handleSubmit}>

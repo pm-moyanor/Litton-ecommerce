@@ -71,7 +71,7 @@ export default function Shop() {
         </ul>
       </div>
 
-      <Footer />
+
     </>
   );
 }

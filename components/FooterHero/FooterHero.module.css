@@ -1,55 +1,50 @@
+/* FooterHero.module.css */
 .footer-hero {
-  
   display: flex;
-
-
+  justify-content: center;
+  align-items: center; /* Vertically center content */
+background-color:rgb(92, 87, 82)
+  
 }
 
-.image{
+.image {
+  flex: 1; /* Takes up half of the available width */
+
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
 
 }
 
 .image img{
-
+  max-width: 100%; 
 }
 
-.text{
-  display: flex;
-  flex-direction: column;
-  
-  color: #292925;
-  align-items:right;
-  justify-content :start;
-  width: 80%;
 
+.text {
+
+  flex: 1; /* Takes up half of the available width */
+  color: #f9f7f8;
+padding-left: 100px;
+margin-top: 40px;
+  height: inherit;
 
 
 }
 
 .text > h1 {
-  font-size: calc(8vw + 14px);
+  font-size: calc(9vw + 18px);
   font-weight: 900;
   line-height: 95%;
   width: 100%;
   letter-spacing: -8px;
   text-align: left;
+  margin: 0;
 }
 
 .text > p {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
-margin-top: 30px;
-  width: 40%;
+  margin: 40px 0px 0px 10px;
+  width: 60%; /* Use the full width of the container */
 }
-/* .button {
-    margin-top: 10px;
-  border-radius: 50px;
-  width: 250px;
-  height: 40px;
-  border: none;
-  color: #ffffff;
-  font-size: 16px;
-  background: #e01e3c;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-} */

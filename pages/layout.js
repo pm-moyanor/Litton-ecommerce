@@ -10,16 +10,14 @@ import FooterHero from "../components/FooterHero/FooterHero";
 import VideoHero from "../components/VideoHero/VideoHero";
 
 export default function Layout() {
-
-
-
   return (
     <div className={styles["layout"]}>
       <header className="layout__header">
-        <Navbar currentPage={"layout"}/>
-        <HeroBanner />
+        <Navbar currentPage={"layout"} />
+     
       </header>
       <main className={`layout__main ${styles["main-container"]}`}>
+      <HeroBanner />
         <div className={styles["three-card-section"]}>
           <div className={styles["title-container"]}>
             <h2>Popular Now</h2>
@@ -33,9 +31,7 @@ export default function Layout() {
         <Newsletter />
       </main>
 
-      <footer className="layout__footer footer-container">
-        <Footer />
-      </footer>
+     
     </div>
   );
 }
