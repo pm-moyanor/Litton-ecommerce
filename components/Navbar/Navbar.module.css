@@ -1,28 +1,21 @@
 /* Navbar.module.css */
 .navbarContainer {
   display: flex;
-  justify-content: center;
- height: 100px;
- transition: height 0.3s ease; 
-
-
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  transition: height 0.3s ease;
+  padding: 0px 20px;
 }
 
-.navbarContainer.active{
+.navbarContainer.active {
   height: 170px;
- 
-}
-
-.logoWrapper {
-  position: absolute;
-  left: 20px;
-
 }
 
 .navLinks {
   display: flex;
-  justify-content:center;
-
+  justify-content: space-between;
+  width: 400px;
   align-items: center;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
@@ -33,26 +26,33 @@
 }
 
 .navLinkItem {
-
-
-  border-bottom: 1px solid transparent;
-  margin: 30px;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+  margin: 10px;
 }
 
 .navLinkItem:hover {
   border-color: red;
 }
 
-
-
 .cartIcon {
+
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-right: 10px;
   align-items: center;
-  position: absolute;
-  top: 30px;
-  right: 20px;
+
+}
+.cartIcon .shoppingIcon {
+  font-size: 24px;
 }
 
+.cartIcon p {
+  font-size: 16px;
+  margin: -4px;
+  font-weight: 500;
+}
 .blackRibbon {
   background-color: black;
   height: 50px;
