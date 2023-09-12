@@ -3,6 +3,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-top:200px
+}
+.banner{
+  width: 100%;
+  height: auto;
+
+}
+
+.banner img{
+  width: 100%;
 }
 
 .container > h2 {
@@ -14,4 +24,16 @@
 .card-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
+ 
 }
+
+.categoryMenu{
+  height: 0px;
+  background-color: #bebebe25;
+  display: flex;
+  justify-content: center;
+ align-items: center;
+
+}
+

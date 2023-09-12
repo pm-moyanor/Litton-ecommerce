@@ -1,5 +1,5 @@
 import { useCart } from "../CartContext";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import products from "./data";
 import styles from "../styles/Shop.module.css";
@@ -50,14 +50,18 @@ export default function Shop() {
 
   return (
     <>
-      <Navbar currentPage={"shop"}  />
-      <div className={styles.container}>
+      <Navbar currentPage={"shop"} />
+      <div className={styles.banner}>
+        <img src="./images/banner1.jpg.large.2x.jpg" />
+      </div>
+      <div className={styles.categoryMenu}>
         <CategorySubmenu
           isShopPage={true}
           onCategorySelect={handleCategorySelect}
           showAll={true}
         />
-
+      </div>
+      <div className={styles.container}>
         <ul>
           {shuffledProducts.map((product) => (
             <li key={product.id} className={styles["card-container"]}>
@@ -70,8 +74,6 @@ export default function Shop() {
           ))}
         </ul>
       </div>
-
-
     </>
   );
 }

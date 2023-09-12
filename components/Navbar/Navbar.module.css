@@ -2,17 +2,20 @@
 .navbarContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   height: 100px;
   transition: height 0.3s ease;
   padding: 0px 20px;
 }
 
 .navbarContainer.active {
-  height: 170px;
+  height: 160px;
 }
 
+.logoWrapper{
+  padding: 10px;
+}
 .navLinks {
+
   display: flex;
   justify-content: space-between;
   width: 400px;
@@ -21,6 +24,8 @@
   font-weight: 700;
   list-style: none;
   color: black;
+  padding: 20px 0px;
+  margin-left: -50px;
 
   text-decoration: none;
 }
@@ -28,7 +33,12 @@
 .navLinkItem {
   border-bottom: 2px solid transparent;
   padding-bottom: 5px;
-  margin: 10px;
+
+}
+
+.navLinkItem a{
+
+  padding: 5px;
 }
 
 .navLinkItem:hover {
@@ -50,7 +60,7 @@
 
 .cartIcon p {
   font-size: 16px;
-  margin: -4px;
+  margin: -2px;
   font-weight: 500;
 }
 .blackRibbon {
@@ -63,7 +73,8 @@
 }
 
 .freeDeliveryContainer {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 700;
   background-color: black;
   height: 60px;
   color: white;

@@ -24,7 +24,7 @@ export default function Card({ product, inShop }) {
         <>
           <div className={styles.imgColorsContainer}>
             <div className={styles.productImg}>
-              <img src={image} alt="main-img" className={styles.image} />
+              <img src={image} alt="main-img"  />
             </div>
             <div className={styles.colorOptionsContainer}>
               {colors.map(

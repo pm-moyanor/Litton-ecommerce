@@ -1,13 +1,22 @@
 .contactForm {
   margin: 0 auto; /* Center horizontally by setting left and right margins to auto */
-  width: 80%;
+  padding: 80px;
   display: flex;
-  border: #282828 1px solid;
-  justify-content: space-between;
+background-color: #dcdcdc;
+  justify-content: center;
+
+
+}
+
+.banner{
+    background-color: #dcdcdc;
+}
+
+.banner img{
+    width: 100%;
 }
 .infoContainer {
-  margin-right: 40px;
-  border: 1px solid red;
+  margin-right: 60px;
 }
 .contactInfo {
   flex-direction: column;
@@ -19,7 +28,7 @@
 }
 
 .contactInfoItem {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .contactInfoItem h3 {
@@ -31,9 +40,9 @@
 }
 
 .contactForm h2 {
-  font-size: 4rem;
-  letter-spacing: -1px;
-  margin: 30px 0px 0px;
+  font-size: 7rem;
+  letter-spacing: -2px;
+  margin: 30px 0px 
 }
 
 .formContainer {
@@ -48,6 +57,9 @@
   padding: 20px;
 }
 
+.formContainer p{
+    margin-bottom: 60px;
+}
 .contactForm label {
   width: 100%;
   margin-bottom: 10px;
@@ -55,10 +67,11 @@
 
 .contactForm input,
 .contactForm textarea {
+    background-color: #dcdcdc;
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #969595;
   border-radius: 4px; /* Add rounded corners */
 }
 

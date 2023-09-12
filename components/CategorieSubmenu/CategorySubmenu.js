@@ -8,7 +8,7 @@ export default function CategorySubmenu({
   isSubmenuHovered,
 }) {
   const categories = showAll
-    ? ["headphones", "earphones", "all"]
+    ? ["headphones", "all","earphones" ]
     : ["headphones", "earphones"];
 
   return (

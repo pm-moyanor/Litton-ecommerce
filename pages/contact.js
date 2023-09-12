@@ -31,6 +31,9 @@ export default function Contact() {
   return (
     <div>
       <Navbar />
+      <div className={styles.banner}>
+        <img src="./images/banner3.jpg.large.2x.jpg" />
+      </div>
       <div className={styles.contactForm}>
         <div className={styles.infoContainer}>
           <h2>Contact Us</h2>
@@ -56,6 +59,11 @@ export default function Contact() {
         </div>
 
         <div className={styles.formContainer}>
+          <p>
+            We'd Love to Hear from You! Please feel free to get in touch with us
+            using the contact form below. We're here to answer any questions or
+            provide assistance.
+          </p>
           <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="fullName">Full Name*</label>
@@ -105,6 +113,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

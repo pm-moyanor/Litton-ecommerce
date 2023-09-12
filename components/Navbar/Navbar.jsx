@@ -48,13 +48,13 @@ export default function Navbar({ currentPage }) {
             {/* SHOP LINK */}
             <li
               onMouseEnter={() => {
-                setIsHovered(true);
+                if (isLayoutPage) setIsHovered(true);
               }}
               onMouseLeave={() => {
-                setIsHovered(false);
+                if (isLayoutPage) setIsHovered(false);
               }}
               className={`${styles.navLinkItem} ${styles.shopLink} ${
-                isHovered ? styles.open : ""
+                isHovered && isLayoutPage ? styles.open : ""
               } `}
             >
               <Link
@@ -67,7 +67,6 @@ export default function Navbar({ currentPage }) {
                 <CategorySubmenu
                   isShopPage={currentPage === "shop"}
                   isSubmenuHovered={isHovered}
-                 
                 />
               )}
             </li>

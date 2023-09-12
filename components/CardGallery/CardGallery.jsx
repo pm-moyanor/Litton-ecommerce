@@ -4,7 +4,7 @@ import styles from "./CardGallery.module.css"
 
 const CardGallery = ({ cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const popularCards = cards.slice(1,5)
+  const popularCards = cards.slice(1,4)
 
   const handlePrev = () => {
     setCurrentIndex(prevIndex => (prevIndex > 0 ? prevIndex - 1 : cards.length - 1));
