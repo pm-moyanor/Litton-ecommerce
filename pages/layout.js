@@ -64,10 +64,21 @@ export default function Layout() {
           color="white"
           customStyle={{
             image: {
-              width: "100%",
-              objectFit: "cover",
+              width: "130%",
+              height: "auto",
+              position: "relative",
+              top: "-220px",
+        
+              
+
             },
-            text: { marginRight: "20%" },
+            text: {
+              color: "black",
+              position: "absolute",
+              width: "45%",
+              left: "80px",
+              top: "8%",
+            },
           }}
         />
 

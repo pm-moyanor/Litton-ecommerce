@@ -13,7 +13,9 @@ const FooterHero = ({
   const containerStyle = {
    position:"relative",
     color: color,
-    backgroundColor: "grey"
+    backgroundColor: "grey",
+    overflow: "hidden",
+    height: "100vh"
 
   };
 
@@ -34,17 +36,29 @@ const FooterHero = ({
         </>
       ) : (
         <>
-          <div className={styles.text}>
-            <h1>{title}</h1>
-            <p>{caption}</p>
-          </div>
-          <img
-            className={styles.image}
-            src={image}
-            style={customStyle?.image}
-            alt={alt}
-          />
-        </>
+        <img
+        className={styles.image}
+        src={image}
+        style={customStyle?.image}
+        alt={alt}
+      />
+      <div className={styles.text} style={customStyle?.text}>
+        <h1>{title}</h1>
+        <p>{caption}</p>
+      </div>
+    </>
+        // <>
+        //   <div className={styles.text}>
+        //     <h1>{title}</h1>
+        //     <p>{caption}</p>
+        //   </div>
+        //   <img
+        //     className={styles.image}
+        //     src={image}
+        //     style={customStyle?.image}
+        //     alt={alt}
+        //   />
+        // </>
       )}
     </div>
   );
