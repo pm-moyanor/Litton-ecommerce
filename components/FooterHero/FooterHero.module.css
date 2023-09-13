@@ -16,7 +16,9 @@
 
 }
 
-
+.text{
+  z-index: 2
+}
 
 
 
@@ -34,4 +36,26 @@
   font-weight: 500;
   margin: 40px 0px 0px 10px;
   width: 50%;
+}
+
+.videoHero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoHero .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.347);
+
+}
+
+.overlay .fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+
 }

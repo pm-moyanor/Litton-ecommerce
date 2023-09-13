@@ -32,7 +32,7 @@ export default function Layout() {
           caption="Made for every ear type, Lotus Comfort headphones use CustomTune technology to personalize your listening experience with a perfect fit and balanced sound."
           image="./images/headphones_a_3.webp"
           customStyle={{
-            image: { width: "55%", margin: "50px" }, // Custom styles for the image
+            image: { width: "50%" ,padding: "100px 50px 0%"}, // Custom styles for the image
             text: {
               color: "black",
               position: "absolute",
@@ -47,8 +47,21 @@ export default function Layout() {
           id={2}
           alt="woman-dancing"
           title="Put rhythm in motion"
+          caption="        Wherever you go, the
+          SoundLink Flex is the perfect musical sidekick for both days out and
+          nights in."
           color={`${styles.overlay} ${styles.fadeIn}`}
           image={`url("videos/production_id_4594932.mp4")`}
+          customStyle={{
+            video: { border: "10px solid red" },
+            text: {
+              color: "white",
+              position: "absolute",
+              width: "60%",
+              left: "80px",
+              top: "20%",
+            },
+          }}
         />
 
         <SeamlessShoppingBanner />
@@ -68,9 +81,6 @@ export default function Layout() {
               height: "auto",
               position: "relative",
               top: "-220px",
-        
-              
-
             },
             text: {
               color: "black",
