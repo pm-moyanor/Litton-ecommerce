@@ -1,21 +1,51 @@
 import styles from "./FooterHero.module.css";
 
-const FooterHero = () => {
+const FooterHero = ({
+  id,
+  alt,
+  title,
+  image,
+  caption,
+
+  color,
+  customStyle
+}) => {
+  const containerStyle = {
+   position:"relative",
+    color: color,
+    backgroundColor: "grey"
+
+  };
+
   return (
-    <div className={styles["footer-hero"]}>
-      <div className={styles.text}>
-        <h1>Create your best work</h1>
-        <p>
-          Real productivity is in Quiet Mode when you silence the background
-          with the world’s best noise cancellation.
-        </p>
-      </div>
-      <div className={styles.image}>
-        <img
-          src="/images/good-faces-yWTUg04EZU8-unsplash.jpg"
-          alt="man-working"
-        />
-      </div>
+    <div className={styles["footer-hero"]} style={containerStyle}>
+      {id === 1 ? (
+        <>
+          <img
+            className={styles.image}
+            src={image}
+            style={customStyle?.image}
+            alt={alt}
+          />
+          <div className={styles.text} style={customStyle?.text}>
+            <h1>{title}</h1>
+            <p>{caption}</p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={styles.text}>
+            <h1>{title}</h1>
+            <p>{caption}</p>
+          </div>
+          <img
+            className={styles.image}
+            src={image}
+            style={customStyle?.image}
+            alt={alt}
+          />
+        </>
+      )}
     </div>
   );
 };

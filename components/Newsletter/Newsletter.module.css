@@ -2,7 +2,7 @@
 .newsletter {
 
   padding: 20px;
-  background-color: rgb(13, 13, 13);
+  background-color: rgba(13, 13, 13, 0.961);
   color: white;
   height: 42vh;
   display: flex;
@@ -20,13 +20,17 @@
 
 .title {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 30px;
 }
 
 .description {
   font-size: 16px;
-  margin-bottom: 50px;
+  font-weight: 300;
+  padding:0;
+  text-align: center;
+
+
 }
 
 .form {
@@ -37,20 +41,21 @@
 
 .emailInput {
   padding: 10px;
-  border: 2px solid #ffffff;
-  height: 60px;
+  border: 1px solid #ffffff;
+  height: 30px;
   width: 40%;
   min-width: 400px;
-  background-color: black;
-  border-radius: 50px;
+  background-color: rgba(13, 13, 13, 0.961);
+;
   margin-right: 10px;
 }
 
 .joinButton {
-  padding: 10px 20px;
-  background-color: #f30000;
+  padding: 10px 30px;
+  height: 51px;
+  background-color: black;
+  border: 1px solid white;
   color: #fff;
-  border: none;
-  border-radius: 4px;
+ 
   cursor: pointer;
 }

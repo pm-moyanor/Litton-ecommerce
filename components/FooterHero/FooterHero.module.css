@@ -1,42 +1,37 @@
 /* FooterHero.module.css */
 .footer-hero {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Vertically center content */
-background-color:rgb(92, 87, 82)
+
+  height: 100vh;
   
 }
 
+
+
 .image {
-  flex: 1; /* Takes up half of the available width */
+  width: 100%;
+  height: auto;
+  object-fit:cover;
 
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
+ 
 
 }
 
-.image img{
-  max-width: 100%; 
-}
+
 
 
 .text {
 
-  flex: 1; /* Takes up half of the available width */
-  color: #f9f7f8;
-padding-left: 100px;
-margin-top: 40px;
-  height: inherit;
+color: #f9f7f8;
+
+
 
 
 }
 
 .text > h1 {
-  font-size: calc(9vw + 18px);
+  font-size: calc(9vw + 12px);
   font-weight: 900;
   line-height: 95%;
-  width: 100%;
   letter-spacing: -8px;
   text-align: left;
   margin: 0;
@@ -46,5 +41,5 @@ margin-top: 40px;
   font-size: 22px;
   font-weight: 500;
   margin: 40px 0px 0px 10px;
-  width: 60%; /* Use the full width of the container */
+
 }

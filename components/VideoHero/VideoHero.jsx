@@ -8,14 +8,14 @@ const VideoHero = () => {
         <source src="videos/production_id_4594932.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-   
+
       <div className={`${styles.overlay} ${styles.fadeIn}`}>
-        <h1>Sound shaped just for you</h1>
+        <h1>Put rhythm in motion</h1>
 
         <p>
-          Made for every ear type, Bose QuietComfort Earbuds II use CustomTune
-          technology to personalize your listening experience with a perfect fit
-          and balanced sound.
+          Wherever you go, the
+          SoundLink Flex is the perfect musical sidekick for both days out and
+          nights in.
         </p>
       </div>
     </div>
