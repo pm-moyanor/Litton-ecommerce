@@ -12,10 +12,8 @@ import ShippingInformation from "../components/ShippingInformation/ShippingInfor
 import PaymentIcons from "../components/PaymentMethods/PaymentMethods";
 
 export default function Cart() {
-
   const { cartState, dispatch } = useCart();
   const threeCards = products.slice(6, 10);
-
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
@@ -62,7 +60,7 @@ export default function Cart() {
               </div>
               <h2>Products ({totalCount})</h2>
 
-              <ul>
+              <ul className={styles.itemList}>
                 {cartState.items.map((item) => (
                   <li style={{ listStyle: "none" }} key={item.id}>
                     <div className={styles["item-container"]}>
@@ -71,7 +69,7 @@ export default function Cart() {
                       <div className={styles["item-info"]}>
                         <div className={styles["item-description"]}>
                           <h3>{item.title}</h3>
-                          <p>this is the description</p>
+                          <p>color: black</p>
                         </div>
 
                         <div className={styles["price-quantity-container"]}>
@@ -101,27 +99,38 @@ export default function Cart() {
               </ul>
             </div>
             <div className={styles["summary-container"]}>
-              <h2>Order Summary</h2>
-              <div className={styles["summary-detail"]}>
-                <h4>Subtotal</h4>
-                <p>${subtotal.toFixed(2)}</p>
+              <div>
+                <h2>Order Summary</h2>
+                <div className={styles["summary-detail"]}>
+                  <h4>Subtotal</h4>
+                  <p>${subtotal.toFixed(2)}</p>
+                </div>
+                <div className={styles["summary-detail"]}>
+                  <h4>Standard Shipping</h4>
+                  <p>Free</p>
+                </div>
+                <div className={styles["summary-detail"]}>
+                  <h4>Tax</h4>
+                  <p>${tax.toFixed(2)}</p>
+                </div>
+                <div className={styles["summary-detail"]}>
+                  <h4>Total</h4>
+                  <p>${(subtotal + tax).toFixed(2)}</p>
+                </div>
+                <div className={styles.buttons}>
+                <button className={styles["continue-button"]}>
+                  Continue shopping
+                </button>
+                <button className={styles["checkout-button"]}>
+                  Proceed to Checkout
+                </button>
+                </div>
+           
               </div>
-              <div className={styles["summary-detail"]}>
-                <h4>Standard Shipping</h4>
-                <p>Free</p>
-              </div>
-              <div className={styles["summary-detail"]}>
-                <h4>Tax</h4>
-                <p>${tax.toFixed(2)}</p>
-              </div>
-              <div className={styles["summary-detail"]}>
-                <h4>Total</h4>
-                <p>${(subtotal + tax).toFixed(2)}</p>
-              </div>
-              <button className={styles["checkout-button"]}>
-                Proceed to Checkout
-              </button>
+              <PaymentIcons />
             </div>
+
+          
           </div>
         ) : (
           <div>
@@ -136,11 +145,11 @@ export default function Cart() {
             ))}
           </ul>
         </div>
-        <PaymentIcons/>
-        <ShippingInformation/>
+
+        <ShippingInformation />
         <PaymentForm />
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

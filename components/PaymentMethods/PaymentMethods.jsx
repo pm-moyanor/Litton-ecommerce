@@ -19,7 +19,7 @@ const PaymentIcons = () => {
   ];
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <h2>Payment Methods</h2>
       <p>Choose from various secure payment methods.</p>
       <ul className={styles.paymentIcons}>
