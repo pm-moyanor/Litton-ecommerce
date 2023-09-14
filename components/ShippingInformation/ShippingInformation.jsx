@@ -1,4 +1,62 @@
 import React, { useState } from 'react';
+import styles from "./ShippingInformation.module.css"
+// Define the ShippingOptions component
+const ShippingOptions = () => {
+  // State to track the selected shipping option
+  const [selectedOption, setSelectedOption] = useState('standard');
+
+  // Function to handle the selection of a shipping option
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+  };
+
+
+  return (
+<div>
+  <h2 className={styles.shippingOptionsTitle}>Shipping Options</h2>
+  <p className={styles.shippingOptionsDescription}>
+    Delivery timing is estimated from the date your order is shipped. Orders are
+    processed Monday through Friday, excluding local or national holidays.
+  </p>
+  <div className={styles.shippingOption}>
+    <div>
+      <label>
+        <input
+          type="radio"
+          value="standard"
+          checked={selectedOption === 'standard'}
+          onChange={() => handleOptionChange('standard')}
+        />
+        <span className={styles.shippingOptionText}>Standard Shipping</span>
+      </label>
+    </div>
+    <div>
+      <p className={styles.shippingOptionPrice}>Free</p>
+    </div>
+  </div>
+  <div className={styles.shippingOption}>
+    <div>
+      <label>
+        <input
+          type="radio"
+          value="express"
+          checked={selectedOption === 'express'}
+          onChange={() => handleOptionChange('express')}
+        />
+        <span className={styles.shippingOptionText}>Express Shipping</span>
+      </label>
+    </div>
+    <div>
+      <p className={styles.shippingOptionPrice}>$25.95</p>
+    </div>
+  </div>
+  <div className={styles.selectedOptionInfo}>
+    <p>Selected Shipping Option: {selectedOption}</p>
+    {/* You can display additional information or pricing based on the selected option */}
+  </div>
+</div>
+  );
+};
 
 function ShippingInformation(props) {
   const [shippingInfo, setShippingInfo] = useState({
@@ -101,8 +159,12 @@ function ShippingInformation(props) {
           />
         </div>
       </form>
+     
+    
     </div>
   );
 }
 
-export default ShippingInformation;
+// Export both components
+export { ShippingInformation, ShippingOptions };
+

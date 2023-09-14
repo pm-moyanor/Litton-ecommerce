@@ -1,6 +1,24 @@
+import { useState } from "react";
+
+
 export default function PaymentForm(){
+const [isSameAddress,setIsSameAddress] = useState(true)
+console.log(isSameAddress)
+ 
+
     return(
-        <form className="payment-form">
+      <>
+      <div >
+      <label>
+      <input
+  type="radio"
+  checked={isSameAddress}
+  onClick={() => setIsSameAddress(!isSameAddress)}
+/>
+      My billing address is not the same as my shipping address
+    </label>
+    </div>
+              <form className="payment-form">
   <h2 className="payment-form__title">Payment Information</h2>
   <div className="payment-form__field-group">
     <label htmlFor="cardNumber" className="payment-form__label">Card Number</label>
@@ -20,6 +38,10 @@ export default function PaymentForm(){
   </div>
   <button type="submit" className="payment-form__submit-btn">Submit</button>
 </form>
+
+
+</>
+
 
     )
 }
