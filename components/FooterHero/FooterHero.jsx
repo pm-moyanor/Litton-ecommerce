@@ -14,17 +14,19 @@ const FooterHero = ({ id, alt, title, image, caption, color, customStyle }) => {
       {id !== 2 ? (
         <>
           <img
-            className={styles.image}
+            className={`${styles.image}  `}
             src={image}
             style={customStyle?.image}
             alt={alt}
           />
-          <div className={styles.text} style={customStyle?.text}>
+          <div className={`${styles.text} ${styles.fadeIn}`} style={customStyle?.text}>
             <h1>{title}</h1>
             <p>{caption}</p>
           </div>
         </>
+
       ) : (
+
         <>
           <div
             className={`${styles.text} ${styles.overlay} ${styles.fadeIn}`}
@@ -33,6 +35,7 @@ const FooterHero = ({ id, alt, title, image, caption, color, customStyle }) => {
             <h1>{title}</h1>
             <p>{caption}</p>
           </div>
+          
           <div className={`${styles.videoHero} ${styles.video}`}>
             <video autoPlay loop muted>
               <source src="videos/production_id_4594932.mp4" type="video/mp4" />
@@ -40,18 +43,7 @@ const FooterHero = ({ id, alt, title, image, caption, color, customStyle }) => {
             </video>
           </div>
         </>
-        // <>
-        //   <div className={styles.text}>
-        //     <h1>{title}</h1>
-        //     <p>{caption}</p>
-        //   </div>
-        //   <img
-        //     className={styles.image}
-        //     src={image}
-        //     style={customStyle?.image}
-        //     alt={alt}
-        //   />
-        // </>
+   
       )}
     </div>
   );

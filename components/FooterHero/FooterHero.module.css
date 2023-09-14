@@ -11,13 +11,11 @@
   width: 30%;
   height: auto;
   object-fit:fill
-
- 
-
 }
 
 .text{
-  z-index: 2
+  z-index: 2;
+
 }
 
 
@@ -55,7 +53,24 @@
 
 }
 
+.fadeIn{
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
 .overlay .fadeIn {
   animation: fadeIn 1s ease-in-out forwards;
 
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(70px); /* Start slightly below */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

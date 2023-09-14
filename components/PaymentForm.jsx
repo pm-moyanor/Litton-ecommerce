@@ -1,4 +1,4 @@
-export default function Form(){
+export default function PaymentForm(){
     return(
         <form className="payment-form">
   <h2 className="payment-form__title">Payment Information</h2>

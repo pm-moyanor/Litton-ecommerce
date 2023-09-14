@@ -7,6 +7,9 @@ import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer/Footer";
+import PaymentForm from "../components/PaymentForm";
+import ShippingInformation from "../components/ShippingInformation/ShippingInformation";
+import PaymentIcons from "../components/PaymentMethods/PaymentMethods";
 
 export default function Cart() {
 
@@ -133,6 +136,9 @@ export default function Cart() {
             ))}
           </ul>
         </div>
+        <PaymentIcons/>
+        <ShippingInformation/>
+        <PaymentForm />
       </div>
       <Footer/>
     </>
