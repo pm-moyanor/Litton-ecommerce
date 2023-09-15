@@ -19,7 +19,7 @@ const ShippingOptions = () => {
     processed Monday through Friday, excluding local or national holidays.
   </p>
   <div className={styles.shippingOption}>
-    <div>
+    {/* <div>
       <label>
         <input
           type="radio"
@@ -45,7 +45,7 @@ const ShippingOptions = () => {
         />
         <span className={styles.shippingOptionText}>Express Shipping</span>
       </label>
-    </div>
+    </div> */}
     <div>
       <p className={styles.shippingOptionPrice}>$25.95</p>
     </div>
@@ -162,6 +162,7 @@ function ShippingInformation(props) {
      
     
     </div>
+     
   );
 }
 
