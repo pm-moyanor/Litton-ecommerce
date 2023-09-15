@@ -45,6 +45,7 @@ export default function Cart() {
       email: "johndoe@example.com",
       phone: "123-456-7890",
     },
+    selectedShippingOption: "standard",
     paymentInfo: {
       paymentMethod: "creditCard",
       cardNumber: "**** **** **** 1234",

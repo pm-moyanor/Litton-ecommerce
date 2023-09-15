@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function ReviewAndConfirm({ data }) {
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  const { cartItems, shippingInfo, paymentInfo } = data;
+  const { cartItems, shippingInfo, paymentInfo,selectedShippingOption } = data;
   console.log("Cart Items:", cartItems);
   console.log("Shipping Info:", shippingInfo);
   const handleConfirmation = () => {
@@ -35,7 +35,7 @@ function ReviewAndConfirm({ data }) {
         <p>Country: {shippingInfo.country}</p>
       </div>
 
-      {/* <div>
+      <div>
         <h3>Selected Shipping Option</h3>
         <p>
           {selectedShippingOption === "standard"
@@ -47,9 +47,15 @@ function ReviewAndConfirm({ data }) {
       <div>
         <h3>Selected Payment Method</h3>
         <p>
-          {selectedPaymentMethod === "creditCard" ? "Credit Card" : "PayPal"}
+          {paymentInfo.paymentMethod === "creditCard" ? "Credit Card" : "PayPal"}
         </p>
-      </div> */}
+      </div>
+
+     <h3>card information</h3>
+      <p>number: {paymentInfo.cardNumber}</p>
+      <p>name: {paymentInfo.cardHolder}</p>
+     <p>expiration:{paymentInfo.expirationDate}</p> 
+      <p>{paymentInfo.cvv}</p>
 
       {!isConfirmed && (
         <button onClick={handleConfirmation}>Confirm Order</button>
