@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../CartContext";
 
-
 import products from "./data";
 import styles from "../styles/Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,9 +17,8 @@ import PaymentIcons from "../components/PaymentMethods/PaymentMethods";
 import ReviewAndConfirm from "../components/ReviewAndConfirm/ReviewAndConfirm";
 
 export default function Cart() {
- const {cartState,dispatch} = useCart()
+  const { cartState, dispatch } = useCart();
 
-  
   const [formData, setFormData] = useState({
     cartItems: cartState.items,
     selectedShippingOption: "",
@@ -41,19 +39,17 @@ export default function Cart() {
       expirationDate: "",
       cvv: "",
     },
-      //   totalPrice: 79.97, // Total price of items
-    shippingFee: 0 // Shipping fee
-  //   orderTotal: 84.97, // Total cost including shipping
+    totalPrice: "", // Total price of items
+    shippingFee: 0, // Shipping fee
+    orderTotal: "", // Total cost including shipping
   });
-
-
 
   const handleShippingOptionChange = (option) => {
     if (option === "express") {
       setFormData({
         ...formData,
         selectedShippingOption: option,
-        shippingFee: 25.24,
+        shippingFee: 12.95,
       });
     } else {
       // Standard shipping option selected, remove the shippingFee
@@ -61,13 +57,13 @@ export default function Cart() {
       setFormData({
         ...formDataWithoutFee,
         selectedShippingOption: option,
+        shippingFee: 0,
       });
     }
   };
 
   // Function to update shipping information
 
- 
   const handleShippingInfoChange = (newShippingInfo) => {
     // Update the formData state by merging the new shipping information
     console.log("New Shipping Info:", newShippingInfo);
@@ -76,17 +72,13 @@ export default function Cart() {
       shippingInfo: { ...newShippingInfo },
     }));
   };
-  
+
   const handlePaymentInfoChange = (newPaymentInfo) => {
-
-
     setFormData((prevData) => ({
       ...prevData,
       paymentInfo: { ...newPaymentInfo },
     }));
   };
-
-  
 
   useEffect(() => {
     console.log(formData);
@@ -174,17 +166,31 @@ export default function Cart() {
       0
     );
     const tax = subtotal * 0.08875; // 8.875% tax rate
-    return { subtotal, tax };
+    const totalPrice = (subtotal + tax).toFixed(2);
+    return { subtotal, tax, totalPrice };
   };
 
-  const { subtotal, tax } = calculateSubtotal();
+  const { subtotal, tax, totalPrice } = calculateSubtotal();
 
   const totalCount = cartState.items.reduce(
     (total, item) => total + item.quantity,
     0
   );
 
-  console.log()
+  const sendToCheckout = () => {
+    // Convert totalPrice and shippingFee to numbers before adding
+    const totalPriceNum = parseFloat(totalPrice);
+    const shippingFeeNum = parseFloat(formData.shippingFee);
+    
+    // Calculate orderTotal as the sum of totalPrice and shippingFee
+    const orderTotal = totalPriceNum + shippingFeeNum;
+    
+    setFormData((prevData) => ({
+      ...prevData,
+      totalPrice: totalPriceNum.toFixed(2), // Convert back to a string with two decimal places
+      orderTotal: orderTotal.toFixed(2), // Convert back to a string with two decimal places
+    }));
+  };
 
   return (
     <>
@@ -256,13 +262,16 @@ export default function Cart() {
                 </div>
                 <div className={styles["summary-detail"]}>
                   <h4>Total</h4>
-                  <p>${(subtotal + tax).toFixed(2)}</p>
+                  <p>${totalPrice}</p>
                 </div>
                 <div className={styles.buttons}>
                   <button className={styles["continue-button"]}>
                     Continue shopping
                   </button>
-                  <button className={styles["checkout-button"]}>
+                  <button
+                    className={styles["checkout-button"]}
+                    onClick={sendToCheckout}
+                  >
                     Proceed to Checkout
                   </button>
                 </div>
@@ -284,9 +293,9 @@ export default function Cart() {
           </ul>
         </div> */}
 
-        <ShippingInformation  onShippingInfoChange={handleShippingInfoChange} />
-        <ShippingOptions onShippingOptionChange={handleShippingOptionChange}/>
-        <PaymentForm onPaymentInfoChange={handlePaymentInfoChange}/>
+        <ShippingInformation onShippingInfoChange={handleShippingInfoChange} />
+        <ShippingOptions onShippingOptionChange={handleShippingOptionChange} />
+        <PaymentForm onPaymentInfoChange={handlePaymentInfoChange} />
         {/* <ReviewAndConfirm
         data={formData}
         /> */}

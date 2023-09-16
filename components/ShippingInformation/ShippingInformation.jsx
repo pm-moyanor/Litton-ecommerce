@@ -50,7 +50,7 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
           </label>
         </div>
         <div>
-          <p className={styles.shippingOptionPrice}>$25.95</p>
+          <p className={styles.shippingOptionPrice}>$12.95</p>
         </div>
       </div>
       <div className={styles.selectedOptionInfo}>
