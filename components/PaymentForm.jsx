@@ -13,13 +13,18 @@ export default function PaymentForm({onPaymentInfoChange}) {
   })
 
   const handlePaymentChange = (event) => {
-    setPaymentMethod(event.target.value);
+    const selectedPaymentMethod = event.target.value;
+    setPaymentMethod(selectedPaymentMethod);
+    setPaymentInfo({
+      ...paymentInfo,
+      paymentMethod: selectedPaymentMethod, // Use the updated value here
+    });
   };
 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name)
+ 
     setPaymentInfo({
       ...paymentInfo,
       [name]: value,

@@ -19,6 +19,7 @@ import ReviewAndConfirm from "../components/ReviewAndConfirm/ReviewAndConfirm";
 export default function Cart() {
   const { cartState, dispatch } = useCart();
   const [formData, setFormData] = useState({
+    selectedShippingOption: "",
     shippingInfo: {
       name: "",
       address: "",
@@ -36,8 +37,33 @@ export default function Cart() {
       expirationDate: "",
       cvv: "",
     },
+      //   totalPrice: 79.97, // Total price of items
+    shippingFee: 0 // Shipping fee
+  //   orderTotal: 84.97, // Total cost including shipping
   });
 
+
+
+  const handleShippingOptionChange = (option) => {
+    if (option === "express") {
+      setFormData({
+        ...formData,
+        selectedShippingOption: option,
+        shippingFee: 25.24,
+      });
+    } else {
+      // Standard shipping option selected, remove the shippingFee
+      const { shippingFee, ...formDataWithoutFee } = formData;
+      setFormData({
+        ...formDataWithoutFee,
+        selectedShippingOption: option,
+      });
+    }
+  };
+
+  // Function to update shipping information
+
+ 
   const handleShippingInfoChange = (newShippingInfo) => {
     // Update the formData state by merging the new shipping information
     console.log("New Shipping Info:", newShippingInfo);
@@ -254,8 +280,8 @@ export default function Cart() {
           </ul>
         </div> */}
 
-        <ShippingInformation onShippingInfoChange={handleShippingInfoChange} />
-        <ShippingOptions />
+        <ShippingInformation  onShippingInfoChange={handleShippingInfoChange} />
+        <ShippingOptions onShippingOptionChange={handleShippingOptionChange}/>
         <PaymentForm onPaymentInfoChange={handlePaymentInfoChange}/>
         {/* <ReviewAndConfirm
         data={formData}
