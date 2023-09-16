@@ -1,13 +1,32 @@
 import { useState } from "react";
 import ReviewAndConfirm from "./ReviewAndConfirm/ReviewAndConfirm";
 
-export default function PaymentForm() {
+export default function PaymentForm({onPaymentInfoChange}) {
   const [isSameAddress, setIsSameAddress] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [paymentInfo,setPaymentInfo]=useState({
+    paymentMethod: "",
+    cardNumber: "",
+    cardHolder: "",
+    expirationDate: "",
+    cvv: "",
+  })
 
   const handlePaymentChange = (event) => {
     setPaymentMethod(event.target.value);
   };
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name)
+    setPaymentInfo({
+      ...paymentInfo,
+      [name]: value,
+    });
+    console.log("in handler:",paymentInfo)
+  };
+
 
   return (
     <>
@@ -29,6 +48,7 @@ export default function PaymentForm() {
             <input
               type="radio"
               value="creditCard"
+              name="creditCard"
               checked={paymentMethod === "creditCard"}
               onChange={handlePaymentChange}
             />
@@ -40,6 +60,7 @@ export default function PaymentForm() {
             <input
               type="radio"
               value="paypal"
+              name="paypal"
               checked={paymentMethod === "paypal"}
               onChange={handlePaymentChange}
             />
@@ -66,6 +87,9 @@ export default function PaymentForm() {
               id="cardNumber"
               className="payment-form__input"
               placeholder="**** **** **** ****"
+              value={paymentInfo.cardNumber}
+              name="cardNumber"
+              onChange={handleChange}
             />
           </div>
           <div className="payment-form__field-group">
@@ -75,8 +99,11 @@ export default function PaymentForm() {
             <input
               type="text"
               id="cardHolder"
+              name="cardHolder"
               className="payment-form__input"
               placeholder="John Doe"
+              onChange={handleChange}
+              value={paymentInfo.cardHolder}
             />
           </div>
           <div className="payment-form__field-group payment-form__field-group--half">
@@ -86,8 +113,11 @@ export default function PaymentForm() {
             <input
               type="text"
               id="expirationDate"
+              name="expirationDate"
               className="payment-form__input"
               placeholder="MM/YY"
+              onChange={handleChange}
+              value={paymentInfo.expirationDate}
             />
           </div>
           <div className="payment-form__field-group payment-form__field-group--half">
@@ -99,9 +129,12 @@ export default function PaymentForm() {
               id="cvv"
               className="payment-form__input"
               placeholder="***"
+              onChange={handleChange}
+              value={paymentInfo.cvv}
             />
           </div>
-          <button type="submit" className="payment-form__submit-btn">
+          <button type="button" className="payment-form__submit-btn"   onClick={() => onPaymentInfoChange(paymentInfo)} // Pass paymentInfo as an argument
+>
             Submit
           </button>
         </form>

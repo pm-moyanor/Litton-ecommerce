@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "../CartContext";
+
 import products from "./data";
 import styles from "../styles/Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,48 +18,111 @@ import ReviewAndConfirm from "../components/ReviewAndConfirm/ReviewAndConfirm";
 
 export default function Cart() {
   const { cartState, dispatch } = useCart();
-  const threeCards = products.slice(6, 10);
-
-  const data = {
-    cartItems: [
-      {
-        id: 1,
-        name: "Product 1",
-        price: 19.99,
-        quantity: 2,
-      
-      },
-      {
-        id: 2,
-        name: "Product 2",
-        price: 29.99,
-        quantity: 1,
-     
-      },
-    ],
+  const [formData, setFormData] = useState({
     shippingInfo: {
-      name: "John Doe",
-      address: "123 Main Street",
-      city: "Cityville",
-      postalCode: "12345",
-      country: "Countryland",
-      email: "johndoe@example.com",
-      phone: "123-456-7890",
+      name: "",
+      address: "",
+      city: "",
+      postalCode: "",
+      country: "",
+      email: "",
+      phone: "",
     },
-    selectedShippingOption: "standard",
+
     paymentInfo: {
-      paymentMethod: "creditCard",
-      cardNumber: "**** **** **** 1234",
-      cardHolder: "John Doe",
-      expirationDate: "12/23",
-      cvv: "123",
+      paymentMethod: "",
+      cardNumber: "",
+      cardHolder: "",
+      expirationDate: "",
+      cvv: "",
     },
-    totalPrice: 79.97, // Total price of items
-    shippingFee: 5.0, // Shipping fee
-    orderTotal: 84.97, // Total cost including shipping
+  });
+
+  const handleShippingInfoChange = (newShippingInfo) => {
+    // Update the formData state by merging the new shipping information
+    console.log("New Shipping Info:", newShippingInfo);
+    setFormData((prevData) => ({
+      ...prevData,
+      shippingInfo: { ...newShippingInfo },
+    }));
+  };
+  
+  const handlePaymentInfoChange = (newPaymentInfo) => {
+
+    console.log("New Payment Info:", newPaymentInfo);
+    setFormData((prevData) => ({
+      ...prevData,
+      paymentInfo: { ...newPaymentInfo },
+    }));
   };
 
-  console.log(data);
+  
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
+  const [currentStep, setCurrentStep] = useState("shipping");
+
+  const handleFormSubmit = (updatedData, step) => {
+    setFormData({ ...formData, ...updatedData });
+
+    // Determine the next step
+    switch (step) {
+      case "shipping":
+        setCurrentStep("payment");
+        break;
+      case "payment":
+        setCurrentStep("confirmation");
+        break;
+      // Add more cases for other form sections if needed
+      default:
+        break;
+    }
+  };
+
+  // const threeCards = products.slice(6, 10);
+
+  // const data = {
+  //   cartItems: [
+  //     {
+  //       id: 1,
+  //       name: "Product 1",
+  //       price: 19.99,
+  //       quantity: 2,
+
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "Product 2",
+  //       price: 29.99,
+  //       quantity: 1,
+
+  //     },
+  //   ],
+  //   shippingInfo: {
+  //     name: "John Doe",
+  //     address: "123 Main Street",
+  //     city: "Cityville",
+  //     postalCode: "12345",
+  //     country: "Countryland",
+  //     email: "johndoe@example.com",
+  //     phone: "123-456-7890",
+  //   },
+  //   selectedShippingOption: "standard",
+  //   paymentInfo: {
+  //     paymentMethod: "creditCard",
+  //     cardNumber: "**** **** **** 1234",
+  //     cardHolder: "John Doe",
+  //     expirationDate: "12/23",
+  //     cvv: "123",
+  //   },
+  //   totalPrice: 79.97, // Total price of items
+  //   shippingFee: 5.0, // Shipping fee
+  //   orderTotal: 84.97, // Total cost including shipping
+  // };
+
+  // console.log(data);
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
@@ -89,6 +153,8 @@ export default function Cart() {
     (total, item) => total + item.quantity,
     0
   );
+
+  console.log()
 
   return (
     <>
@@ -179,21 +245,21 @@ export default function Cart() {
             <p>Cart is currently empty</p>
           </div>
         )}
-        <div className={styles.suggested}>
+        {/* <div className={styles.suggested}>
           <h2 className={styles["title"]}>You may also like</h2>
           <ul className={styles["products"]}>
             {threeCards.map((product) => (
               <Card product={product} key={product.id} inShop={false} />
             ))}
           </ul>
-        </div>
+        </div> */}
 
-        <ShippingInformation />
+        <ShippingInformation onShippingInfoChange={handleShippingInfoChange} />
         <ShippingOptions />
-        <PaymentForm />
-        <ReviewAndConfirm
-        data={data}
-        />
+        <PaymentForm onPaymentInfoChange={handlePaymentInfoChange}/>
+        {/* <ReviewAndConfirm
+        data={formData}
+        /> */}
       </div>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from "./ShippingInformation.module.css"
 // Define the ShippingOptions component
 const ShippingOptions = () => {
+
   // State to track the selected shipping option
   const [selectedOption, setSelectedOption] = useState('standard');
 
@@ -58,7 +59,11 @@ const ShippingOptions = () => {
   );
 };
 
-function ShippingInformation(props) {
+
+
+
+
+function ShippingInformation({onShippingInfoChange}) {
   const [shippingInfo, setShippingInfo] = useState({
     name: '',
     address: '',
@@ -76,6 +81,8 @@ function ShippingInformation(props) {
       [name]: value,
     });
   };
+
+
 
   return (
     <div>
@@ -158,6 +165,8 @@ function ShippingInformation(props) {
             required
           />
         </div>
+        <button  type="button" onClick={()=>onShippingInfoChange(shippingInfo)}>Update Shipping Info</button>
+
       </form>
      
     
