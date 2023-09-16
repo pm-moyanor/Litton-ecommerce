@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../CartContext";
 
+
 import products from "./data";
 import styles from "../styles/Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,8 +18,11 @@ import PaymentIcons from "../components/PaymentMethods/PaymentMethods";
 import ReviewAndConfirm from "../components/ReviewAndConfirm/ReviewAndConfirm";
 
 export default function Cart() {
-  const { cartState, dispatch } = useCart();
+ const {cartState,dispatch} = useCart()
+
+  
   const [formData, setFormData] = useState({
+    cartItems: cartState.items,
     selectedShippingOption: "",
     shippingInfo: {
       name: "",
@@ -75,7 +79,7 @@ export default function Cart() {
   
   const handlePaymentInfoChange = (newPaymentInfo) => {
 
-    console.log("New Payment Info:", newPaymentInfo);
+
     setFormData((prevData) => ({
       ...prevData,
       paymentInfo: { ...newPaymentInfo },

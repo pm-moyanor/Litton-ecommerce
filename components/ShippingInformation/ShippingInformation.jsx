@@ -163,7 +163,7 @@ function ShippingInformation({ onShippingInfoChange }) {
         </div>
         <button
           type="button"
-          onClick={() => onShippingInfoChange(formData)}
+          onClick={() => onShippingInfoChange(shippingInfo)}
         >
           Update Shipping Info
         </button>
