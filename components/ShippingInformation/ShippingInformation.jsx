@@ -61,7 +61,7 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
   );
 };
 
-function ShippingInformation({ onShippingInfoChange }) {
+function ShippingInformation({ onShippingInfoChange, onNextStep }) {
   const [shippingInfo, setShippingInfo] = useState({
     name: "",
     address: "",
@@ -78,6 +78,13 @@ function ShippingInformation({ onShippingInfoChange }) {
       ...shippingInfo,
       [name]: value,
     });
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onShippingInfoChange(shippingInfo);
+    onNextStep();
   };
 
   return (
@@ -161,12 +168,7 @@ function ShippingInformation({ onShippingInfoChange }) {
             required
           />
         </div>
-        <button
-          type="button"
-          onClick={() => onShippingInfoChange(shippingInfo)}
-        >
-          Update Shipping Info
-        </button>
+        <button type="submit">Go to Payment</button>
       </form>
     </div>
   );

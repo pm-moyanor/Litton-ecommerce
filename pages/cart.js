@@ -15,10 +15,11 @@ import {
 } from "../components/ShippingInformation/ShippingInformation";
 import PaymentIcons from "../components/PaymentMethods/PaymentMethods";
 import ReviewAndConfirm from "../components/ReviewAndConfirm/ReviewAndConfirm";
+import Link from "next/link";
 
 export default function Cart() {
   const { cartState, dispatch } = useCart();
-
+  const [isCheckout, setIsCheckout] = useState(false);
   const [formData, setFormData] = useState({
     cartItems: cartState.items,
     selectedShippingOption: "",
@@ -144,14 +145,23 @@ export default function Cart() {
     }
   };
 
+  const handleNextStep = () => {
+    setCurrentStep("payment");
+  };
+
   // Define separate functions or components for each step
   const renderShippingStep = () => (
     <>
-      <ShippingInformation onShippingInfoChange={handleShippingInfoChange} />
+      <ShippingInformation
+        onShippingInfoChange={handleShippingInfoChange}
+        onNextStep={handleNextStep}
+      />
       <ShippingOptions onShippingOptionChange={handleShippingOptionChange} />
       <div>
         {/* Shipping form and components */}
-        <button onClick={() => setCurrentStep("payment")}>Next</button>
+        <button onClick={() => setCurrentStep("payment")}>
+          proceed to payment
+        </button>
       </div>
     </>
   );
@@ -171,7 +181,7 @@ export default function Cart() {
       <button>confirm</button>
     </div>
   );
-
+  console.log(isCheckout);
   return (
     <>
       <Navbar />
@@ -246,11 +256,19 @@ export default function Cart() {
                 </div>
                 <div className={styles.buttons}>
                   <button className={styles["continue-button"]}>
-                    Continue shopping
+                    <Link
+                      href="/shop"
+                      style={{ color: "black", textDecoration: "none" }}
+                    >
+                      continue shopping
+                    </Link>
                   </button>
                   <button
                     className={styles["checkout-button"]}
-                    onClick={handleFormSubmit}
+                    onClick={() => {
+                      handleFormSubmit;
+                      setIsCheckout(!isCheckout);
+                    }}
                   >
                     Proceed to Checkout
                   </button>
@@ -264,16 +282,13 @@ export default function Cart() {
             <p>Cart is currently empty</p>
           </div>
         )}
-
-        {currentStep === "shipping" && renderShippingStep()}
-
-        {currentStep === "payment" && renderPaymentStep()}
-
-        {currentStep === "confirmation" && renderConfirmationStep()}
-
-        {/* <ReviewAndConfirm
-        data={formData}
-        /> */}
+        {isCheckout && (
+          <>
+            {currentStep === "shipping" && renderShippingStep()}
+            {currentStep === "payment" && renderPaymentStep()}
+            {currentStep === "confirmation" && renderConfirmationStep()}
+          </>
+        )}
       </div>
 
       <div className={styles.suggested}>
