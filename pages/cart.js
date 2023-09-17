@@ -39,9 +39,9 @@ export default function Cart() {
       expirationDate: "",
       cvv: "",
     },
-    totalPrice: "", // Total price of items
-    shippingFee: 0, // Shipping fee
-    orderTotal: "", // Total cost including shipping
+    totalPrice: "",
+    shippingFee: 0,
+    orderTotal: "",
   });
 
   const handleShippingOptionChange = (option) => {
@@ -80,71 +80,9 @@ export default function Cart() {
     }));
   };
 
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
-
   const [currentStep, setCurrentStep] = useState("shipping");
 
-  const handleFormSubmit = (updatedData, step) => {
-    setFormData({ ...formData, ...updatedData });
-
-    // Determine the next step
-    switch (step) {
-      case "shipping":
-        setCurrentStep("payment");
-        break;
-      case "payment":
-        setCurrentStep("confirmation");
-        break;
-      // Add more cases for other form sections if needed
-      default:
-        break;
-    }
-  };
-
-  // const threeCards = products.slice(6, 10);
-
-  // const data = {
-  //   cartItems: [
-  //     {
-  //       id: 1,
-  //       name: "Product 1",
-  //       price: 19.99,
-  //       quantity: 2,
-
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Product 2",
-  //       price: 29.99,
-  //       quantity: 1,
-
-  //     },
-  //   ],
-  //   shippingInfo: {
-  //     name: "John Doe",
-  //     address: "123 Main Street",
-  //     city: "Cityville",
-  //     postalCode: "12345",
-  //     country: "Countryland",
-  //     email: "johndoe@example.com",
-  //     phone: "123-456-7890",
-  //   },
-  //   selectedShippingOption: "standard",
-  //   paymentInfo: {
-  //     paymentMethod: "creditCard",
-  //     cardNumber: "**** **** **** 1234",
-  //     cardHolder: "John Doe",
-  //     expirationDate: "12/23",
-  //     cvv: "123",
-  //   },
-  //   totalPrice: 79.97, // Total price of items
-  //   shippingFee: 5.0, // Shipping fee
-  //   orderTotal: 84.97, // Total cost including shipping
-  // };
-
-  // console.log(data);
+  const threeCards = products.slice(6, 10);
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
@@ -177,20 +115,62 @@ export default function Cart() {
     0
   );
 
-  const sendToCheckout = () => {
-    // Convert totalPrice and shippingFee to numbers before adding
+  const handleFormSubmit = (updatedData, step) => {
     const totalPriceNum = parseFloat(totalPrice);
     const shippingFeeNum = parseFloat(formData.shippingFee);
-    
-    // Calculate orderTotal as the sum of totalPrice and shippingFee
+
     const orderTotal = totalPriceNum + shippingFeeNum;
-    
-    setFormData((prevData) => ({
-      ...prevData,
-      totalPrice: totalPriceNum.toFixed(2), // Convert back to a string with two decimal places
-      orderTotal: orderTotal.toFixed(2), // Convert back to a string with two decimal places
-    }));
+
+    const updatedFormData = {
+      ...formData,
+      ...updatedData,
+      totalPrice: totalPriceNum.toFixed(2),
+      orderTotal: orderTotal.toFixed(2),
+    };
+
+    setFormData(updatedFormData);
+
+    // Determine the next step
+    switch (step) {
+      case "shipping":
+        setCurrentStep("payment");
+        break;
+      case "payment":
+        setCurrentStep("confirmation");
+        break;
+
+      default:
+        break;
+    }
   };
+
+  // Define separate functions or components for each step
+  const renderShippingStep = () => (
+    <>
+      <ShippingInformation onShippingInfoChange={handleShippingInfoChange} />
+      <ShippingOptions onShippingOptionChange={handleShippingOptionChange} />
+      <div>
+        {/* Shipping form and components */}
+        <button onClick={() => setCurrentStep("payment")}>Next</button>
+      </div>
+    </>
+  );
+
+  const renderPaymentStep = () => (
+    <>
+      <PaymentForm onPaymentInfoChange={handlePaymentInfoChange} />
+      <div>
+        {/* Payment form and components */}
+        <button onClick={() => setCurrentStep("confirmation")}>Next</button>
+      </div>
+    </>
+  );
+
+  const renderConfirmationStep = () => (
+    <div>
+      <button>confirm</button>
+    </div>
+  );
 
   return (
     <>
@@ -270,7 +250,7 @@ export default function Cart() {
                   </button>
                   <button
                     className={styles["checkout-button"]}
-                    onClick={sendToCheckout}
+                    onClick={handleFormSubmit}
                   >
                     Proceed to Checkout
                   </button>
@@ -284,21 +264,25 @@ export default function Cart() {
             <p>Cart is currently empty</p>
           </div>
         )}
-        {/* <div className={styles.suggested}>
-          <h2 className={styles["title"]}>You may also like</h2>
-          <ul className={styles["products"]}>
-            {threeCards.map((product) => (
-              <Card product={product} key={product.id} inShop={false} />
-            ))}
-          </ul>
-        </div> */}
 
-        <ShippingInformation onShippingInfoChange={handleShippingInfoChange} />
-        <ShippingOptions onShippingOptionChange={handleShippingOptionChange} />
-        <PaymentForm onPaymentInfoChange={handlePaymentInfoChange} />
+        {currentStep === "shipping" && renderShippingStep()}
+
+        {currentStep === "payment" && renderPaymentStep()}
+
+        {currentStep === "confirmation" && renderConfirmationStep()}
+
         {/* <ReviewAndConfirm
         data={formData}
         /> */}
+      </div>
+
+      <div className={styles.suggested}>
+        <h2 className={styles["title"]}>You may also like</h2>
+        <ul className={styles["products"]}>
+          {threeCards.map((product) => (
+            <Card product={product} key={product.id} inShop={false} />
+          ))}
+        </ul>
       </div>
       <Footer />
     </>
