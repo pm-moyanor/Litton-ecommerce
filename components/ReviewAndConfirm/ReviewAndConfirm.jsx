@@ -4,8 +4,8 @@ function ReviewAndConfirm({ data , onEditStep}) {
   const [isConfirmed, setIsConfirmed] = useState(false);
 
   const { cartItems, shippingInfo, paymentInfo,selectedShippingOption } = data;
-  console.log("Cart Items:", cartItems);
-  console.log("Shipping Info:", shippingInfo);
+  console.log("------",data);
+  console.log("Shipping Info:", shippingInfo, "paymentInfo: ",paymentInfo);
   const handleConfirmation = () => {
     setIsConfirmed(true);
     console.log(isConfirmed);
@@ -27,13 +27,18 @@ function ReviewAndConfirm({ data , onEditStep}) {
       </div>
 
       <div>
-        <h3>Shipping Information</h3>
+        <div>   
+            <h3>Shipping Information</h3>
+            <button onClick={() => onEditStep("shipping")}>Edit</button>
+        </div>
+     
         <p>Name: {shippingInfo.name}</p>
         <p>Address: {shippingInfo.address}</p>
         <p>City: {shippingInfo.city}</p>
         <p>Postal Code: {shippingInfo.postalCode}</p>
         <p>Country: {shippingInfo.country}</p>
-      </div>
+      </div> 
+      
 
       <div>
         <h3>Selected Shipping Option</h3>
@@ -45,7 +50,10 @@ function ReviewAndConfirm({ data , onEditStep}) {
       </div>
 
       <div>
-        <h3>Selected Payment Method</h3>
+      <div>   
+            <h3>Selected Payment Method</h3>
+            <button onClick={() => onEditStep("payment")}>Edit</button>
+        </div>
         <p>
           {paymentInfo.paymentMethod === "creditCard" ? "Credit Card" : "PayPal"}
         </p>
@@ -60,7 +68,7 @@ function ReviewAndConfirm({ data , onEditStep}) {
       {!isConfirmed && (
         <>
           <button onClick={handleConfirmation}>Confirm Order</button>
-          <button onClick={() => onEditStep("payment")}>Edit Payment</button>
+          {/* <button onClick={() => onEditStep("payment")}>Edit Payment</button> */}
         </>
       )}
 

@@ -132,6 +132,7 @@ export default function PaymentForm({onPaymentInfoChange}) {
             <input
               type="text"
               id="cvv"
+              name="cvv"
               className="payment-form__input"
               placeholder="***"
               onChange={handleChange}
@@ -139,8 +140,7 @@ export default function PaymentForm({onPaymentInfoChange}) {
             />
           </div>
           <button type="button" className="payment-form__submit-btn"   onClick={() => onPaymentInfoChange(paymentInfo)} // Pass paymentInfo as an argument
->
-            Submit
+>Next
           </button>
         </form>
       )}

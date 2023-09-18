@@ -79,6 +79,7 @@ export default function Cart() {
       ...prevData,
       paymentInfo: { ...newPaymentInfo },
     }));
+    setCurrentStep("confirmation")
   };
 
   const [currentStep, setCurrentStep] = useState("shipping");
@@ -177,19 +178,18 @@ export default function Cart() {
       <PaymentForm onPaymentInfoChange={handlePaymentInfoChange} />
       <div>
         {/* Payment form and components */}
-        <button onClick={() => setCurrentStep("confirmation")}>Next</button>
+      
         <button onClick={() => handleEditStep("shipping")}>Edit Shipping</button>
 
       </div>
     </>
+    
   );
 
   const renderConfirmationStep = () => (
     <>
       <ReviewAndConfirm data={formData} onEditStep={handleEditStep}/>
-      <div>
-        <button>confirm</button>
-      </div>
+   
     </>
   );
 
@@ -279,6 +279,7 @@ export default function Cart() {
                   <button
                     className={styles["checkout-button"]}
                     onClick={() => {
+                      console.log(formData)
                       handleFormSubmit();
                       setIsCheckout(!isCheckout);
                     }}
