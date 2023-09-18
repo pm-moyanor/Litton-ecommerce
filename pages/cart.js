@@ -148,6 +148,9 @@ export default function Cart() {
   const handleNextStep = () => {
     setCurrentStep("payment");
   };
+  const handleEditStep = (step) => {
+    setCurrentStep(step);
+  };
 
   // Define separate functions or components for each step
   const renderShippingStep = () => (
@@ -162,9 +165,12 @@ export default function Cart() {
         <button onClick={() => setCurrentStep("payment")}>
           proceed to payment
         </button>
+        <button onClick={() => handleEditStep("cart")}>Edit Cart</button>
+
       </div>
     </>
   );
+
 
   const renderPaymentStep = () => (
     <>
@@ -172,16 +178,23 @@ export default function Cart() {
       <div>
         {/* Payment form and components */}
         <button onClick={() => setCurrentStep("confirmation")}>Next</button>
+        <button onClick={() => handleEditStep("shipping")}>Edit Shipping</button>
+
       </div>
     </>
   );
 
   const renderConfirmationStep = () => (
-    <div>
-      <button>confirm</button>
-    </div>
+    <>
+      <ReviewAndConfirm data={formData} onEditStep={handleEditStep}/>
+      <div>
+        <button>confirm</button>
+      </div>
+    </>
   );
-  console.log(isCheckout);
+
+
+
   return (
     <>
       <Navbar />
@@ -266,7 +279,7 @@ export default function Cart() {
                   <button
                     className={styles["checkout-button"]}
                     onClick={() => {
-                      handleFormSubmit;
+                      handleFormSubmit();
                       setIsCheckout(!isCheckout);
                     }}
                   >

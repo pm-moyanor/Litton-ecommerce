@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ReviewAndConfirm({ data }) {
+function ReviewAndConfirm({ data , onEditStep}) {
   const [isConfirmed, setIsConfirmed] = useState(false);
 
   const { cartItems, shippingInfo, paymentInfo,selectedShippingOption } = data;
@@ -20,7 +20,7 @@ function ReviewAndConfirm({ data }) {
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
-              {item.name} - ${item.price}
+              {item.title} - ${item.price}
             </li>
           ))}
         </ul>
@@ -58,7 +58,10 @@ function ReviewAndConfirm({ data }) {
       <p>{paymentInfo.cvv}</p>
 
       {!isConfirmed && (
-        <button onClick={handleConfirmation}>Confirm Order</button>
+        <>
+          <button onClick={handleConfirmation}>Confirm Order</button>
+          <button onClick={() => onEditStep("payment")}>Edit Payment</button>
+        </>
       )}
 
       {isConfirmed && (

@@ -168,7 +168,7 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             required
           />
         </div>
-        <button type="submit">Go to Payment</button>
+        {/* <button type="submit">Go to Payment</button> */}
       </form>
     </div>
   );
