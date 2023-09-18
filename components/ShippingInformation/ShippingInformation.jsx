@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styles from "./ShippingInformation.module.css";
+import shippingSchema from "../../shippingFormSchema";
+
 
 
 const ShippingOptions = ({ onShippingOptionChange }) => {
   // State to track the selected shipping option
   const [selectedOption, setSelectedOption] = useState("standard");
-
 
   const handleOptionChange = (option) => {
     setSelectedOption(option);
@@ -71,6 +72,8 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
     email: "",
     phone: "",
   });
+  const [errors, setErrors] = useState({});
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -81,11 +84,29 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onShippingInfoChange(shippingInfo);
-    onNextStep();
+   
+
+
+    try {
+      // Validate info against the schema
+      await shippingSchema.validate(shippingInfo, { abortEarly: false });
+
+      // Validation passed, invoke the callback
+      onShippingInfoChange(shippingInfo);
+      onNextStep();
+    } catch (validationErrors) {
+      const errorsObj = {};
+      validationErrors.inner.forEach((error) => {
+        errorsObj[error.path] = error.message;
+      });
+      console.log("ERROR!!", errorsObj)
+      setErrors(errorsObj);
+    }
+  
   };
+
 
   return (
     <div>
@@ -101,6 +122,9 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
+             {errors.name && (
+              <p className={styles.errorMessage}>{errors.name}</p>
+            )}
         </div>
         <div className="form-group">
           <label htmlFor="address">Address</label>
@@ -112,6 +136,9 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
+             {errors.address && (
+              <p className={styles.errorMessage}>{errors.address}</p>
+            )}
         </div>
         <div className="form-group">
           <label htmlFor="city">City</label>
@@ -123,6 +150,9 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
+             {errors.city && (
+              <p className={styles.errorMessage}>{errors.city}</p>
+            )}
         </div>
         <div className="form-group">
           <label htmlFor="postalCode">Postal Code</label>
@@ -134,6 +164,9 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
+             {errors.postalCode && (
+              <p className={styles.errorMessage}>{errors.postalCode}</p>
+            )}
         </div>
         <div className="form-group">
           <label htmlFor="country">Country</label>
@@ -145,6 +178,9 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
+             {errors.country && (
+              <p className={styles.errorMessage}>{errors.country}</p>
+            )}
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
@@ -156,6 +192,9 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
+             {errors.email && (
+              <p className={styles.errorMessage}>{errors.email}</p>
+            )}
         </div>
         <div className="form-group">
           <label htmlFor="phone">Phone</label>
@@ -167,6 +206,9 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
+             {errors.phone && (
+              <p className={styles.errorMessage}>{errors.phone}</p>
+            )}
         </div>
         <button type="submit" onClick={handleSubmit}>Go to Payment</button>
       </form>

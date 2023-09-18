@@ -1,6 +1,7 @@
 import { useState } from "react";
-import paymentSchema from "../paymentFormShema";
-import ReviewAndConfirm from "./ReviewAndConfirm/ReviewAndConfirm";
+import paymentSchema from "../../paymentFormShema";
+import styles from "./PaymentForm.module.css"
+import ReviewAndConfirm from "../ReviewAndConfirm/ReviewAndConfirm";
 
 export default function PaymentForm({ onPaymentInfoChange }) {
   const [isSameAddress, setIsSameAddress] = useState(true);
@@ -13,8 +14,6 @@ export default function PaymentForm({ onPaymentInfoChange }) {
     cvv: "",
   });
   const [errors, setErrors] = useState({});
-
-
 
   const handlePaymentChange = (event) => {
     const selectedPaymentMethod = event.target.value;
@@ -116,7 +115,7 @@ export default function PaymentForm({ onPaymentInfoChange }) {
               onChange={handleChange}
             />
             {errors.cardNumber && (
-              <p className="error-message">{errors.cardNumber}</p>
+              <p className={styles.errorMessage}>{errors.cardNumber}</p>
             )}
           </div>
           <div className="payment-form__field-group">
@@ -132,8 +131,8 @@ export default function PaymentForm({ onPaymentInfoChange }) {
               onChange={handleChange}
               value={paymentInfo.cardHolder}
             />
-               {errors.cardHolder && (
-              <p className="error-message">{errors.cardHolder}</p>
+            {errors.cardHolder && (
+              <p className={styles.errorMessage}>{errors.cardHolder}</p>
             )}
           </div>
           <div className="payment-form__field-group payment-form__field-group--half">
@@ -149,8 +148,8 @@ export default function PaymentForm({ onPaymentInfoChange }) {
               onChange={handleChange}
               value={paymentInfo.expirationDate}
             />
-               {errors.expirationDate && (
-              <p className="error-message">{errors.expirationDate}</p>
+            {errors.expirationDate && (
+              <p className={styles.errorMessage}>{errors.expirationDate}</p>
             )}
           </div>
           <div className="payment-form__field-group payment-form__field-group--half">
@@ -166,15 +165,9 @@ export default function PaymentForm({ onPaymentInfoChange }) {
               onChange={handleChange}
               value={paymentInfo.cvv}
             />
-               {errors.cvv && (
-              <p className="error-message">{errors.cvv}</p>
-            )}
+            {errors.cvv && <p className={styles.errorMessage}>{errors.cvv}</p>}
           </div>
-          <button
-            type="submit"
-            className="payment-form__submit-btn"
-            // onClick={() => onPaymentInfoChange(paymentInfo)} // Pass paymentInfo as an argument
-          >
+          <button type="submit" className="payment-form__submit-btn">
             Next
           </button>
         </form>

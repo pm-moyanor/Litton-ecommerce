@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Card from "../components/Card/Card";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer/Footer";
-import PaymentForm from "../components/PaymentForm";
+import PaymentForm from "../components/PaymentForm/PaymentForm";
 import {
   ShippingInformation,
   ShippingOptions,
