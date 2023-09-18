@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-function ReviewAndConfirm({ data , onEditStep}) {
+function ReviewAndConfirm({ data, onEditStep }) {
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  const { cartItems, shippingInfo, paymentInfo,selectedShippingOption } = data;
-  console.log("------",data);
-  console.log("Shipping Info:", shippingInfo, "paymentInfo: ",paymentInfo);
+  const { cartItems, shippingInfo, paymentInfo, selectedShippingOption } = data;
+
   const handleConfirmation = () => {
     setIsConfirmed(true);
     console.log(isConfirmed);
@@ -27,18 +26,17 @@ function ReviewAndConfirm({ data , onEditStep}) {
       </div>
 
       <div>
-        <div>   
-            <h3>Shipping Information</h3>
-            <button onClick={() => onEditStep("shipping")}>Edit</button>
+        <div>
+          <h3>Shipping Information</h3>
+          <button onClick={() => onEditStep("shipping")}>Edit</button>
         </div>
-     
+
         <p>Name: {shippingInfo.name}</p>
         <p>Address: {shippingInfo.address}</p>
         <p>City: {shippingInfo.city}</p>
         <p>Postal Code: {shippingInfo.postalCode}</p>
         <p>Country: {shippingInfo.country}</p>
-      </div> 
-      
+      </div>
 
       <div>
         <h3>Selected Shipping Option</h3>
@@ -50,19 +48,21 @@ function ReviewAndConfirm({ data , onEditStep}) {
       </div>
 
       <div>
-      <div>   
-            <h3>Selected Payment Method</h3>
-            <button onClick={() => onEditStep("payment")}>Edit</button>
+        <div>
+          <h3>Selected Payment Method</h3>
+          <button onClick={() => onEditStep("payment")}>Edit</button>
         </div>
         <p>
-          {paymentInfo.paymentMethod === "creditCard" ? "Credit Card" : "PayPal"}
+          {paymentInfo.paymentMethod === "creditCard"
+            ? "Credit Card"
+            : "PayPal"}
         </p>
       </div>
 
-     <h3>card information</h3>
+      <h3>card information</h3>
       <p>number: {paymentInfo.cardNumber}</p>
       <p>name: {paymentInfo.cardHolder}</p>
-     <p>expiration:{paymentInfo.expirationDate}</p> 
+      <p>expiration:{paymentInfo.expirationDate}</p>
       <p>{paymentInfo.cvv}</p>
 
       {!isConfirmed && (
