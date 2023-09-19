@@ -79,7 +79,7 @@ export default function Cart() {
       ...prevData,
       paymentInfo: { ...newPaymentInfo },
     }));
-    setCurrentStep("confirmation")
+    setCurrentStep("confirmation");
   };
 
   const [currentStep, setCurrentStep] = useState("shipping");
@@ -167,152 +167,159 @@ export default function Cart() {
           proceed to payment
         </button>
         <button onClick={() => handleEditStep("cart")}>Edit Cart</button>
-
       </div>
     </>
   );
 
-
   const renderPaymentStep = () => (
-    <>
+    <div>
+      <button onClick={() => handleEditStep("shipping")}>Edit Shipping</button>
       <PaymentForm onPaymentInfoChange={handlePaymentInfoChange} />
-      <div>
-        {/* Payment form and components */}
-      
-        <button onClick={() => handleEditStep("shipping")}>Edit Shipping</button>
-
-      </div>
-    </>
-    
+    </div>
   );
 
   const renderConfirmationStep = () => (
     <>
-      <ReviewAndConfirm data={formData} onEditStep={handleEditStep}/>
-   
+      <ReviewAndConfirm data={formData} onEditStep={handleEditStep} />
     </>
   );
 
+  const renderCartItems = () => (
+    <div className={styles["item-list-container"]}>
+      {!isCheckout && (
+        <div className={styles["acount-sign-in"]}>
+          <h5>Do you have a My Bose Account?</h5>
+          <p>Enjoy member benefits and faster checkout Sign-in</p>
+        </div>
+      )}
 
+      <h2>Products ({totalCount})</h2>
+
+      <ul className={styles.itemList}>
+        {cartState.items.map((item) => (
+          <li style={{ listStyle: "none" }} key={item.id}>
+            <div className={styles["item-container"]}>
+              <img src={item.image} alt={item.title} />
+
+              <div className={styles["item-info"]}>
+                <div className={styles["item-description"]}>
+                  <h3>{item.title}</h3>
+                  {isCheckout ? (
+                    <p>Color: {item.color}</p>
+                  ) : (
+                    <p>Color: black</p>
+                  )}
+                </div>
+
+                {isCheckout ? (
+                  <div className={styles["price-quantity-container"]}>
+                    <h4>${item.price}</h4>
+                  </div>
+                ) : (
+                  <div className={styles["price-quantity-container"]}>
+                    <div className={styles["quantity-container"]}>
+                      <button onClick={() => handleDecrease(item)}>-</button>
+                      <p style={{ fontWeight: "bold" }}>{item.quantity}</p>
+                      <button onClick={() => handleIncrease(item)}>+</button>
+                    </div>
+                    <h4>${item.price}</h4>
+                  </div>
+                )}
+              </div>
+              {!isCheckout && (
+                <div
+                  className={styles["delete-icon"]}
+                  onClick={() => handleRemoveItem(item)}
+                >
+                  <FontAwesomeIcon icon={faTrashCan} size="lg" />
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const renderOrderSummary = () => (
+    <div className={styles["summary-container"]}>
+      <h2>Order Summary</h2>
+      {isCheckout && renderCartItems()}
+
+      <div className={styles["summary-detail"]}>
+        <h4>Subtotal</h4>
+        <p>${subtotal.toFixed(2)}</p>
+      </div>
+      <div className={styles["summary-detail"]}>
+        <h4>Standard Shipping</h4>
+        <p>Free</p>
+      </div>
+      <div className={styles["summary-detail"]}>
+        <h4>Tax</h4>
+        <p>${tax.toFixed(2)}</p>
+      </div>
+      <div className={styles["summary-detail"]}>
+        <h4>Total</h4>
+        <p>${totalPrice}</p>
+      </div>
+      <div className={styles.buttons}>
+        <button className={styles["continue-button"]}>
+          <Link href="/shop" style={{ color: "black", textDecoration: "none" }}>
+            continue shopping
+          </Link>
+        </button>
+        <button
+          className={styles["checkout-button"]}
+          onClick={() => {
+            console.log(formData);
+            handleFormSubmit();
+            setIsCheckout(!isCheckout);
+          }}
+        >
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <>
       <Navbar />
       <h1 className={styles["title"]}>Your Cart</h1>
-
       <div>
         {cartState.items && cartState.items.length > 0 ? (
           <div className={styles["cart-container"]}>
-            <div className={styles["item-list-container"]}>
-              <div className={styles["acount-sign-in"]}>
-                <h5>Do you have a My Bose Account?</h5>
-                <p>Enjoy member benefits and faster checkout Sign-in</p>
-              </div>
-              <h2>Products ({totalCount})</h2>
+            {isCheckout ? (
+              <>
+                <div>
+                  {currentStep === "shipping" && renderShippingStep()}
+                  {currentStep === "payment" && renderPaymentStep()}
+                  {currentStep === "confirmation" && renderConfirmationStep()}
+                </div>
 
-              <ul className={styles.itemList}>
-                {cartState.items.map((item) => (
-                  <li style={{ listStyle: "none" }} key={item.id}>
-                    <div className={styles["item-container"]}>
-                      <img src={item.image} alt={item.title} />
-
-                      <div className={styles["item-info"]}>
-                        <div className={styles["item-description"]}>
-                          <h3>{item.title}</h3>
-                          <p>color: black</p>
-                        </div>
-
-                        <div className={styles["price-quantity-container"]}>
-                          <div className={styles["quantity-container"]}>
-                            <button onClick={() => handleDecrease(item)}>
-                              -
-                            </button>
-                            <p style={{ fontWeight: "bold" }}>
-                              {item.quantity}
-                            </p>
-                            <button onClick={() => handleIncrease(item)}>
-                              +
-                            </button>
-                          </div>
-                          <h4>${item.price}</h4>
-                        </div>
-                      </div>
-                      <div
-                        className={styles["delete-icon"]}
-                        onClick={() => handleRemoveItem(item)}
-                      >
-                        <FontAwesomeIcon icon={faTrashCan} size="lg" />
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={styles["summary-container"]}>
-              <div>
-                <h2>Order Summary</h2>
-                <div className={styles["summary-detail"]}>
-                  <h4>Subtotal</h4>
-                  <p>${subtotal.toFixed(2)}</p>
-                </div>
-                <div className={styles["summary-detail"]}>
-                  <h4>Standard Shipping</h4>
-                  <p>Free</p>
-                </div>
-                <div className={styles["summary-detail"]}>
-                  <h4>Tax</h4>
-                  <p>${tax.toFixed(2)}</p>
-                </div>
-                <div className={styles["summary-detail"]}>
-                  <h4>Total</h4>
-                  <p>${totalPrice}</p>
-                </div>
-                <div className={styles.buttons}>
-                  <button className={styles["continue-button"]}>
-                    <Link
-                      href="/shop"
-                      style={{ color: "black", textDecoration: "none" }}
-                    >
-                      continue shopping
-                    </Link>
-                  </button>
-                  <button
-                    className={styles["checkout-button"]}
-                    onClick={() => {
-                      console.log(formData)
-                      handleFormSubmit();
-                      setIsCheckout(!isCheckout);
-                    }}
-                  >
-                    Proceed to Checkout
-                  </button>
-                </div>
-              </div>
-              <PaymentIcons />
-            </div>
+                {renderOrderSummary()}
+              </>
+            ) : (
+              <>
+                {renderCartItems()}
+                {renderOrderSummary()}
+              </>
+            )}
           </div>
         ) : (
           <div>
             <p>Cart is currently empty</p>
           </div>
         )}
-        {isCheckout && (
-          <>
-            {currentStep === "shipping" && renderShippingStep()}
-            {currentStep === "payment" && renderPaymentStep()}
-            {currentStep === "confirmation" && renderConfirmationStep()}
-          </>
-        )}
       </div>
-
-      <div className={styles.suggested}>
+      {/* <div className={styles.suggested}>
         <h2 className={styles["title"]}>You may also like</h2>
         <ul className={styles["products"]}>
           {threeCards.map((product) => (
             <Card product={product} key={product.id} inShop={false} />
           ))}
         </ul>
-      </div>
+      </div> */}
       <Footer />
     </>
   );

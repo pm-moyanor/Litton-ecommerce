@@ -1,17 +1,47 @@
-
-
-
-.shippingOption{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px;
+.shippingOption {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
 }
 
+.formWrapper {
+  width: 500px;
 
+  padding: 0px 0px;
+}
+.formGroup {
+  margin-bottom: 10px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+}
+.formGroup input {
+  border: none;
+  border-bottom: 1px solid gray;
+  background-color: rgba(255, 255, 255, 0.139);
+  width: 100%;
+  height: 50px;
+}
 .errorMessage {
-    color: red; /* Red text color for error messages */
-    font-size: 14px; /* Adjust font size as needed */
-    margin-top: 5px; /* Add spacing above the error message */
-  }
+  color: red; /* Red text color for error messages */
+  font-size: 14px; /* Adjust font size as needed */
+  margin-top: 5px; /* Add spacing above the error message */
+}
+
+.button {
+  font-family: "Oswald", sans-serif;
+  background-color: black;
+  color: white;
+  border: none;
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+}

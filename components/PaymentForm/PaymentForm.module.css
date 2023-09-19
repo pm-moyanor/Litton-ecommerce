@@ -1,5 +1,70 @@
+.form {
+  width: 500px;
+  margin-top: 30px;
+  padding: 0px 0px;
+}
+.fieldGroup {
+  margin-bottom: 10px;
+}
+
+.fieldGroupHalfWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.fieldGroupHalf {
+  flex: 1;
+  margin-right: 20px; /* Add margin to create space between elements */
+}
+
+/* Remove margin-right for the last element */
+.fieldGroupHalf:last-of-type {
+  margin-right: 0;
+}
+
+.fieldGroup label {
+  display: block;
+  margin-bottom: 5px;
+}
+.fieldGroup input {
+  border: none;
+  border-bottom: 1px solid gray;
+  background-color: rgba(255, 255, 255, 0.107);
+  width: 100%;
+  height: 50px;
+}
 .errorMessage {
-    color: red; /* Red text color for error messages */
-    font-size: 14px; /* Adjust font size as needed */
-    margin-top: 5px; /* Add spacing above the error message */
-  }
+  color: red; /* Red text color for error messages */
+  font-size: 14px; /* Adjust font size as needed */
+  margin-top: 5px; /* Add spacing above the error message */
+}
+
+.submitBtn {
+  font-family: "Oswald", sans-serif;
+  background-color: black;
+  color: white;
+  border: black;
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.errorMessage {
+  color: red; /* Red text color for error messages */
+  font-size: 14px; /* Adjust font size as needed */
+  margin-top: 5px; /* Add spacing above the error message */
+}
+
+.payPalWrapper{
+  margin-top: 20px;
+}
+.payPalMessage {
+  width: 500px;
+  font-size: 10x;
+
+
+}
