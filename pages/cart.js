@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../CartContext";
-
 import products from "./data";
 import styles from "../styles/Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -32,7 +31,6 @@ export default function Cart() {
       email: "",
       phone: "",
     },
-
     paymentInfo: {
       paymentMethod: "",
       cardNumber: "",
@@ -156,6 +154,7 @@ export default function Cart() {
   // Define separate functions or components for each step
   const renderShippingStep = () => (
     <>
+      <button onClick={() => handleEditStep("cart")}>Edit Cart</button>
       <ShippingInformation
         onShippingInfoChange={handleShippingInfoChange}
         onNextStep={handleNextStep}
@@ -166,7 +165,6 @@ export default function Cart() {
         <button onClick={() => setCurrentStep("payment")}>
           proceed to payment
         </button>
-        <button onClick={() => handleEditStep("cart")}>Edit Cart</button>
       </div>
     </>
   );
@@ -185,30 +183,34 @@ export default function Cart() {
   );
 
   const renderCartItems = () => (
-    <div className={styles["item-list-container"]}>
-      {!isCheckout && (
-        <div className={styles["acount-sign-in"]}>
+    <div
+      className={`${styles["item-list-container"]} ${
+        isCheckout ? styles["checkout"] : ""
+      }`}
+    >
+      {isCheckout || (
+        <div className={styles["account-sign-in"]}>
           <h5>Do you have a My Bose Account?</h5>
           <p>Enjoy member benefits and faster checkout Sign-in</p>
         </div>
       )}
 
-      <h2>Products ({totalCount})</h2>
+      <h3>Products ({totalCount})</h3>
 
-      <ul className={styles.itemList}>
+      <ul className={styles["itemList"]}>
         {cartState.items.map((item) => (
           <li style={{ listStyle: "none" }} key={item.id}>
-            <div className={styles["item-container"]}>
+            <div
+              className={`${styles["item-container"]} ${
+                isCheckout ? styles["checkout"] : ""
+              }`}
+            >
               <img src={item.image} alt={item.title} />
 
               <div className={styles["item-info"]}>
                 <div className={styles["item-description"]}>
                   <h3>{item.title}</h3>
-                  {isCheckout ? (
-                    <p>Color: {item.color}</p>
-                  ) : (
-                    <p>Color: black</p>
-                  )}
+                  {isCheckout || <p>Color: {item.color}</p>}
                 </div>
 
                 {isCheckout ? (
@@ -226,7 +228,7 @@ export default function Cart() {
                   </div>
                 )}
               </div>
-              {!isCheckout && (
+              {isCheckout || (
                 <div
                   className={styles["delete-icon"]}
                   onClick={() => handleRemoveItem(item)}
@@ -242,27 +244,34 @@ export default function Cart() {
   );
 
   const renderOrderSummary = () => (
-    <div className={styles["summary-container"]}>
+    <div
+      className={`${styles["summary-container"]} ${
+        isCheckout ? styles["checkout"] : ""
+      }`}
+    >
       <h2>Order Summary</h2>
       {isCheckout && renderCartItems()}
 
-      <div className={styles["summary-detail"]}>
-        <h4>Subtotal</h4>
-        <p>${subtotal.toFixed(2)}</p>
+      <div className={styles["details-container"]}>
+        <div className={styles["summary-detail"]}>
+          <h4>Subtotal</h4>
+          <p>${subtotal.toFixed(2)}</p>
+        </div>
+        <div className={styles["summary-detail"]}>
+          <h4>Standard Shipping</h4>
+          <p>Free</p>
+        </div>
+        <div className={styles["summary-detail"]}>
+          <h4>Tax</h4>
+          <p>${tax.toFixed(2)}</p>
+        </div>
+        <div className={styles["summary-detail"]}>
+          <h4>Total</h4>
+          <p>${totalPrice}</p>
+        </div>
       </div>
-      <div className={styles["summary-detail"]}>
-        <h4>Standard Shipping</h4>
-        <p>Free</p>
-      </div>
-      <div className={styles["summary-detail"]}>
-        <h4>Tax</h4>
-        <p>${tax.toFixed(2)}</p>
-      </div>
-      <div className={styles["summary-detail"]}>
-        <h4>Total</h4>
-        <p>${totalPrice}</p>
-      </div>
-      <div className={styles.buttons}>
+
+      <div className={styles["buttons"]}>
         <button className={styles["continue-button"]}>
           <Link href="/shop" style={{ color: "black", textDecoration: "none" }}>
             continue shopping
@@ -288,7 +297,11 @@ export default function Cart() {
       <h1 className={styles["title"]}>Your Cart</h1>
       <div>
         {cartState.items && cartState.items.length > 0 ? (
-          <div className={styles["cart-container"]}>
+          <div
+            className={`${styles["cart-container"]} ${
+              isCheckout ? styles["checkout"] : ""
+            }`}
+          >
             {isCheckout ? (
               <>
                 <div>
@@ -312,14 +325,6 @@ export default function Cart() {
           </div>
         )}
       </div>
-      {/* <div className={styles.suggested}>
-        <h2 className={styles["title"]}>You may also like</h2>
-        <ul className={styles["products"]}>
-          {threeCards.map((product) => (
-            <Card product={product} key={product.id} inShop={false} />
-          ))}
-        </ul>
-      </div> */}
       <Footer />
     </>
   );
