@@ -54,7 +54,6 @@ export default function PaymentForm({ onPaymentInfoChange }) {
   return (
     <>
       <div>
-        <h2 className={styles.title}>Payment Information</h2>
         <label>
           <input
             type="radio"
@@ -73,6 +72,7 @@ export default function PaymentForm({ onPaymentInfoChange }) {
               type="radio"
               value="creditCard"
               name="creditCard"
+              defaultChecked="creditCard"
               checked={paymentMethod === "creditCard"}
               onChange={handlePaymentChange}
             />
@@ -117,41 +117,43 @@ export default function PaymentForm({ onPaymentInfoChange }) {
               )}
             </div>
             <div className={styles.fieldGroupHalfWrapper}>
-            <div className={`${styles.fieldGroup} ${styles.fieldGroupHalf} ${styles.first}` }>
-              <label htmlFor="expirationDate" className={styles.label}>
-                Expiration Date
-              </label>
-              <input
-                type="text"
-                id="expirationDate"
-                name="expirationDate"
-                className={styles.input}
-                placeholder="MM/YY"
-                onChange={handleChange}
-                value={paymentInfo.expirationDate}
-              />
-              {errors.expirationDate && (
-                <p className={styles.errorMessage}>{errors.expirationDate}</p>
-              )}
-            </div>
-   
-            <div className={`${styles.fieldGroup} ${styles.fieldGroupHalf}`}>
-              <label htmlFor="cvv" className={styles.label}>
-                CVV
-              </label>
-              <input
-                type="text"
-                id="cvv"
-                name="cvv"
-                className={styles.input}
-                placeholder="***"
-                onChange={handleChange}
-                value={paymentInfo.cvv}
-              />
-              {errors.cvv && (
-                <p className={styles.errorMessage}>{errors.cvv}</p>
-              )}
-            </div>
+              <div
+                className={`${styles.fieldGroup} ${styles.fieldGroupHalf} ${styles.first}`}
+              >
+                <label htmlFor="expirationDate" className={styles.label}>
+                  Expiration Date
+                </label>
+                <input
+                  type="text"
+                  id="expirationDate"
+                  name="expirationDate"
+                  className={styles.input}
+                  placeholder="MM/YY"
+                  onChange={handleChange}
+                  value={paymentInfo.expirationDate}
+                />
+                {errors.expirationDate && (
+                  <p className={styles.errorMessage}>{errors.expirationDate}</p>
+                )}
+              </div>
+
+              <div className={`${styles.fieldGroup} ${styles.fieldGroupHalf}`}>
+                <label htmlFor="cvv" className={styles.label}>
+                  CVV
+                </label>
+                <input
+                  type="text"
+                  id="cvv"
+                  name="cvv"
+                  className={styles.input}
+                  placeholder="***"
+                  onChange={handleChange}
+                  value={paymentInfo.cvv}
+                />
+                {errors.cvv && (
+                  <p className={styles.errorMessage}>{errors.cvv}</p>
+                )}
+              </div>
             </div>
             <button type="submit" className={styles.submitBtn}>
               Next
@@ -176,7 +178,7 @@ export default function PaymentForm({ onPaymentInfoChange }) {
                 You will pay directly through the Paypal website. You can still
                 review and confirm your order details before payment.
               </p>
-              <button className={styles.submitBtn} >Next</button>
+              <button className={styles.submitBtn}>Next</button>
             </>
           )}
         </div>

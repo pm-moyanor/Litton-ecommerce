@@ -111,7 +111,7 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
 
   return (
     <div>
-      <h2>Shipping Information</h2>
+      <h3>Shipping Information</h3>
       <form className={styles.formWrapper}>
         <div className={styles.formGroup}>
           <label htmlFor="name">Full Name</label>
@@ -211,7 +211,8 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
               <p className={styles.errorMessage}>{errors.phone}</p>
             )}
         </div>
-        <button className={styles.button} type="submit" onClick={handleSubmit}>Go to Payment</button>
+          <ShippingOptions />
+        <button className={styles.button} type="submit" onClick={handleSubmit}>Proceed to Payment</button>
       </form>
     </div>
   );

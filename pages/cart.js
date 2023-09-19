@@ -15,6 +15,7 @@ import {
 import PaymentIcons from "../components/PaymentMethods/PaymentMethods";
 import ReviewAndConfirm from "../components/ReviewAndConfirm/ReviewAndConfirm";
 import Link from "next/link";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart() {
   const { cartState, dispatch } = useCart();
@@ -154,24 +155,29 @@ export default function Cart() {
   // Define separate functions or components for each step
   const renderShippingStep = () => (
     <>
-      <button onClick={() => handleEditStep("cart")}>Edit Cart</button>
+      <h2>1/3 Shipping</h2>
+
       <ShippingInformation
         onShippingInfoChange={handleShippingInfoChange}
         onNextStep={handleNextStep}
+        onShippingOptionChange={handleShippingOptionChange}
       />
-      <ShippingOptions onShippingOptionChange={handleShippingOptionChange} />
-      <div>
-        {/* Shipping form and components */}
-        <button onClick={() => setCurrentStep("payment")}>
-          proceed to payment
-        </button>
-      </div>
     </>
   );
 
   const renderPaymentStep = () => (
     <div>
-      <button onClick={() => handleEditStep("shipping")}>Edit Shipping</button>
+      <div className={styles["title-edit-link_wrapper"]}>
+        <h2>2/3 Payment</h2>
+
+        <div
+          onClick={() => setCurrentStep("shipping")}
+          className={styles["edit-link-wrapper"]}
+        >
+          <p>edit shipping</p>
+          <FontAwesomeIcon icon={faPenToSquare} />
+        </div>
+      </div>
       <PaymentForm onPaymentInfoChange={handlePaymentInfoChange} />
     </div>
   );
@@ -189,13 +195,14 @@ export default function Cart() {
       }`}
     >
       {isCheckout || (
-        <div className={styles["account-sign-in"]}>
-          <h5>Do you have a My Bose Account?</h5>
-          <p>Enjoy member benefits and faster checkout Sign-in</p>
-        </div>
+        <>
+          <div className={styles["account-sign-in"]}>
+            <h5>Do you have a My Bose Account?</h5>
+            <p>Enjoy member benefits and faster checkout Sign-in</p>
+          </div>
+          <h3>Products ({totalCount})</h3>
+        </>
       )}
-
-      <h3>Products ({totalCount})</h3>
 
       <ul className={styles["itemList"]}>
         {cartState.items.map((item) => (
@@ -228,14 +235,13 @@ export default function Cart() {
                   </div>
                 )}
               </div>
-              {isCheckout || (
-                <div
-                  className={styles["delete-icon"]}
-                  onClick={() => handleRemoveItem(item)}
-                >
-                  <FontAwesomeIcon icon={faTrashCan} size="lg" />
-                </div>
-              )}
+
+              <div
+                className={styles["delete-icon"]}
+                onClick={() => handleRemoveItem(item)}
+              >
+                <FontAwesomeIcon icon={faTrashCan} size="md" />
+              </div>
             </div>
           </li>
         ))}
@@ -249,7 +255,21 @@ export default function Cart() {
         isCheckout ? styles["checkout"] : ""
       }`}
     >
-      <h2>Order Summary</h2>
+      <div className={styles["title-edit-link_wrapper"]}>
+        <h2>
+          {isCheckout ? `Order Summary (${totalCount})` : "Order Summary"}
+        </h2>
+        {isCheckout && (
+          <div
+            className={styles["edit-link-wrapper"]}
+            onClick={() => setIsCheckout(!isCheckout)}
+          >
+            <p>edit cart</p>
+            <FontAwesomeIcon icon={faPenToSquare} />
+          </div>
+        )}
+      </div>
+
       {isCheckout && renderCartItems()}
 
       <div className={styles["details-container"]}>
@@ -270,24 +290,31 @@ export default function Cart() {
           <p>${totalPrice}</p>
         </div>
       </div>
-
-      <div className={styles["buttons"]}>
-        <button className={styles["continue-button"]}>
-          <Link href="/shop" style={{ color: "black", textDecoration: "none" }}>
-            continue shopping
-          </Link>
-        </button>
-        <button
-          className={styles["checkout-button"]}
-          onClick={() => {
-            console.log(formData);
-            handleFormSubmit();
-            setIsCheckout(!isCheckout);
-          }}
-        >
-          Proceed to Checkout
-        </button>
-      </div>
+      {!isCheckout && (
+        <>
+          <div className={styles["buttons"]}>
+            <button className={styles["continue-button"]}>
+              <Link
+                href="/shop"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                continue shopping
+              </Link>
+            </button>
+            <button
+              className={styles["checkout-button"]}
+              onClick={() => {
+                console.log(formData);
+                handleFormSubmit();
+                setIsCheckout(!isCheckout);
+              }}
+            >
+              Proceed to Checkout
+            </button>
+          </div>
+          <PaymentIcons />
+        </>
+      )}
     </div>
   );
 
@@ -304,7 +331,7 @@ export default function Cart() {
           >
             {isCheckout ? (
               <>
-                <div>
+                <div className={styles["steps-wrapper"]}>
                   {currentStep === "shipping" && renderShippingStep()}
                   {currentStep === "payment" && renderPaymentStep()}
                   {currentStep === "confirmation" && renderConfirmationStep()}
