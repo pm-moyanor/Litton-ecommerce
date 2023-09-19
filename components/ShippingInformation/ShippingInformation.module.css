@@ -1,14 +1,33 @@
+.shippingOptionsWrapper{
+   border-top:1px solid gray;
+   margin-top: 60px;
+   padding: 0px 20px
+   
+}
+
 .shippingOption {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 40px;
+}
+
+
+.shippingOptionsTitle{
+    /* margin-top: 40px; */
+}
+.shippingOptionsDescription {
+    font-size: 0.9rem;
+  
 }
 
 .formWrapper {
   width: 100%;
-
+margin-bottom: 50px;
   padding: 0px 0px;
 }
 .formGroup {

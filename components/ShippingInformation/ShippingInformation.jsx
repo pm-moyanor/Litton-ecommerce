@@ -15,7 +15,7 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
   };
 
   return (
-    <div>
+    <div className={styles.shippingOptionsWrapper}>
       <h3 className={styles.shippingOptionsTitle}>Shipping Options</h3>
 
       <div className={styles.shippingOption}>
@@ -55,10 +55,10 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
         are processed Monday through Friday, excluding local or national
         holidays.
       </p>
-      <div className={styles.selectedOptionInfo}>
+      {/* <div className={styles.selectedOptionInfo}>
         <p>Selected Shipping Option: {selectedOption}</p>
      
-      </div>
+      </div> */}
     </div>
   );
 };
