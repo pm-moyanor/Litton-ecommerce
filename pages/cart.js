@@ -151,38 +151,25 @@ export default function Cart() {
 
   // Define separate functions or components for each step
   const renderShippingStep = () => (
-    <>
-      <h2>1/3 Shipping</h2>
-
+    <div>
       <ShippingInformation
         onShippingInfoChange={handleShippingInfoChange}
         onNextStep={handleNextStep}
         onShippingOptionChange={handleShippingOptionChange}
       />
-    </>
+    </div>
   );
 
   const renderPaymentStep = () => (
     <div>
-      <div className={styles["title-edit-link_wrapper"]}>
-        <h2>2/3 Payment</h2>
-
-        <div
-          onClick={() => setCurrentStep("shipping")}
-          className={styles["edit-link-wrapper"]}
-        >
-          <p>edit shipping</p>
-          <FontAwesomeIcon icon={faPenToSquare} />
-        </div>
-      </div>
       <PaymentForm onPaymentInfoChange={handlePaymentInfoChange} />
     </div>
   );
 
   const renderConfirmationStep = () => (
-    <>
+    <div>
       <ReviewAndConfirm data={formData} onEditStep={handleEditStep} />
-    </>
+    </div>
   );
 
   const renderCartItems = () => (
@@ -331,8 +318,42 @@ export default function Cart() {
             {isCheckout ? (
               <>
                 <div className={styles["steps-wrapper"]}>
+                  <div className={styles["title-edit-link_wrapper"]}>
+                    <h2>1/3 Shipping</h2>
+
+                    <div
+                      onClick={() => setCurrentStep("shipping")}
+                      className={styles["edit-link-wrapper"]}
+                    >
+                      <p>edit</p>
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                    </div>
+                  </div>
                   {currentStep === "shipping" && renderShippingStep()}
+                  <div className={styles["title-edit-link_wrapper"]}>
+                    <h2>2/3 Payment</h2>
+
+                    <div
+                      onClick={() => setCurrentStep("payment")}
+                      className={styles["edit-link-wrapper"]}
+                    >
+                      <p>edit</p>
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                    </div>
+                  </div>
                   {currentStep === "payment" && renderPaymentStep()}
+
+                  <div className={styles["title-edit-link_wrapper"]}>
+                    <h2>3/3 Review and confirm</h2>
+
+                    <div
+                      onClick={() => setCurrentStep("confirmation")}
+                      className={styles["edit-link-wrapper"]}
+                    >
+                      <p>edit</p>
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                    </div>
+                  </div>
                   {currentStep === "confirmation" && renderConfirmationStep()}
                 </div>
 

@@ -12,7 +12,7 @@ function ReviewAndConfirm({ data, onEditStep }) {
 
   return (
     <div>
-      <h2>Review and Confirm</h2>
+
 
       <div>
         <h3>Cart Items</h3>
