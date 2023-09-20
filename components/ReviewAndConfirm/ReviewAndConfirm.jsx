@@ -31,11 +31,11 @@ function ReviewAndConfirm({ data, onEditStep }) {
           <button onClick={() => onEditStep("shipping")}>Edit</button>
         </div>
 
-        <p>Name: {shippingInfo.name}</p>
-        <p>Address: {shippingInfo.address}</p>
-        <p>City: {shippingInfo.city}</p>
-        <p>Postal Code: {shippingInfo.postalCode}</p>
-        <p>Country: {shippingInfo.country}</p>
+        <p>{shippingInfo.name}</p>
+        <p>{shippingInfo.address}</p>
+        <p>{shippingInfo.city}</p>
+        <p>{shippingInfo.postalCode}</p>
+        <p> {shippingInfo.country}</p>
       </div>
 
       <div>

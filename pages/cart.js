@@ -8,10 +8,7 @@ import Card from "../components/Card/Card";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer/Footer";
 import PaymentForm from "../components/PaymentForm/PaymentForm";
-import {
-  ShippingInformation,
-  ShippingOptions,
-} from "../components/ShippingInformation/ShippingInformation";
+import { ShippingInformation } from "../components/ShippingInformation/ShippingInformation";
 import PaymentIcons from "../components/PaymentMethods/PaymentMethods";
 import ReviewAndConfirm from "../components/ReviewAndConfirm/ReviewAndConfirm";
 import Link from "next/link";
@@ -322,13 +319,15 @@ export default function Cart() {
     <>
       <Navbar />
       <h1 className={styles["title"]}>Your Cart</h1>
-      <div>
+      <div
+        className={
+          isCheckout
+            ? styles["cart-container"]
+            : styles["cart-container checkout"]
+        }
+      >
         {cartState.items && cartState.items.length > 0 ? (
-          <div
-            className={`${styles["cart-container"]} ${
-              isCheckout ? styles["checkout"] : ""
-            }`}
-          >
+          <>
             {isCheckout ? (
               <>
                 <div className={styles["steps-wrapper"]}>
@@ -345,7 +344,7 @@ export default function Cart() {
                 {renderOrderSummary()}
               </>
             )}
-          </div>
+          </>
         ) : (
           <div>
             <p>Cart is currently empty</p>

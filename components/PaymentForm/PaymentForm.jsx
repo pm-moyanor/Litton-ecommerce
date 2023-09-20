@@ -63,9 +63,8 @@ export default function PaymentForm({ onPaymentInfoChange }) {
           My billing address is not the same as my shipping address
         </label>
       </div>
-
+      <h3>Select Payment Method</h3>
       <div>
-        <h3>Select Payment Method</h3>
         <div>
           <label>
             <input
@@ -156,7 +155,7 @@ export default function PaymentForm({ onPaymentInfoChange }) {
               </div>
             </div>
             <button type="submit" className={styles.submitBtn}>
-              Next
+              Review and confirm
             </button>
           </form>
         )}
@@ -178,7 +177,7 @@ export default function PaymentForm({ onPaymentInfoChange }) {
                 You will pay directly through the Paypal website. You can still
                 review and confirm your order details before payment.
               </p>
-              <button className={styles.submitBtn}>Next</button>
+              
             </>
           )}
         </div>
