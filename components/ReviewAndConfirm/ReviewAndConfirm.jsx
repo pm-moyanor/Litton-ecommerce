@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./ReviewAndConfinr.module.css";
 
 function ReviewAndConfirm({ data, onEditStep }) {
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -10,37 +11,29 @@ function ReviewAndConfirm({ data, onEditStep }) {
     console.log(isConfirmed);
   };
 
+  function formatCardNumber(cardNumber) {
+    const formattedCardNumber = "**** **** **** " + cardNumber.slice(-4); // Display the last 4 digits
+    return formattedCardNumber;
+  }
+
   return (
     <div>
-
-
-      <div>
-        <h3>Cart Items</h3>
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              {item.title} - ${item.price}
-            </li>
-          ))}
-        </ul>
-      </div>
-
       <div>
         <div>
           <h3>Shipping Information</h3>
-          <button onClick={() => onEditStep("shipping")}>Edit</button>
         </div>
-
-        <p>{shippingInfo.name}</p>
-        <p>{shippingInfo.address}</p>
-        <p>{shippingInfo.city}</p>
-        <p>{shippingInfo.postalCode}</p>
-        <p> {shippingInfo.country}</p>
+        <div className={styles["info-wrapper"]}>
+          <p>{shippingInfo.name}</p>
+          <p>{shippingInfo.address}</p>
+          <p>{shippingInfo.city}</p>
+          <p>{shippingInfo.postalCode}</p>
+          <p> {shippingInfo.country}</p>
+        </div>
       </div>
 
       <div>
-        <h3>Selected Shipping Option</h3>
         <p>
+          Shipping Option:
           {selectedShippingOption === "standard"
             ? "Standard Shipping"
             : "Express Shipping"}
@@ -48,26 +41,28 @@ function ReviewAndConfirm({ data, onEditStep }) {
       </div>
 
       <div>
-        <div>
-          <h3>Selected Payment Method</h3>
-          <button onClick={() => onEditStep("payment")}>Edit</button>
-        </div>
+       
+          <h3>Payment Information</h3>
+        
         <p>
           {paymentInfo.paymentMethod === "creditCard"
             ? "Credit Card"
             : "PayPal"}
         </p>
       </div>
-
-      <h3>card information</h3>
-      <p>number: {paymentInfo.cardNumber}</p>
-      <p>name: {paymentInfo.cardHolder}</p>
-      <p>expiration:{paymentInfo.expirationDate}</p>
-      <p>{paymentInfo.cvv}</p>
+      {paymentInfo.paymentMethod === "creditCard" && (
+        <div className={styles["info-wrapper"]}>
+          <p>AMEX: {formatCardNumber(paymentInfo.cardNumber)}</p>
+          <p>name: {paymentInfo.cardHolder}</p>
+          <p>expiration:{paymentInfo.expirationDate}</p>
+        </div>
+      )}
 
       {!isConfirmed && (
         <>
-          <button onClick={handleConfirmation}>Confirm Order</button>
+          <button onClick={handleConfirmation} className={styles["submitBtn"]}>
+            Confirm Order
+          </button>
           {/* <button onClick={() => onEditStep("payment")}>Edit Payment</button> */}
         </>
       )}

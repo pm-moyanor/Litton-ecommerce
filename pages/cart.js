@@ -307,11 +307,9 @@ export default function Cart() {
       <Navbar />
       <h1 className={styles["title"]}>Your Cart</h1>
       <div
-        className={
-          isCheckout
-            ? styles["cart-container"]
-            : styles["cart-container checkout"]
-        }
+        className={`${styles["cart-container"]} ${
+          isCheckout ? styles["checkout"] : ""
+        }`}
       >
         {cartState.items && cartState.items.length > 0 ? (
           <>
@@ -345,14 +343,6 @@ export default function Cart() {
 
                   <div className={styles["title-edit-link_wrapper"]}>
                     <h2>3/3 Review and confirm</h2>
-
-                    <div
-                      onClick={() => setCurrentStep("confirmation")}
-                      className={styles["edit-link-wrapper"]}
-                    >
-                      <p>edit</p>
-                      <FontAwesomeIcon icon={faPenToSquare} />
-                    </div>
                   </div>
                   {currentStep === "confirmation" && renderConfirmationStep()}
                 </div>

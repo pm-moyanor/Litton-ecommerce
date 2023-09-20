@@ -111,7 +111,6 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
 
   return (
     <div>
-      <h3>Shipping Information</h3>
       <form className={`${styles.formWrapper}`}>
         <div className={styles.formGroup}>
           <label htmlFor="name">Full Name</label>

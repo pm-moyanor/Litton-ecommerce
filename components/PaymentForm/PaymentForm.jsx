@@ -177,7 +177,13 @@ export default function PaymentForm({ onPaymentInfoChange }) {
                 You will pay directly through the Paypal website. You can still
                 review and confirm your order details before payment.
               </p>
+              <button
               
+                onClick={()=> onPaymentInfoChange(paymentInfo)}
+                className={styles.submitBtn}
+              >
+                Review and confirm
+              </button>
             </>
           )}
         </div>
