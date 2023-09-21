@@ -68,3 +68,11 @@
 
 
 }
+
+.payment-method-wrapper{
+  margin: 20px 0px;
+}
+
+.payment-method-wrapper h3{
+  font-weight: 600;
+}

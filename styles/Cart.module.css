@@ -51,6 +51,13 @@
   align-items: center;
 }
 
+.collapsed * {
+  color: rgba(0, 0, 0, 0.155);
+
+  
+  
+}
+
 .itemList {
   padding: 0;
 }
@@ -196,13 +203,11 @@
   min-height: 60vh;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 30px 50px;
   margin: 0 100px;
 }
 
-.checkout .summary-container {
-  display: flex;
-}
+
 
 
 
@@ -220,7 +225,8 @@
 }
 
 .checkout .summary-detail {
-  padding: 0;
+ margin: 0;
+
 }
 
 .checkout .summary-detail * {
@@ -232,8 +238,8 @@
 }
 
 .details-container {
-  padding: 20px;
-  margin: 10px;
+
+
 }
 
 .details-container > :last-child {

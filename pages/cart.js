@@ -316,9 +316,13 @@ export default function Cart() {
             {isCheckout ? (
               <>
                 <div className={styles["steps-wrapper"]}>
-                  <div className={styles["title-edit-link_wrapper"]}>
+                  <div
+                    className={`${styles["title-edit-link_wrapper"]} ${
+                      currentStep !== "shipping" ? styles["collapsed"] : ""
+                    }`}
+                  >
                     <h2>1/3 Shipping</h2>
-
+                    {currentStep === }
                     <div
                       onClick={() => setCurrentStep("shipping")}
                       className={styles["edit-link-wrapper"]}
@@ -328,7 +332,11 @@ export default function Cart() {
                     </div>
                   </div>
                   {currentStep === "shipping" && renderShippingStep()}
-                  <div className={styles["title-edit-link_wrapper"]}>
+                  <div
+                    className={`${styles["title-edit-link_wrapper"]} ${
+                      currentStep !== "payment" ? styles["collapsed"] : ""
+                    }`}
+                  >
                     <h2>2/3 Payment</h2>
 
                     <div
@@ -341,7 +349,11 @@ export default function Cart() {
                   </div>
                   {currentStep === "payment" && renderPaymentStep()}
 
-                  <div className={styles["title-edit-link_wrapper"]}>
+                  <div
+                    className={`${styles["title-edit-link_wrapper"]} ${
+                      currentStep !== "confirmation" ? styles["collapsed"] : ""
+                    }`}
+                  >
                     <h2>3/3 Review and confirm</h2>
                   </div>
                   {currentStep === "confirmation" && renderConfirmationStep()}

@@ -53,7 +53,7 @@ export default function PaymentForm({ onPaymentInfoChange }) {
 
   return (
     <>
-      <div>
+      <div style={{margin:"50px 0px"}}>
         <label>
           <input
             type="radio"
@@ -63,8 +63,9 @@ export default function PaymentForm({ onPaymentInfoChange }) {
           My billing address is not the same as my shipping address
         </label>
       </div>
+   
+      <div className={styles["payment-method-wrapper"]} >
       <h3>Select Payment Method</h3>
-      <div>
         <div>
           <label>
             <input
