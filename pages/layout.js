@@ -24,25 +24,6 @@ export default function Layout() {
           <CardGallery cards={products} />
         </div>
 
-        {/* First instance of FooterHero */}
-        <FooterHero
-          id={1}
-          alt="dual-channel-headphones"
-          title="Sound shaped just for you"
-          caption="Made for every ear type, Lotus Comfort headphones use CustomTune technology to personalize your listening experience with a perfect fit and balanced sound."
-          image="./images/headphones_a_3.webp"
-          customStyle={{
-            image: { width: "50%" ,padding: "100px 50px 0%"}, // Custom styles for the image
-            text: {
-              color: "black",
-              position: "absolute",
-              width: "50%",
-              right: "70px",
-              top: "20%",
-            }, // Custom styles for the text
-          }}
-        />
-        {/* Second instance of FooterHero */}
         <FooterHero
           id={2}
           alt="woman-dancing"
@@ -66,7 +47,31 @@ export default function Layout() {
 
         <SeamlessShoppingBanner />
 
-        {/* Third instance of FooterHero with specific styles */}
+        <FooterHero
+          id={4}
+          alt="dual-channel-headphones"
+          title="Sound shaped just for you"
+          caption="Made for every ear type, Lotus Comfort headphones use CustomTune technology to personalize your listening experience with a perfect fit and balanced sound."
+          image="./images/headphones_a_3.webp"
+          customStyle={{
+            image: { width: "50%", padding: "100px 50px 0%" },
+            text: {
+              color: "black",
+              position: "absolute",
+              width: "50%",
+              right: "70px",
+              top: "10%",
+            },
+          }}
+        />
+        <FooterHero
+          id={1}
+          alt="quote-earphones"
+          title="“Best Sounding Earbuds: Lotus SilentComfort Ultra Earbuds”"
+          caption="- Power life magazine"
+          image="./images/earphones_b_1.webp"
+        />
+
         <FooterHero
           id={3}
           alt="man-working"

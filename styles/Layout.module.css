@@ -19,32 +19,33 @@
   font-weight: 700;
 }
 .three-card-section {
-  background-color: rgba(171, 166, 166, 0.157);
-  padding: 100px 80px;
 
+  padding: 100px 180px;
+ margin-right: 200px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.title-container {
-  text-align: center;
+.title-container{
+
 }
 
 .title-container h2 {
-  text-align: center;
-  font-size: clamp(1.5rem, 8vw, 1.813rem);
-  /* font-weight: 700; */
-  letter-spacing: -1px;
-  margin-bottom: 30px;
+
+ text-align: right;
+  font-size: 2.875rem;
+  font-family: "Oswald", sans-serif;
+  color: rgb(13, 13, 13);
 
 }
 
 .products {
   display: flex;
+
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding-left: 0px;
 }
