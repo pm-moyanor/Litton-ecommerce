@@ -8,25 +8,26 @@ export default function CategorySubmenu({
   isSubmenuHovered,
 }) {
   const categories = showAll
-    ? ["headphones", "all","earphones" ]
+    ? ["headphones", "all", "earphones"]
     : ["headphones", "earphones"];
 
   return (
     <div
-      className={`${styles.submenuWrapper} 
-    ${isSubmenuHovered ? styles.submenuOpen : ""}`}
+      className={`${styles["submenuWrapper"]} ${
+        isSubmenuHovered ? styles["submenuOpen"] : ""
+      }`}
     >
       <ul
-        className={`${styles.submenuUl} ${
-          isShopPage ? styles.shopMenuMode : ""
+        className={`${styles["submenuUl"]} ${
+          isShopPage ? styles["shopMenuMode"] : ""
         }`}
       >
         {categories.map((category) => (
-          <li key={category} className={styles.submenuLi}>
+          <li key={category} className={styles["submenuLi"]}>
             <Link
               href={`/shop?category=${category}`}
               passHref
-              className={styles.submenuLink}
+              className={styles["submenuLink"]}
             >
               {category}
             </Link>

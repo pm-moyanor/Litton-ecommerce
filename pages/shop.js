@@ -51,17 +51,17 @@ export default function Shop() {
   return (
     <>
       <Navbar currentPage={"shop"} />
-      <div className={styles.banner}>
+      <div className={styles["banner"]}>
         <img src="./images/banner1.jpg.large.2x.jpg" />
       </div>
-      <div className={styles.categoryMenu}>
+      <div className={styles["categoryMenu"]}>
         <CategorySubmenu
           isShopPage={true}
           onCategorySelect={handleCategorySelect}
           showAll={true}
         />
       </div>
-      <div className={styles.container}>
+      <div className={styles["container"]}>
         <ul>
           {shuffledProducts.map((product) => (
             <li key={product.id} className={styles["card-container"]}>

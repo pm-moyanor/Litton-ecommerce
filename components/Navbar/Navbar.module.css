@@ -2,7 +2,7 @@
 .navbarContainer {
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 120px;
   transition: height 0.3s ease;
   padding: 0px 20px;
 }
@@ -12,7 +12,7 @@
 }
 
 .logoWrapper{
-  padding: 10px;
+  padding:20px 10px;
 }
 .navLinks {
 
@@ -63,6 +63,7 @@
   margin: -2px;
   font-weight: 500;
 }
+
 .blackRibbon {
   background-color: black;
   height: 50px;
@@ -70,11 +71,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+
 }
+
+
 
 .freeDeliveryContainer {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   background-color: black;
   height: 60px;
   color: white;
@@ -90,7 +95,14 @@
 }
 
 .linkIconContainer {
-  padding-top: 3px;
+  padding-top: 1px;
   margin-left: 10px;
   width: 15px;
+}
+
+@keyframes dropRibbon {
+  from {
+    transform: translateY(-100%)  }
+  to {
+    transform: translateY(0)  }
 }

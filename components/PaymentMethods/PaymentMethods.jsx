@@ -19,10 +19,10 @@ const PaymentIcons = () => {
   ];
 
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles["mainContainer"]}>
       <h2>Payment Methods</h2>
       <p>Choose from various secure payment methods.</p>
-      <ul className={styles.paymentIcons}>
+      <ul className={styles["paymentIcons"]}>
         {paymentMethods.map((method, index) => (
           <li key={index} style={{ listStyle: "none" }}>
             <FontAwesomeIcon icon={method.icon} size="2x" />

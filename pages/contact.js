@@ -18,9 +18,9 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can handle form submission logic here, e.g., send data to a server
+
     console.log("Form data submitted:", formData);
-    // Clear the form fields
+
     setFormData({
       fullName: "",
       email: "",
@@ -31,34 +31,36 @@ export default function Contact() {
   return (
     <div>
       <Navbar />
-      <div className={styles.banner}>
-        <img src="./images/banner3.jpg.large.2x.jpg" />
+      <div className={styles["banner"]}>
+        <img src="./images/banner3.jpg.large.2x.jpg" alt="Banner" />
       </div>
-      <div className={styles.contactForm}>
-        <div className={styles.infoContainer}>
+      <div className={styles["contactForm"]}>
+        <div className={styles["infoContainer"]}>
           <h2>Contact Us</h2>
-          <div className={styles.contactInfo}>
-            <div className={styles.contactInfoItem}>
+          <div className={styles["contactInfo"]}>
+            <div className={styles["contactInfoItem"]}>
               <h3>General Inquiries</h3>
-              <p className={styles.contactInfoEmail}>
+              <p className={styles["contactInfoEmail"]}>
                 Email: contact@litton.com
               </p>
             </div>
-            <div className={styles.contactInfoItem}>
+            <div className={styles["contactInfoItem"]}>
               <h3>Mailing Address</h3>
               <p>Litton Audio</p>
               <p>326 Stanley Street</p>
               <p>Brooklyn, NY 11249</p>
             </div>
-            <div className={styles.contactInfoItem}>
+            <div className={styles["contactInfoItem"]}>
               <h3>Additional Departments</h3>
-              <p className={styles.contactInfoEmail}>press@litton.com</p>
-              <p className={styles.contactInfoEmail}>partnerships@litton.com</p>
+              <p className={styles["contactInfoEmail"]}>press@litton.com</p>
+              <p className={styles["contactInfoEmail"]}>
+                partnerships@litton.com
+              </p>
             </div>
           </div>
         </div>
 
-        <div className={styles.formContainer}>
+        <div className={styles["formContainer"]}>
           <p>
             We'd Love to Hear from You! Please feel free to get in touch with us
             using the contact form below. We're here to answer any questions or
@@ -113,7 +115,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

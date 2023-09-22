@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./ReviewAndConfinr.module.css";
+import styles from "./ReviewAndConfirm.module.css";
 
 function ReviewAndConfirm({ data, onEditStep }) {
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -20,14 +20,14 @@ function ReviewAndConfirm({ data, onEditStep }) {
     <div>
       <div>
         <div>
-          <h3>Shipping Information</h3>
+          <h3 className={styles["section-title"]}>Shipping Information</h3>
         </div>
         <div className={styles["info-wrapper"]}>
           <p>{shippingInfo.name}</p>
           <p>{shippingInfo.address}</p>
           <p>{shippingInfo.city}</p>
           <p>{shippingInfo.postalCode}</p>
-          <p> {shippingInfo.country}</p>
+          <p>{shippingInfo.country}</p>
         </div>
       </div>
 
@@ -41,9 +41,7 @@ function ReviewAndConfirm({ data, onEditStep }) {
       </div>
 
       <div>
-       
-          <h3>Payment Information</h3>
-        
+        <h3 className={styles["section-title"]}>Payment Information</h3>
         <p>
           {paymentInfo.paymentMethod === "creditCard"
             ? "Credit Card"

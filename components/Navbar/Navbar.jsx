@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import { useState } from "react";
 import Link from "next/link";
 import { AiOutlineShopping } from "react-icons/ai";
 import Image from "next/image";
@@ -13,7 +12,7 @@ export default function Navbar({ currentPage }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const { cartState } = useCart();
-  const isLayoutPage = currentPage === "layout"; // Check if the current page is "Layout"
+  const isLayoutPage = currentPage === "layout";
 
   // How many items in cart
   const countItems = (list) => {
@@ -23,9 +22,11 @@ export default function Navbar({ currentPage }) {
   return (
     <>
       <div
-        className={`${styles.navbarContainer} ${isHovered ? styles.active : ""} `}
+        className={`${styles["navbarContainer"]} ${
+          isHovered ? styles["active"] : ""
+        } `}
       >
-        <div className={styles.logoWrapper}>
+        <div className={styles["logoWrapper"]}>
           <Image
             src="./litton-3.svg"
             alt="Picture of the author"
@@ -34,9 +35,9 @@ export default function Navbar({ currentPage }) {
           />
         </div>
 
-        <div className={styles.nav}>
-          <ul className={styles.navLinks}>
-            <li className={styles.navLinkItem}>
+        <div className={styles["nav"]}>
+          <ul className={styles["navLinks"]}>
+            <li className={styles["navLinkItem"]}>
               <Link
                 href="/layout"
                 style={{ color: "black", textDecoration: "none" }}
@@ -53,8 +54,8 @@ export default function Navbar({ currentPage }) {
               onMouseLeave={() => {
                 if (isLayoutPage) setIsHovered(false);
               }}
-              className={`${styles.navLinkItem} ${styles.shopLink} ${
-                isHovered && isLayoutPage ? styles.open : ""
+              className={`${styles["navLinkItem"]} ${styles["shopLink"]} ${
+                isHovered && isLayoutPage ? styles["open"] : ""
               } `}
             >
               <Link
@@ -71,8 +72,8 @@ export default function Navbar({ currentPage }) {
               )}
             </li>
 
-            <li className={styles.navLinkItem}>
-            <Link
+            <li className={styles["navLinkItem"]}>
+              <Link
                 href="/contact"
                 style={{ color: "black", textDecoration: "none" }}
               >
@@ -81,9 +82,10 @@ export default function Navbar({ currentPage }) {
             </li>
           </ul>
         </div>
-        <div className={styles.cartIcon}>
+
+        <div className={styles["cartIcon"]}>
           <Link href="/cart">
-            <AiOutlineShopping className={styles.shoppingIcon} />
+            <AiOutlineShopping className={styles["shoppingIcon"]} />
           </Link>
           {cartState.items.length > 0 ? (
             <p style={{ padding: "5px" }}>{countItems(cartState.items)}</p>
@@ -92,12 +94,13 @@ export default function Navbar({ currentPage }) {
           )}
         </div>
       </div>
-      <div className={styles.freeDeliveryContainer}>
-        <Link href="/pickup" className={styles.freeDeliveryLink}>
+
+      <div className={`${styles["freeDeliveryContainer"]} ${styles["blackRibbon"]}`}>
+        <Link href="/pickup" className={styles["freeDeliveryLink"]}>
           FAST AND FREE DELIVERY
         </Link>
-        <div className={styles.linkIconContainer}>
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+        <div className={styles["linkIconContainer"]}>
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" />
         </div>
       </div>
     </>

@@ -16,17 +16,17 @@ export default function Card({ product, inShop }) {
 
   return (
     <div
-      className={`${styles.mainContainer} ${
-        inShopState ? styles.shopMode : ""
+      className={`${styles["mainContainer"]} ${
+        inShopState ? styles["shopMode"] : ""
       }`}
     >
       {inShopState ? (
         <>
-          <div className={styles.imgColorsContainer}>
-            <div className={styles.productImg}>
-              <img src={image} alt="main-img"  />
+          <div className={styles["imgColorsContainer"]}>
+            <div className={styles["productImg"]}>
+              <img src={image} alt="main-img" />
             </div>
-            <div className={styles.colorOptionsContainer}>
+            <div className={styles["colorOptionsContainer"]}>
               {colors.map(
                 (color) =>
                   color.inStock && (
@@ -38,32 +38,32 @@ export default function Card({ product, inShop }) {
               )}
             </div>
           </div>
-          <div className={styles.productInfo}>
+          <div className={styles["productInfo"]}>
             <h4>{title}</h4>
-            <h5 className={styles.productPrice}>{`$${price}`}</h5>
-            <ul className={styles.descriptionContainer}>
+            <h5 className={styles["productPrice"]}>{`$${price}`}</h5>
+            <ul className={styles["descriptionContainer"]}>
               {descriptionLines.map((line, index) => (
-                <li key={id + "line" + index} className={styles.line}>
+                <li key={id + "line" + index} className={styles["line"]}>
                   {line}
                 </li>
               ))}
             </ul>
-            <button className={styles.button} onClick={handleAddToCart}>
+            <button className={styles["button"]} onClick={handleAddToCart}>
               Add to Cart
             </button>
           </div>
         </>
       ) : (
         <>
-          <div className={styles.productInfo}>
-            <h6 className={styles.newLabel}>NEW</h6>
+          <div className={styles["productInfo"]}>
+            <h6 className={styles["newLabel"]}>NEW</h6>
             <h4>{title}</h4>
-            <h5 className={styles.productPrice}>{`$${price}`}</h5>
+            <h5 className={styles["productPrice"]}>{`$${price}`}</h5>
           </div>
-          <div className={styles.productImg}>
-            <img src={image} alt="main-img" className={styles.image} />
+          <div className={styles["productImg"]}>
+            <img src={image} alt="main-img" className={styles["image"]} />
           </div>
-          <div className={styles.colorOptionsContainer}>
+          <div className={styles["colorOptionsContainer"]}>
             {colors.map(
               (color) =>
                 color.inStock && (

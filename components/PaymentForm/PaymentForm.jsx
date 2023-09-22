@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import paymentSchema from "../../paymentFormShema";
 import styles from "./PaymentForm.module.css";
 import ReviewAndConfirm from "../ReviewAndConfirm/ReviewAndConfirm";
@@ -81,87 +81,87 @@ export default function PaymentForm({ onPaymentInfoChange }) {
         </div>
 
         {paymentMethod === "creditCard" && (
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="cardNumber" className={styles.label}>
+          <form className={styles["form"]} onSubmit={handleSubmit}>
+            <div className={styles["fieldGroup"]}>
+              <label htmlFor="cardNumber" className={styles["label"]}>
                 Card Number
               </label>
               <input
                 type="text"
                 id="cardNumber"
-                className={styles.input}
+                className={styles["input"]}
                 placeholder="**** **** **** ****"
                 value={paymentInfo.cardNumber}
                 name="cardNumber"
                 onChange={handleChange}
               />
               {errors.cardNumber && (
-                <p className={styles.errorMessage}>{errors.cardNumber}</p>
+                <p className={styles["errorMessage"]}>{errors.cardNumber}</p>
               )}
             </div>
-            <div className={styles.fieldGroup}>
-              <label htmlFor="cardHolder" className={styles.label}>
+            <div className={styles["fieldGroup"]}>
+              <label htmlFor="cardHolder" className={styles["label"]}>
                 Card Holder Name
               </label>
               <input
                 type="text"
                 id="cardHolder"
                 name="cardHolder"
-                className={styles.input}
+                className={styles["input"]}
                 placeholder="John Doe"
                 onChange={handleChange}
                 value={paymentInfo.cardHolder}
               />
               {errors.cardHolder && (
-                <p className={styles.errorMessage}>{errors.cardHolder}</p>
+                <p className={styles["errorMessage"]}>{errors.cardHolder}</p>
               )}
             </div>
-            <div className={styles.fieldGroupHalfWrapper}>
+            <div className={styles["fieldGroupHalfWrapper"]}>
               <div
-                className={`${styles.fieldGroup} ${styles.fieldGroupHalf} ${styles.first}`}
+                className={`${styles["fieldGroup"]} ${styles["fieldGroupHalf"]} ${styles["first"]}`}
               >
-                <label htmlFor="expirationDate" className={styles.label}>
+                <label htmlFor="expirationDate" className={styles["label"]}>
                   Expiration Date
                 </label>
                 <input
                   type="text"
                   id="expirationDate"
                   name="expirationDate"
-                  className={styles.input}
+                  className={styles["input"]}
                   placeholder="MM/YY"
                   onChange={handleChange}
                   value={paymentInfo.expirationDate}
                 />
                 {errors.expirationDate && (
-                  <p className={styles.errorMessage}>{errors.expirationDate}</p>
+                  <p className={styles["errorMessage"]}>{errors.expirationDate}</p>
                 )}
               </div>
 
-              <div className={`${styles.fieldGroup} ${styles.fieldGroupHalf}`}>
-                <label htmlFor="cvv" className={styles.label}>
+              <div className={`${styles["fieldGroup"]} ${styles["fieldGroupHalf"]}`}>
+                <label htmlFor="cvv" className={styles["label"]}>
                   CVV
                 </label>
                 <input
                   type="text"
                   id="cvv"
                   name="cvv"
-                  className={styles.input}
+                  className={styles["input"]}
                   placeholder="***"
                   onChange={handleChange}
                   value={paymentInfo.cvv}
                 />
                 {errors.cvv && (
-                  <p className={styles.errorMessage}>{errors.cvv}</p>
+                  <p className={styles["errorMessage"]}>{errors.cvv}</p>
                 )}
               </div>
             </div>
-            <button type="submit" className={styles.submitBtn}>
+            <button type="submit" className={styles["submitBtn"]}>
               Review and confirm
             </button>
           </form>
         )}
 
-        <div className={styles.payPalWrapper}>
+        <div className={styles["payPalWrapper"]}>
           <label>
             <input
               type="radio"
@@ -174,14 +174,13 @@ export default function PaymentForm({ onPaymentInfoChange }) {
           </label>
           {paymentMethod === "paypal" && (
             <>
-              <p className={styles.payPalMessage}>
+              <p className={styles["payPalMessage"]}>
                 You will pay directly through the Paypal website. You can still
                 review and confirm your order details before payment.
               </p>
               <button
-              
                 onClick={()=> onPaymentInfoChange(paymentInfo)}
-                className={styles.submitBtn}
+                className={styles["submitBtn"]}
               >
                 Review and confirm
               </button>
