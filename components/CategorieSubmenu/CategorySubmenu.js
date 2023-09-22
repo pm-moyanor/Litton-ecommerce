@@ -15,6 +15,9 @@ export default function CategorySubmenu({
     <div
       className={`${styles["submenuWrapper"]} ${
         isSubmenuHovered ? styles["submenuOpen"] : ""
+      }
+      ${
+        isShopPage ? styles["shopMenuMode"] : ""
       }`}
     >
       <ul

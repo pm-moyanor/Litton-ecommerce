@@ -8,11 +8,12 @@
   transform: translateX(-50%) translateY(10px); /* Adjust the submenu position */
 }
 
+
 .submenuUl {
 
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   font-weight: 400;
   position: absolute;
   top: calc(50% + -30px); /* Position the submenu below the SHOP link */
@@ -41,13 +42,20 @@
 }
 
 .shopMenuMode {
-  display: flex;
+  /* display: flex;
   justify-content: space-evenly;
-  
   padding: 40px 0px 40px 0px;
-
   flex-direction: row;
-  margin-left:-10px ;
+  margin-left: -10px; */
+}
 
+/* Ensure submenu items are vertically centered within submenuWrapper */
+.submenuWrapper .shopMenuMode   {
+
+position:static;
+
+padding: 0;
+left: 0;
+transform:translateX(-250px);
 
 }

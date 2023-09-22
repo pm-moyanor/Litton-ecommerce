@@ -3,7 +3,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-top:100px
+  padding-top:50px;
+
+
 }
 .banner{
   width: 100%;
@@ -27,12 +29,61 @@ margin-bottom: 50px;
   margin-bottom: 20px;
  
 }
+.navWrapper{
 
-.categoryMenu{
-  height: 0px;
-  background-color: #bebebe25;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
+  margin: 0px 270px;
+  display: flex; /* Make the container a flex container */
+  flex-direction: row-reverse; /* Keep items in a row */
+  justify-content: space-between; /* Space items between each other */
+  align-items:flex-start; 
+}
+/* .navWrapper:first-child{
+  align-self: center;
+  background-color: antiquewhite;
+} */
+
+
+.sortBlock {
+  display: inline-block; /* Ensures it only takes the necessary width */
+  position: relative; /* Needed for absolute positioning of dropdown */
+
 }
 
+/* Style the label */
+.sortLabel {
+  cursor: pointer; /* Change cursor to pointer on hover */
+
+  margin-top: 50px;
+}
+
+/* Style the dropdown container */
+.sortDropdown {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 100%; /* Position dropdown below the label */
+  right: 0;
+  background-color: #ffffff3a; /* Background color for the dropdown */
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+/* Show the dropdown when the label is hovered */
+.sortBlock:hover .sortDropdown {
+  display: block;
+}
+
+
+
+.sortBlock button{
+  width: 140px;
+  height: 40px;
+  border: none;
+  font-family: "Mulish",sans-serif;
+  font-size: 16px;
+  background-color: transparent;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  text-align: right;
+
+}
