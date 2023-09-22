@@ -8,7 +8,7 @@
 .banner{
   width: 100%;
   height: auto;
-
+margin-bottom: 50px;
 }
 
 .banner img{
@@ -34,6 +34,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 

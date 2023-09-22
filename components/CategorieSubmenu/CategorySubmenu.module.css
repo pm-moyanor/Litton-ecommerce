@@ -2,7 +2,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-
+  
   z-index: 1;
 
   transform: translateX(-50%) translateY(10px); /* Adjust the submenu position */
@@ -23,10 +23,10 @@
 }
 
 .submenuLi {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: black;
   transition: color 0.3s ease;
-  font-family: "Mulish", sans-serif;
+  font-family: "Oswald", sans-serif;
   text-decoration: none;
   text-align: center;
   width: 100px;
@@ -35,7 +35,7 @@
 
 .submenuLi * {
   color: black;
-
+  
   text-decoration: none;
   text-align: center;
 }
@@ -43,8 +43,8 @@
 .shopMenuMode {
   display: flex;
   justify-content: space-evenly;
-
-  padding-top: 20px;
+  
+  padding: 40px 0px 40px 0px;
 
   flex-direction: row;
   margin-left:-10px ;
