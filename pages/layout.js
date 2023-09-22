@@ -7,7 +7,6 @@ import Footer from "../components/Footer/Footer";
 import SeamlessShoppingBanner from "../components/SeamlessShoppingBanner/SeamlessShoppingBanner";
 import Newsletter from "../components/Newsletter/Newsletter";
 import FooterHero from "../components/FooterHero/FooterHero";
-import VideoHero from "../components/VideoHero/VideoHero";
 
 export default function Layout() {
   return (
@@ -17,12 +16,8 @@ export default function Layout() {
       </header>
       <main className={`layout__main ${styles["main-container"]}`}>
         <HeroBanner />
-        <div className={styles["three-card-section"]}>
-          <div className={styles["title-container"]}>
-            <h2>Popular Now</h2>
-          </div>
-          <CardGallery cards={products} />
-        </div>
+
+        <CardGallery cards={products} />
 
         <FooterHero
           id={2}
