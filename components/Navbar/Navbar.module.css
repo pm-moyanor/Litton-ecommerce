@@ -4,6 +4,7 @@
   justify-content: space-between;
   height: 120px;
   transition: height 0.3s ease;
+  background-color: white;
   padding: 0px 20px;
 }
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import styles from "./ShippingInformation.module.css"; // Import the CSS module for styling
+import styles from "./ShippingInformation.module.css";
 import shippingSchema from "../../shippingFormSchema";
+
+
 
 const ShippingOptions = ({ onShippingOptionChange }) => {
   // State to track the selected shipping option
@@ -9,13 +11,14 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
   const handleOptionChange = (option) => {
     setSelectedOption(option);
     onShippingOptionChange(option); // Call the function with the selected option
+
   };
 
   return (
-    <div className={styles["shippingOptionsWrapper"]}>
-      <h3 className={styles["shippingOptionsTitle"]}>Shipping Options</h3>
+    <div className={styles.shippingOptionsWrapper}>
+      <h3 className={styles.shippingOptionsTitle}>Shipping Options</h3>
 
-      <div className={styles["shippingOption"]}>
+      <div className={styles.shippingOption}>
         <div>
           <label>
             <input
@@ -24,14 +27,14 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
               checked={selectedOption === "standard"}
               onChange={() => handleOptionChange("standard")}
             />
-            <span className={styles["shippingOptionText"]}>Standard Shipping</span>
+            <span className={styles.shippingOptionText}>Standard Shipping</span>
           </label>
         </div>
         <div>
-          <p className={styles["shippingOptionPrice"]}>Free</p>
+          <p className={styles.shippingOptionPrice}>Free</p>
         </div>
       </div>
-      <div className={styles["shippingOption"]}>
+      <div className={styles.shippingOption}>
         <div>
           <label>
             <input
@@ -40,18 +43,22 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
               checked={selectedOption === "express"}
               onChange={() => handleOptionChange("express")}
             />
-            <span className={styles["shippingOptionText"]}>Express Shipping</span>
+            <span className={styles.shippingOptionText}>Express Shipping</span>
           </label>
         </div>
         <div>
-          <p className={styles["shippingOptionPrice"]}>$12.95</p>
+          <p className={styles.shippingOptionPrice}>$12.95</p>
         </div>
       </div>
-      <p className={styles["shippingOptionsDescription"]}>
+      <p className={styles.shippingOptionsDescription}  style={{width: 500}}>
         Delivery timing is estimated from the date your order is shipped. Orders
         are processed Monday through Friday, excluding local or national
         holidays.
       </p>
+      {/* <div className={styles.selectedOptionInfo}>
+        <p>Selected Shipping Option: {selectedOption}</p>
+     
+      </div> */}
     </div>
   );
 };
@@ -68,6 +75,7 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
   });
   const [errors, setErrors] = useState({});
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setShippingInfo({
@@ -76,8 +84,11 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
     });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
+
 
     try {
       // Validate info against the schema
@@ -91,15 +102,17 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
       validationErrors.inner.forEach((error) => {
         errorsObj[error.path] = error.message;
       });
-      console.log("ERROR!!", errorsObj);
+      console.log("ERROR!!", errorsObj)
       setErrors(errorsObj);
     }
+  
   };
+
 
   return (
     <div>
-      <form className={styles["formWrapper"]}>
-        <div className={styles["formGroup"]}>
+      <form className={`${styles.formWrapper}`}>
+        <div className={styles.formGroup}>
           <label htmlFor="name">Full Name</label>
           <input
             type="text"
@@ -109,11 +122,11 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
-          {errors.name && (
-            <p className={styles["errorMessage"]}>{errors.name}</p>
-          )}
+             {errors.name && (
+              <p className={styles.errorMessage}>{errors.name}</p>
+            )}
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={styles.formGroup}>
           <label htmlFor="address">Address</label>
           <input
             type="text"
@@ -123,11 +136,11 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
-          {errors.address && (
-            <p className={styles["errorMessage"]}>{errors.address}</p>
-          )}
+             {errors.address && (
+              <p className={styles.errorMessage}>{errors.address}</p>
+            )}
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={styles.formGroup}>
           <label htmlFor="city">City</label>
           <input
             type="text"
@@ -137,11 +150,11 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
-          {errors.city && (
-            <p className={styles["errorMessage"]}>{errors.city}</p>
-          )}
+             {errors.city && (
+              <p className={styles.errorMessage}>{errors.city}</p>
+            )}
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={styles.formGroup}>
           <label htmlFor="postalCode">Postal Code</label>
           <input
             type="text"
@@ -151,11 +164,11 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
-          {errors.postalCode && (
-            <p className={styles["errorMessage"]}>{errors.postalCode}</p>
-          )}
+             {errors.postalCode && (
+              <p className={styles.errorMessage}>{errors.postalCode}</p>
+            )}
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={styles.formGroup}>
           <label htmlFor="country">Country</label>
           <input
             type="text"
@@ -165,11 +178,11 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
-          {errors.country && (
-            <p className={styles["errorMessage"]}>{errors.country}</p>
-          )}
+             {errors.country && (
+              <p className={styles.errorMessage}>{errors.country}</p>
+            )}
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={styles.formGroup}>
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -179,11 +192,11 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
-          {errors.email && (
-            <p className={styles["errorMessage"]}>{errors.email}</p>
-          )}
+             {errors.email && (
+              <p className={styles.errorMessage}>{errors.email}</p>
+            )}
         </div>
-        <div className={styles["formGroup"]}>
+        <div className={styles.formGroup}>
           <label htmlFor="phone">Phone</label>
           <input
             type="tel"
@@ -193,18 +206,12 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
             onChange={handleChange}
             required
           />
-          {errors.phone && (
-            <p className={styles["errorMessage"]}>{errors.phone}</p>
-          )}
+             {errors.phone && (
+              <p className={styles.errorMessage}>{errors.phone}</p>
+            )}
         </div>
-        <ShippingOptions onShippingOptionChange={handleOptionChange} />
-        <button
-          className={styles["button"]}
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Proceed to Payment
-        </button>
+          <ShippingOptions />
+        <button className={styles.button} type="submit" onClick={handleSubmit}>Proceed to Payment</button>
       </form>
     </div>
   );

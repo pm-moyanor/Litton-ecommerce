@@ -1,9 +1,10 @@
 .shopping-banner {
   display: flex;
-margin-left: 200px;
+/* margin-left: 200px; */
   flex-direction: column;
   justify-content: center;
-  padding: 100px 0px 150px 0px ;
+  padding: 100px 0px 150px 200px ;
+  background-color: white;
 
 
 }
