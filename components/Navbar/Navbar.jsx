@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { AiOutlineShopping } from "react-icons/ai";
@@ -10,13 +11,21 @@ import CategorySubmenu from "../CategorieSubmenu/CategorySubmenu";
 
 export default function Navbar({ currentPage }) {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter(); // Initialize useRouter
 
   const { cartState } = useCart();
   const isLayoutPage = currentPage === "layout";
 
+
+
   // How many items in cart
   const countItems = (list) => {
     return list.reduce((totalCount, item) => totalCount + item.quantity, 0);
+  };
+
+  const handleShopClick = () => {
+    // Redirect to the shop page when SHOP is clicked
+    router.push("/shop");
   };
 
   return (
@@ -47,30 +56,26 @@ export default function Navbar({ currentPage }) {
             </li>
 
             {/* SHOP LINK */}
-            <li
-              onMouseEnter={() => {
-                if (isLayoutPage) setIsHovered(true);
-              }}
-              onMouseLeave={() => {
-                if (isLayoutPage) setIsHovered(false);
-              }}
-              className={`${styles["navLinkItem"]} ${styles["shopLink"]} ${
-                isHovered && isLayoutPage ? styles["open"] : ""
-              } `}
-            >
-              <Link
-                href="/shop"
-                style={{ color: "black", textDecoration: "none" }}
-              >
-                SHOP
-              </Link>
-              {isHovered && (
-                <CategorySubmenu
-                  isShopPage={currentPage === "shop"}
-                  isSubmenuHovered={isHovered}
-                />
-              )}
-            </li>
+             <li
+        onMouseEnter={() => {
+          if (isLayoutPage) setIsHovered(true);
+        }}
+        onMouseLeave={() => {
+          if (isLayoutPage) setIsHovered(false);
+        }}
+        onClick={handleShopClick}
+        className={`${styles["navLinkItem"]} ${styles["shopLink"]} ${
+          isHovered && isLayoutPage ? styles["open"] : ""
+        } `}
+      >
+        SHOP
+        {isHovered && (
+          <CategorySubmenu
+            isShopPage={currentPage === "shop"}
+            isSubmenuHovered={isHovered}
+          />
+        )}
+      </li>
 
             <li className={styles["navLinkItem"]}>
               <Link

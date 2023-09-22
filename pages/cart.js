@@ -4,7 +4,6 @@ import products from "./data";
 import styles from "../styles/Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "../components/Navbar/Navbar";
-import Card from "../components/Card/Card";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer/Footer";
 import PaymentForm from "../components/PaymentForm/PaymentForm";
@@ -322,7 +321,7 @@ export default function Cart() {
                     }`}
                   >
                     <h2>1/3 Shipping</h2>
-                    {currentStep === }
+                    {currentStep === ""}
                     <div
                       onClick={() => setCurrentStep("shipping")}
                       className={styles["edit-link-wrapper"]}
