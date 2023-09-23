@@ -2,11 +2,15 @@
   margin: 10px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   padding-top:50px;
 
 
 }
+
+
 .banner{
   width: 100%;
   height: auto;
@@ -86,4 +90,45 @@ margin-bottom: 50px;
   text-decoration: none;
   text-align: right;
 
+}
+
+.navButton{
+  width: 150px;
+  border: 1px solid black;
+  background-color: transparent;
+  height: 50px;
+  text-align: center;
+  font-family: "Mulish",sans-serif;
+}
+
+.loadMoreBtn{
+
+}
+
+.backToTop{
+  position: absolute;
+  border: 1px solid black;
+  background-color: transparent;
+  height: 50px;
+  text-align: center;
+  font-family: "Mulish",sans-serif;
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+
+ 
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.backToTop:hover {
+  background-color: #515151;
+  color: white;
 }

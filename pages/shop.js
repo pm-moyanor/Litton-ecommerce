@@ -5,7 +5,7 @@ import products from "./data";
 import styles from "../styles/Shop.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSort } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faSort } from "@fortawesome/free-solid-svg-icons";
 import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
 import CategorySubmenu from "../components/CategorieSubmenu/CategorySubmenu";
@@ -16,6 +16,10 @@ export default function Shop() {
   const [shuffledProducts, setShuffledProducts] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [displayedProducts, setDisplayedProducts] = useState(3); // Number of products to display initially
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false); // To control the visibility of the "Back to Top" button
+
 
   const router = useRouter();
   const queryCategory = router.query.category;
@@ -25,6 +29,24 @@ export default function Shop() {
       setSelectedCategory(queryCategory);
     }
   }, [queryCategory]);
+
+  useEffect(() => {
+    // Add an event listener to check the scroll position and show/hide the "Back to Top" button
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -50,6 +72,7 @@ export default function Shop() {
   useEffect(() => {
     // Initially set shuffledProducts to filteredProducts
     setShuffledProducts(filteredProducts);
+    setTotalProducts(filteredProducts.length);
   }, [filteredProducts]);
 
   const sortProductsByPriceHighToLow = () => {
@@ -69,6 +92,18 @@ export default function Shop() {
     setSortCriteria("recommended");
     setShuffledProducts(sorted);
   };
+  const loadMoreProducts = () => {
+ 
+    setDisplayedProducts(displayedProducts + 3);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling animation
+    });
+  };
+  const visibleProducts = shuffledProducts.slice(0, displayedProducts);
 
   return (
     <>
@@ -106,7 +141,7 @@ export default function Shop() {
 
       <div className={styles["container"]}>
         <ul>
-          {shuffledProducts.map((product) => (
+          {visibleProducts.map((product) => (
             <li key={product.id} className={styles["card-container"]}>
               <Card
                 product={product}
@@ -116,6 +151,18 @@ export default function Shop() {
             </li>
           ))}
         </ul>
+        {displayedProducts < totalProducts ? (
+          <button className={styles[`${"navButton"}`]} onClick={loadMoreProducts}>Load More</button>
+        ) : (
+          <button className={styles[`${"navButton"}`]} onClick={scrollToTop}>Back to top</button>
+        )
+      }
+
+{showBackToTop && (
+          <button className={styles["backToTop"]} onClick={scrollToTop}>
+            <FontAwesomeIcon icon={faArrowUp} style={{padding: "0px 10px"}}/>
+          </button>
+        )}
       </div>
       <Footer />
     </>
