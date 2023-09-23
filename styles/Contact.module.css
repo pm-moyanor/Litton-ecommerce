@@ -2,18 +2,16 @@
   margin: 0 auto; /* Center horizontally by setting left and right margins to auto */
   padding: 80px;
   display: flex;
-background-color: #dcdcdc;
+  background-color: #dcdcdc;
   justify-content: center;
-
-
 }
 
-.banner{
-    background-color: #dcdcdc;
+.banner {
+  background-color: #dcdcdc;
 }
 
-.banner img{
-    width: 100%;
+.banner img {
+  width: 120%;
 }
 .infoContainer {
   margin-right: 60px;
@@ -42,7 +40,7 @@ background-color: #dcdcdc;
 .contactForm h2 {
   font-size: 7rem;
   letter-spacing: -2px;
-  margin: 30px 0px 
+  margin: 30px 0px;
 }
 
 .formContainer {
@@ -57,8 +55,8 @@ background-color: #dcdcdc;
   padding: 20px;
 }
 
-.formContainer p{
-    margin-bottom: 60px;
+.formContainer p {
+  margin-bottom: 60px;
 }
 .contactForm label {
   width: 100%;
@@ -67,7 +65,7 @@ background-color: #dcdcdc;
 
 .contactForm input,
 .contactForm textarea {
-    background-color: #dcdcdc;
+  background-color: #dcdcdc;
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;

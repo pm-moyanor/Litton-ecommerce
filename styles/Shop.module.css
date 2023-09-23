@@ -101,8 +101,9 @@ margin-bottom: 50px;
   font-family: "Mulish",sans-serif;
 }
 
-.loadMoreBtn{
-
+.navButton:hover{
+  background-color: #515151;
+  color: white;
 }
 
 .backToTop{
@@ -116,11 +117,11 @@ margin-bottom: 50px;
 
 .backToTop {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
 
 
- 
+  
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
@@ -132,3 +133,23 @@ margin-bottom: 50px;
   background-color: #515151;
   color: white;
 }
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 

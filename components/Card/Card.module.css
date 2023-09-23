@@ -133,10 +133,30 @@
 
 .colorOptionsContainer > div {
   width: 27px;
+  position: relative;
   height: 27px;
   margin: 5px;
   border-radius: 50%;
   list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.color {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  padding: 1px;
+  border-radius: 50%;
+  border-inline: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 2px solid rgb(24, 24, 24);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .descriptionContainer {
@@ -163,4 +183,36 @@
   background: #e01e3c;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+}
+
+.popUpWrapper {
+  position: relative;
+}
+.popUpWrapper P {
+  background-color: transparent;
+  font-family: "Mulish", sans-serif;
+  color: #161616;
+  font-size: 16px;
+  position: absolute;
+  top: 20px;
+}
+.loader {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #fff;
+  margin-top: 2px;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

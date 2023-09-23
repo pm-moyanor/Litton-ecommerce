@@ -5,6 +5,9 @@ import { useCart } from "../../CartContext";
 export default function Card({ product, inShop }) {
   const { dispatch } = useCart();
   const [inShopState, setInShopState] = useState(inShop);
+  const [showPopup, setShowPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedColor, setSelectedColor] = useState("");
 
   const { title, price, description, image, colors, id, inStock } = product;
 
@@ -12,6 +15,9 @@ export default function Card({ product, inShop }) {
 
   const handleAddToCart = () => {
     dispatch({ type: "ADD_TO_CART", payload: product });
+
+    setIsLoading(!isLoading);
+    setShowPopup(!showPopup);
   };
 
   return (
@@ -30,10 +36,21 @@ export default function Card({ product, inShop }) {
               {colors.map(
                 (color) =>
                   color.inStock && (
-                    <div
-                      style={{ backgroundColor: color.hex }}
-                      key={id + color.hex}
-                    ></div>
+                    <>
+                      <div
+                        style={{ backgroundColor: color.hex }}
+                        key={id + color.hex}
+                        onClick={() => {
+                          setSelectedColor(color.name);
+                        }}
+                      >
+                        <div
+                          className={`${
+                            selectedColor === color.name ? styles["color"] : ""
+                          }`}
+                        ></div>
+                      </div>
+                    </>
                   )
               )}
             </div>
@@ -49,7 +66,16 @@ export default function Card({ product, inShop }) {
               ))}
             </ul>
             <button className={styles["button"]} onClick={handleAddToCart}>
-              Add to Cart
+              {isLoading ? (
+                <span className={styles["loader"]}></span>
+              ) : (
+                <p>Add to cart</p>
+              )}
+              {showPopup && (
+                <div className={styles["popUpWrapper"]}>
+                  <p>added to cart</p>
+                </div>
+              )}
             </button>
           </div>
         </>

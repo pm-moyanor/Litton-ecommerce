@@ -12,12 +12,13 @@ import {
 export default function Footer() {
   return (
     <div className={styles["footer-container"]}>
-      <p>©2023 Litton Headphones | All rights reserved</p>
-      <div className="footer-icons">
+      <p>©2023 Litton Headphones |  All rights reserved   </p>
+      <div className={styles["footer-icons"]}>
         <a
           href="https://www.instagram.com/official_instagram_account/"
           target="_blank"
           rel="noopener noreferrer"
+        
         >
           <AiFillInstagram />
         </a>
