@@ -200,7 +200,12 @@ export default function Cart() {
               <div className={styles["item-info"]}>
                 <div className={styles["item-description"]}>
                   <h3>{item.title}</h3>
-                  <p>Color: {item.color}</p>
+                  <div className={styles["selected-color-wrapper"]}>
+                    <div
+                      style={{ backgroundColor: item.selectedColor.hex }}
+                    ></div>
+                    <p>{item.selectedColor.name}</p>
+                  </div>
                 </div>
 
                 {isCheckout ? (

@@ -7,7 +7,7 @@ export default function Card({ product, inShop }) {
   const [inShopState, setInShopState] = useState(inShop);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedColor, setSelectedColor] = useState({});
 
   const { title, price, description, image, colors, id, inStock } = product;
 
@@ -24,7 +24,7 @@ export default function Card({ product, inShop }) {
 
     try {
 
-      await dispatch({ type: "ADD_TO_CART", payload: {...product,color:selectedColor}});
+      await dispatch({ type: "ADD_TO_CART", payload: {...product,selectedColor}});
       setTimeout(() => {
         setIsLoading(false);
         setShowPopup(true);
@@ -60,12 +60,12 @@ export default function Card({ product, inShop }) {
                         style={{ backgroundColor: color.hex }}
                         key={id + color.hex}
                         onClick={() => {
-                          setSelectedColor(color.name);
+                          setSelectedColor({name:color.name,hex:color.hex});
                         }}
                       >
                         <div
                           className={`${
-                            selectedColor === color.name ? styles["color"] : ""
+                            selectedColor.name === color.name ? styles["color"] : ""
                           }`}
                         ></div>
                       </div>
