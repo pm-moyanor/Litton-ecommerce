@@ -184,17 +184,17 @@
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
-
+/* add drop to container when popup displayed */
 .popUpWrapper {
   position: relative;
 }
-.popUpWrapper P {
+.popUpWrapper p {
   background-color: transparent;
   font-family: "Mulish", sans-serif;
   color: #161616;
   font-size: 16px;
   position: absolute;
-  top: 20px;
+  top: 30px;
 }
 .loader {
   width: 28px;

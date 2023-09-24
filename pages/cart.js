@@ -200,7 +200,7 @@ export default function Cart() {
               <div className={styles["item-info"]}>
                 <div className={styles["item-description"]}>
                   <h3>{item.title}</h3>
-                  {isCheckout || <p>Color: {item.color}</p>}
+                  <p>Color: {item.color}</p>
                 </div>
 
                 {isCheckout ? (

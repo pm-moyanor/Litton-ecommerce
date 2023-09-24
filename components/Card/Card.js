@@ -13,11 +13,30 @@ export default function Card({ product, inShop }) {
 
   const descriptionLines = description.split("\n");
 
-  const handleAddToCart = () => {
-    dispatch({ type: "ADD_TO_CART", payload: product });
+  const handleAddToCart = async () => {
 
-    setIsLoading(!isLoading);
-    setShowPopup(!showPopup);
+    if (!selectedColor) {
+      console.log("please select a color")
+      return;
+    }
+  
+    setIsLoading(true);
+
+    try {
+
+      await dispatch({ type: "ADD_TO_CART", payload: {...product,color:selectedColor}});
+      setTimeout(() => {
+        setIsLoading(false);
+        setShowPopup(true);
+      }, 2000);
+
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 4000);
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+
   };
 
   return (
@@ -57,6 +76,7 @@ export default function Card({ product, inShop }) {
           </div>
           <div className={styles["productInfo"]}>
             <h4>{title}</h4>
+          
             <h5 className={styles["productPrice"]}>{`$${price}`}</h5>
             <ul className={styles["descriptionContainer"]}>
               {descriptionLines.map((line, index) => (
@@ -69,12 +89,14 @@ export default function Card({ product, inShop }) {
               {isLoading ? (
                 <span className={styles["loader"]}></span>
               ) : (
-                <p>Add to cart</p>
-              )}
-              {showPopup && (
-                <div className={styles["popUpWrapper"]}>
-                  <p>added to cart</p>
-                </div>
+                <>
+                  <p>Add to cart</p>
+                  {showPopup && (
+                    <div className={styles["popUpWrapper"]}>
+                      <p>added to cart</p>
+                    </div>
+                  )}
+                </>
               )}
             </button>
           </div>
