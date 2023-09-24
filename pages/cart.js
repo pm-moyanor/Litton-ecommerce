@@ -86,8 +86,10 @@ export default function Cart() {
       dispatch({ type: "DECREASE_QUANTITY", payload: item.id });
     }
   };
-
+ 
   const handleIncrease = (item) => {
+
+console.log(item)
     dispatch({ type: "INCREASE_QUANTITY", payload: item.id });
   };
 
@@ -210,16 +212,18 @@ export default function Cart() {
 
                 {isCheckout ? (
                   <div className={styles["price-quantity-container"]}>
+            
                     <h4>${item.price}</h4>
                   </div>
                 ) : (
+                  
                   <div className={styles["price-quantity-container"]}>
                     <div className={styles["quantity-container"]}>
                       <button onClick={() => handleDecrease(item)}>-</button>
                       <p style={{ fontWeight: "bold" }}>{item.quantity}</p>
                       <button onClick={() => handleIncrease(item)}>+</button>
                     </div>
-                    <h4>${item.price}</h4>
+                    <h4>${item.price * item.quantity}</h4>
                   </div>
                 )}
               </div>
