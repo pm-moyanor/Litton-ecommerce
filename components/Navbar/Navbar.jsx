@@ -28,6 +28,8 @@ export default function Navbar({ currentPage }) {
     router.push("/shop");
   };
 
+
+
   return (
     <>
       <div
@@ -39,7 +41,7 @@ export default function Navbar({ currentPage }) {
           <Image
             src="./litton-3.svg"
             alt="Picture of the author"
-            width={80}
+            width={100}
             height={80}
           />
         </div>

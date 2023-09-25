@@ -8,12 +8,24 @@ import styles from "./CardGallery.module.css";
 const settings = {
   dots: true,
   infinite: false,
-
   speed: 500,
-  slidesToShow: 3, // Number of items to show at once (adjust as needed)
+  slidesToShow: 3, // Number of items to show by default
   slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 768, 
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
 };
-
 
 
 const CardGallery = ({ cards }) => {
@@ -22,13 +34,13 @@ const CardGallery = ({ cards }) => {
       <div className={styles["title-container"]}>
         <h2>Find your sound</h2>
       </div>
-      <div>
+     
         <Slider {...settings} className={styles["slider"]}>
-          {cards.slice(1, 6).map((card) => (
+          {cards.slice(4, 10).map((card) => (
             <Card key={card.id} product={card} />
           ))}
         </Slider>
-      </div>
+     
     </div>
   );
 };

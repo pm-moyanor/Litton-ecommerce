@@ -9,6 +9,11 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 100px;
+
+  @media screen and (max-width: 768px) {
+    padding-left: 2rem; /* Adjusted padding for smaller screens */
+  }
+
 }
 
 .banner * {
@@ -16,10 +21,19 @@
 }
 
 .banner p {
-  font-size: 26px;
+  font-size: 1.4rem;
   margin-left: 10px;
   font-weight: 600;
   color: #747474;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.25rem; /* Adjusted font size for smaller screens */
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.0rem;
+  }
+
 }
 .banner h3 {
   font-size: 7rem;
@@ -27,28 +41,62 @@
   margin-top: 4px;
   margin-bottom: -20px;
   letter-spacing: -4px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 4rem; /* Adjusted font size for smaller screens */
+    letter-spacing: -0.125rem; /* Adjusted letter spacing for smaller screens */
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 3.0rem;
+    margin-bottom: 0px;
+  }
 }
 
 .banner h1 {
   color: white;
-  font-size: 19em;
+  font-size: 19rem;
   margin-left: -20px;
   text-transform: uppercase;
   letter-spacing: -12px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 12rem; /* Adjusted font size for smaller screens */
+    letter-spacing: -0.375rem; /* Adjusted letter spacing for smaller screens */
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 8rem;
+    margin-left: -5px;
+  }
 }
 
 .button {
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 2px;
   width: 240px;
   height: 40px;
   border: none;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 18px;
   background: #e01e3c;
-  padding: 10px 20px 10px 20px;
+
   text-decoration: none;
   font-family: "Oswald",sans-serif;
+
+  @media screen and (max-width: 768px) {
+  width:200px ;
+   
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+    width: 140px;
+    height: 20px;
+  }
 }
 
 .descriptionContainer {
@@ -56,6 +104,10 @@
   position: absolute;
   right: 50px;
   top: 250px;
+
+  @media screen and (max-width: 768px) {
+    display: none; /* Hide the description on smaller screens */
+  }
 }
 
 .desc {
@@ -73,6 +125,10 @@
   font-weight: 100;
   text-align: end;
   font-size: 16px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.875rem; /* Adjusted font size for smaller screens */
+  }
 }
 .desc h5 {
   margin-bottom: 12px;
@@ -88,4 +144,9 @@
   top: 0px;
   height: 100%;
   right: 18%;
+
+  @media screen and (max-width: 768px) {
+    display: none; /* Hide the image on smaller screens */
+  }
 }
+

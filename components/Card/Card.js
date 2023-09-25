@@ -14,17 +14,18 @@ export default function Card({ product, inShop }) {
   const descriptionLines = description.split("\n");
 
   const handleAddToCart = async () => {
-
     if (!selectedColor) {
-      console.log("please select a color")
+      console.log("please select a color");
       return;
     }
-  
+
     setIsLoading(true);
 
     try {
-
-      await dispatch({ type: "ADD_TO_CART", payload: {...product,selectedColor}});
+      await dispatch({
+        type: "ADD_TO_CART",
+        payload: { ...product, selectedColor },
+      });
       setTimeout(() => {
         setIsLoading(false);
         setShowPopup(true);
@@ -36,7 +37,6 @@ export default function Card({ product, inShop }) {
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
-
   };
 
   return (
@@ -57,15 +57,23 @@ export default function Card({ product, inShop }) {
                   color.inStock && (
                     <>
                       <div
-                        style={{ backgroundColor: color.hex }}
+                        style={{
+                          backgroundColor: color.hex,
+                      
+                        }}
                         key={id + color.hex}
                         onClick={() => {
-                          setSelectedColor({name:color.name,hex:color.hex});
+                          setSelectedColor({
+                            name: color.name,
+                            hex: color.hex,
+                          });
                         }}
                       >
                         <div
                           className={`${
-                            selectedColor.name === color.name ? styles["color"] : ""
+                            selectedColor.name === color.name
+                              ? styles["color"]
+                              : ""
                           }`}
                         ></div>
                       </div>
@@ -76,7 +84,7 @@ export default function Card({ product, inShop }) {
           </div>
           <div className={styles["productInfo"]}>
             <h4>{title}</h4>
-          
+
             <h5 className={styles["productPrice"]}>{`$${price}`}</h5>
             <ul className={styles["descriptionContainer"]}>
               {descriptionLines.map((line, index) => (
@@ -116,9 +124,14 @@ export default function Card({ product, inShop }) {
               (color) =>
                 color.inStock && (
                   <div
-                    style={{ backgroundColor: color.hex }}
+                    style={{
+                      backgroundColor: color.hex,
+                  
+                    }}
                     key={id + color.hex}
-                  ></div>
+                  >
+                    {console.log(color.name)}
+                  </div>
                 )
             )}
           </div>
