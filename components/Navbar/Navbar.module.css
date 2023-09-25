@@ -21,15 +21,18 @@
   height: 80px;
 }
 
-/* Larger logo size for larger screens */
 @media (max-width: 768px) {
   .logoWrapper {
     padding: 30px 5px;
   }
   .logoWrapper img {
-    width: 60px; /* Adjust the width for larger screens */
-    height: 60px; /* Adjust the height for larger screens */
+    width: 60px;
+    height: 60px;
   }
+}
+
+.smallscreen {
+  display: none;
 }
 .navLinks {
   display: flex;
@@ -44,6 +47,38 @@
   margin-left: -50px;
 
   text-decoration: none;
+  border: 1px solid green;
+}
+
+.nav .open {
+  display: none;
+}
+.nav {
+  display: flex;
+  align-items: center;
+}
+.mobileMenu {
+  list-style: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  margin-top: 0;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  z-index: 5;
+  padding: 45px 48px;
+}
+
+.mobileMenu li {
+  padding-top: 40px;
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 
 .navLinkItem {
@@ -66,8 +101,16 @@
   padding-right: 10px;
   align-items: center;
 }
+
+.cartIcon.open {
+  display: none;
+}
 .cartIcon .shoppingIcon {
   font-size: 24px;
+}
+
+.hamburguer {
+  padding: 30px;
 }
 
 .cartIcon p {

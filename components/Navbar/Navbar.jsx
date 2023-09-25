@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { AiOutlineShopping } from "react-icons/ai";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faBars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../../CartContext";
 import CategorySubmenu from "../CategorieSubmenu/CategorySubmenu";
 
 export default function Navbar({ currentPage }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const router = useRouter(); // Initialize useRouter
 
   const { cartState } = useCart();
   const isLayoutPage = currentPage === "layout";
-
-
 
   // How many items in cart
   const countItems = (list) => {
@@ -28,7 +32,60 @@ export default function Navbar({ currentPage }) {
     router.push("/shop");
   };
 
+  // Function to handle window resize
+  const handleWindowResize = () => {
+    if (window.innerWidth < 768) {
+      setIsMenuOpen(true);
+    } else {
+      setIsMenuOpen(false);
+    }
+  };
 
+  const renderMobileMenu = () => {
+    return (
+      <ul className={styles["mobileMenu"]}>
+        <FontAwesomeIcon
+          icon={faXmark}
+          size="2xl"
+          className={styles["x-mark"]}
+        />
+        <li className={styles["navLinkItem"]}>
+          <Link
+            href="/layout"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            DISCOVER
+          </Link>
+        </li>
+        <li className={styles["navLinkItem"]}>
+          <Link
+            href="/layout"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            SHOP
+          </Link>
+        </li>
+        <li className={styles["navLinkItem"]}>
+          <Link
+            href="/layout"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            CONTACT
+          </Link>
+        </li>
+      </ul>
+    );
+  };
+
+  // Add an event listener to handle window resize
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   return (
     <>
@@ -46,8 +103,27 @@ export default function Navbar({ currentPage }) {
           />
         </div>
 
-        <div className={styles["nav"]}>
-          <ul className={styles["navLinks"]}>
+        <div className={`${styles["nav"]} `}>
+          {isMenuOpen ? (
+            <div
+              onClick={() => setToggleMenu(!toggleMenu)}
+              className={`${styles["nav"]} ${toggleMenu ? "open" : ""}`}
+            >
+              <FontAwesomeIcon
+                icon={faBars}
+                size="xl"
+                className={styles["hamburguer"]}
+              />
+              {toggleMenu && renderMobileMenu()}
+            </div>
+          ) : null}
+          <ul
+            className={`${styles["navLinks"]} ${
+              isMenuOpen ? styles["open"] : ""
+            }
+          
+              `}
+          >
             <li className={styles["navLinkItem"]}>
               <Link
                 href="/layout"
@@ -58,26 +134,26 @@ export default function Navbar({ currentPage }) {
             </li>
 
             {/* SHOP LINK */}
-             <li
-        onMouseEnter={() => {
-          if (isLayoutPage) setIsHovered(true);
-        }}
-        onMouseLeave={() => {
-          if (isLayoutPage) setIsHovered(false);
-        }}
-        onClick={handleShopClick}
-        className={`${styles["navLinkItem"]} ${styles["shopLink"]} ${
-          isHovered && isLayoutPage ? styles["open"] : ""
-        } `}
-      >
-        SHOP
-        {isHovered && (
-          <CategorySubmenu
-            isShopPage={currentPage === "shop"}
-            isSubmenuHovered={isHovered}
-          />
-        )}
-      </li>
+            <li
+              onMouseEnter={() => {
+                if (isLayoutPage) setIsHovered(true);
+              }}
+              onMouseLeave={() => {
+                if (isLayoutPage) setIsHovered(false);
+              }}
+              onClick={handleShopClick}
+              className={`${styles["navLinkItem"]} ${styles["shopLink"]} ${
+                isHovered && isLayoutPage ? styles["open"] : ""
+              } `}
+            >
+              SHOP
+              {isHovered && (
+                <CategorySubmenu
+                  isShopPage={currentPage === "shop"}
+                  isSubmenuHovered={isHovered}
+                />
+              )}
+            </li>
 
             <li className={styles["navLinkItem"]}>
               <Link
@@ -90,7 +166,11 @@ export default function Navbar({ currentPage }) {
           </ul>
         </div>
 
-        <div className={styles["cartIcon"]}>
+        <div
+          className={`${styles["cartIcon"]} ${
+            isMenuOpen ? styles["open"] : ""
+          }`}
+        >
           <Link href="/cart">
             <AiOutlineShopping className={styles["shoppingIcon"]} />
           </Link>
@@ -102,7 +182,9 @@ export default function Navbar({ currentPage }) {
         </div>
       </div>
 
-      <div className={`${styles["freeDeliveryContainer"]} ${styles["blackRibbon"]}`}>
+      <div
+        className={`${styles["freeDeliveryContainer"]} ${styles["blackRibbon"]}`}
+      >
         <Link href="/pickup" className={styles["freeDeliveryLink"]}>
           FAST AND FREE DELIVERY
         </Link>
