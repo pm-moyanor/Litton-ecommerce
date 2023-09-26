@@ -1,61 +1,74 @@
 /* FooterHero.module.css */
 .footer-hero {
-  height: 120vh;
+  height: 100vh;
 
-}
-
-.image {
-  width: 30%;
-  height: auto;
-  object-fit: fill;
-}
-
-.text {
-  z-index: 2;
-}
-
-.quoteBanner {
-  background-color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: row-reverse;
-
-}
-.quoteBanner .image{
-margin-right: 250px;
+  position: relative;
+  overflow: hidden;
 }
 
-.text > h1 {
-  font-size: calc(9vw + 12px);
-  font-weight: 900;
-  line-height: 95%;
-  letter-spacing: -8px;
-  text-align: left;
-  margin-left: 0;
- padding: 0;
-}
-
-.quoteBanner .text{
-  margin-left: 250px;
-}
-
-.quoteBanner .text > h1 {
-  font-size: 3.6rem;
-  font-family: "Oswald", sans-serif;
-  letter-spacing: -0.6px;
-  line-height: 105%;
-  font-weight: 700;
-  width: 90%;
-  
+.footer-hero div {
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: -50px;
 }
 
 .text > p {
   font-size: 22px;
   font-weight: 500;
-  margin: 40px 0px 0px 10px;
-  width: 50%;
+  width: 60%;
+}
 
+.footer-hero .quoteBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.text > h1 {
+  font-size: calc(9vw + 12px);
+  font-weight: 900;
+  line-height: 110%;
+  letter-spacing: -8px;
+  text-align: left;
+  margin: 0px 0px 30px 0px ;
+  padding: 0;
+}
+.quoteBanner .image {
+
+}
+
+.quoteBanner .text {
+  margin-left: 10px;
+width: 40%;
+  justify-content: center;
+}
+
+.quoteBanner .text h1 {
+  font-size: 2.8rem;
+  letter-spacing: -0.5px;
+  
+  font-family: "Oswald", sans-serif;
+}
+
+.imageInLeft .text {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+.imageInLeft .image {
+  
+  overflow: "hidden";
+}
+
+.imageInLeft .image img {
+  width: 100%;
 }
 
 .quoteBanner .text > p {
@@ -64,26 +77,143 @@ margin-right: 250px;
   font-weight: 400;
   font-style: italic;
   margin: 0;
-
-
+}
+.imageInLeft img {
+  width: 100%;
+  height: 80%;
+  object-fit: fill;
 }
 
-
-
-.videoHero video {
+.imageInBackground {
+  height: 100vh;
+}
+.imageInBackground .text {
+  color: black;
   position: absolute;
-  width: 100%;
+  width: 45%;
+  left: 80px;
+  top: 8%;
+}
+.imageInBackground img {
+  object-fit: cover;
+
+  width: 130%;
+  height: 120%;
+  margin-top: -150px;
+}
+.imageInBackground .text {
+  color: black;
+  position: absolute;
+  width: 45%;
+  left: 80px;
+  top: 8%;
+}
+
+.video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 
-.videoHero .overlay {
-  width: 100%;
-  height: 100%;
+.videoHero .text {
+  width: 70%;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  color: rgba(0, 0, 0, 0.347);
+  top: 30%;
+  left: 5%;
+
+  z-index: 3;
+  color: white;
+}
+
+
+
+.footer-hero .overlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.372);
+
+  margin: 0;
+}
+
+/* Responsive Features */
+@media screen and (max-width: 1024px) {
+  .quoteBanner .image {
+    margin-right: 100px; /* Adjust margin for medium screens */
+    width: 20%; /* Adjusted width for medium screens */
+  }
+
+  .quoteBanner .text {
+    margin-left: 100px; /* Adjust margin for medium screens */
+    width: 80%; /* Adjusted width for medium screens */
+    text-align: left; /* Left-align text for medium screens */
+  }
+
+  .text > h1 {
+    font-size: 3.2rem; /* Adjusted font size for medium screens */
+    width: 100%;
+    letter-spacing: -0.6px;
+    text-align: center; /* Center-align for medium screens */
+    margin-left: 0;
+  }
+
+  .text > p {
+    width: 70%; /* Adjusted width for medium screens */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .quoteBanner .image,
+  .quoteBanner .text {
+    margin-right: 0; /* Remove margin for small screens */
+    margin-left: 0; /* Remove margin for small screens */
+    width: 100%; /* Full width for small screens */
+  }
+
+  .text > h1 {
+    font-size: 4.5rem; /* Adjusted font size for small screens */
+    width: 100%;
+    text-align: center; /* Center-align for small screens */
+    margin: 0;
+  }
+
+  .text > p {
+    font-size: 1.4rem; /* Adjusted font size for small screens */
+    width: 100%;
+    text-align: center; /* Center-align for small screens */
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .quoteBanner {
+    flex-direction: column-reverse; /* Stack elements vertically for small screens */
+    align-items: center; /* Center-align elements vertically for small screens */
+  }
+
+  .quoteBanner .image {
+    margin-right: 0; /* Remove margin for small screens */
+    width: 100%; /* Full width for small screens */
+  }
+
+  .quoteBanner .text {
+    margin-left: 0; /* Remove margin for small screens */
+    text-align: center; /* Center-align text for small screens */
+    width: 100%; /* Full width for small screens */
+  }
+
+  .text > h1 {
+    font-size: 3.2rem; /* Adjusted font size for small screens */
+  }
+
+  .text > p {
+    font-size: 1.2rem; /* Adjusted font size for small screens */
+  }
 }
 
 .fadeIn {

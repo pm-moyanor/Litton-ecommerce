@@ -20,47 +20,24 @@ export default function Layout() {
         <CardGallery cards={products} />
 
         <FooterHero
-          id={2}
+          id={1}
           alt="woman-dancing"
-          title="Put rhythm in motion"
-          caption="        Wherever you go, the
-          SoundLink Flex is the perfect musical sidekick for both days out and
-          nights in."
-          color={`${styles.overlay} ${styles.fadeIn}`}
+          title="Put your rhythm in motion"
+          caption="Wherever you go, the SoundLink Flex is the perfect musical sidekick for both days out and nights in"
           image={`url("videos/production_id_4594932.mp4")`}
-          customStyle={{
-            video: { border: "10px solid red" },
-            text: {
-              color: "white",
-              position: "absolute",
-              width: "60%",
-              left: "80px",
-              top: "20%",
-            },
-          }}
         />
 
         <SeamlessShoppingBanner />
 
         <FooterHero
-          id={4}
+          id={2}
           alt="dual-channel-headphones"
           title="Sound shaped just for you"
           caption="Made for every ear type, Lotus Comfort headphones use CustomTune technology to personalize your listening experience with a perfect fit and balanced sound."
           image="./images/headphones_a_3.webp"
-          customStyle={{
-            image: { width: "50%", padding: "100px 50px 0%" },
-            text: {
-              color: "black",
-              position: "absolute",
-              width: "50%",
-              right: "70px",
-              top: "10%",
-            },
-          }}
         />
         <FooterHero
-          id={1}
+          id={3}
           alt="quote-earphones"
           title="“Best Sounding Earbuds: Lotus SilentComfort Ultra Earbuds”"
           caption="- Power life magazine"
@@ -68,28 +45,11 @@ export default function Layout() {
         />
 
         <FooterHero
-          id={3}
+          id={4}
           alt="man-working"
           caption="Love at first listen. That’s the power of our next-gen xtri-Gen headphones, with a best-in-class combination of noise cancelling performance and premium comfort."
           title="Create your best work"
           image="./images/good-faces-yWTUg04EZU8-unsplash.jpg"
-          bgColor="#d6dee1"
-          color="white"
-          customStyle={{
-            image: {
-              width: "130%",
-              height: "auto",
-              position: "relative",
-              top: "-220px",
-            },
-            text: {
-              color: "black",
-              position: "absolute",
-              width: "45%",
-              left: "80px",
-              top: "8%",
-            },
-          }}
         />
 
         <Newsletter />

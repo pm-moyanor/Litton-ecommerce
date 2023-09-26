@@ -1,53 +1,44 @@
 import styles from "./FooterHero.module.css";
 
-const FooterHero = ({ id, alt, title, image, caption, color, customStyle }) => {
-  const containerStyle = {
-    position: "relative",
-    color: color,
-    overflow: "hidden",
-    height: "100vh",
-  };
-
+const FooterHero = ({ id, alt, title, image, caption }) => {
   return (
     <div
-      className={`${styles["footer-hero"]} ${
-        id === 1 ? styles["quoteBanner"] : ""
-      } `}
-      style={containerStyle}
+      className={`${styles["footer-hero"]} 
+  ${id === 2 ? styles["imageInLeft"] : ""} 
+  ${id === 3 ? styles["quoteBanner"] : ""}  
+  ${id === 4 ? styles["imageInBackground"] : ""}`}
     >
-      {id !== 2 ? (
+      {id === 1 ? (
         <>
-          <img
-            className={`${styles["image"]}  `}
-            src={image}
-            style={customStyle?.image}
-            alt={alt}
-          />
-          <div
-            className={`${styles["text"]} ${styles["fadeIn"]}`}
-            style={customStyle?.text}
-          >
-            <h1>{title}</h1>
-            <p>{caption}</p>
-          </div>
-        </>
+         
 
-        
+          <div className={`${styles["videoHero"]} `}>
+            <div className={`${styles["text"]} `}>
+              <h1>{title}</h1>
+              <p>{caption}</p>
+            </div>
+
+            <div className={styles["video"]}>
+              <video autoPlay loop muted>
+                <source
+                  src="videos/production_id_4594932.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div className={`${styles["overlay"]} `}> </div>
+        </>
       ) : (
         <>
-          <div
-            className={`${styles["text"]} ${styles["overlay"]} ${styles["fadeIn"]}`}
-            style={customStyle?.text}
-          >
-            <h1>{title}</h1>
-            <p>{caption}</p>
+          <div className={`${styles["image"]}  `}>
+            <img src={image} alt={alt} />
           </div>
 
-          <div className={`${styles["videoHero"]} ${styles["video"]}`}>
-            <video autoPlay loop muted>
-              <source src="videos/production_id_4594932.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className={`${styles["text"]} }`}>
+            <h1>{title}</h1>
+            <p>{caption}</p>
           </div>
         </>
       )}
