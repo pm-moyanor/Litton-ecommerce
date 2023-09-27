@@ -4,16 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
-  background-color: rgb(65, 64, 64);
+
+  background-color: rgb(34, 33, 33);
 }
 
 .footer-hero .image {
   display: flex;
   justify-content: center;
-  max-width: 50%;
+  max-width: 55%;
   margin-left: -200px;
-
 }
 
 .footer-hero .image img {
@@ -26,7 +25,7 @@
   /* width: 50%; */
   max-width: 600px;
   margin: -100px;
-  border: 1px solid red;
+
 }
 
 .text > h1 {
@@ -48,31 +47,29 @@
 /* Quote Banner Styles */
 .footer-hero.quoteBanner {
   display: flex;
-  background-color: antiquewhite;
+ 
   align-items: center;
   justify-content: center;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-
-
 }
 
-.quoteBanner .image{
-  max-width: 540px;
+.quoteBanner .image {
+  width: 40%;
+  max-width: 600px;
   margin: 0;
-
 }
 
 .quoteBanner .text {
-  margin-left: 10px;
-  flex:2;
+  margin-left: 50px;
+  flex: 2;
   width: 40%;
   max-width: 600px;
   justify-content: center;
 }
 
 .quoteBanner .text h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   letter-spacing: -0.5px;
   width: 100%;
   line-height: 105%;
@@ -95,11 +92,9 @@
   position: relative;
 }
 
-
-
 .imageInBackground .image {
   height: 100%;
-  width: 100%;
+  width: 120%;
   max-width: none;
 }
 
@@ -107,15 +102,15 @@
   object-fit: cover;
   width: 120%;
   height: 100%;
-
 }
 
 .imageInBackground .text {
   color: black;
   position: absolute;
-  width: 45%;
-  left: 10%;
+  width: 50%;
+  right: 200px;
   top: 20%;
+  margin-left: 100px;
 }
 
 /* Video Hero Styles */
@@ -131,7 +126,7 @@
   height: 100%;
 }
 
-.video video {
+.videoHero video {
   position: absolute;
   top: 0;
   left: 0;
@@ -142,28 +137,28 @@
 }
 
 .videoHero .text {
-
-  top: 30%;
-  left: 10%;
-  width: 50%;
+  top: 40%;
+  left: 12%;
+  width: 65%;
   position: absolute;
   z-index: 3;
- max-width: none;
+  max-width: none;
   color: rgb(255, 255, 255);
   justify-content: center;
 }
 
-.videoHero .text h1{
-padding: 0;
-margin: 0;
+.videoHero .text h1 {
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-
-
 /* Overlay Styles */
-.footer-hero .overlay {
-  width: 100vw;
-  height: 100vh;
+.videoHero .overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   z-index: 2;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.372);
@@ -173,49 +168,54 @@ margin: 0;
 /* Responsive Features */
 @media screen and (max-width: 1024px) {
   .footer-hero {
-    padding: 0px 20px 0px 0px;
     height: 70vh;
-    border: 1px solid wheat;
+
   }
 
   .footer-hero .image {
-    border: 1px solid red;
+    min-width: 400px;
+    margin: 0;
   }
 
   .text {
     margin-left: -40px;
+    margin-right: 50px;
   }
 
   .text > h1 {
-    font-size: 5.2rem;
-    width: 90%;
-    letter-spacing: -6px;
+    font-size: 4.8rem;
+    width: 100%;
+    letter-spacing: -3px;
     margin-left: 0;
+    padding: 0;
   }
 
   .text > p {
-    width: 70%;
+    width: 80%;
     font-size: 16px;
   }
 
   .footer-hero.quoteBanner {
     flex-wrap: nowrap;
-    height: 100vh;
-    border: 3px solid yellow;
   }
 
   .quoteBanner .image {
-    margin: 0px;
+    width: 45%;
+    max-width: 500px;
+    margin: 0;
   }
 
   .quoteBanner .text {
-    width: 50%;
-    margin: 0px;
+    width: 75%;
+    max-width: none;
+    margin-left: 50px;
+    margin-right: -30px;
     text-align: left;
   }
 
   .quoteBanner .text h1 {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
+    font-weight: 500;
     letter-spacing: -0.4px;
     line-height: 110%;
   }
@@ -226,16 +226,34 @@ margin: 0;
   }
 
   .footer-hero.imageInBackground {
-    height: 80vh;
+    height: 70vh;
     margin: 0;
+    width: 100%;
     padding: 0;
     position: relative;
   }
 
+  .imageInBackground .image {
+    width: 100%;
+   
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .imageInBackground .image img {
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+  }
   .imageInBackground .text {
     position: absolute;
-    top: 5%;
+    top: 8%;
     width: 60%;
+    left: 5%;
+    margin: 0;
   }
 
   .imageInBackground .text h1 {
@@ -244,54 +262,73 @@ margin: 0;
   }
 
   .imageInBackground .text p {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    max-width: 250px;
+    min-width: 250px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .footer-hero {
     flex-wrap: wrap;
-    align-items: stretch;
-    border: 1px solid red;
+    height: 70%;
+
     margin: 0;
+
+    padding: 50px 0px;
+  }
+
+  .footer-hero:nth-child(3){
     padding: 0;
   }
-
-  .footer-hero .image {
-    max-width: none;
-    margin-top: 30px;
-  }
-
   .text {
     margin: 0px;
+    width: 500px;
 
- max-width: none;
-    border: 1px solid red;
+    max-width: none;
+
   }
 
   .text > h1 {
-    font-size: 4.6rem;
-    width: 100%;
-    margin: 0;
+    font-size: 4rem;
+
+    text-align: center;
+    margin: 40px 0px;
     letter-spacing: -4px;
   }
 
   .text > p {
     width: 100%;
+    font-size: 1rem;
+    text-align: center;
   }
 
-  .footer-hero .video {
+  .footer-hero .videoHero {
     height: 70vh;
+
+  
   }
 
-  .video .text {
-    justify-content: left;
+  .videoHero .video{
+    height: 100%;
+  }
+
+  .videoHero .text {
+    top: 30%;
+
+    width: 70%;
+    left: 10%;
+  }
+
+  .videoHero .text > * {
+    text-align: left;
   }
 
   .footer-hero.quoteBanner {
     flex-wrap: wrap;
     height: 70%;
     flex-direction: column-reverse;
+    padding: 30px 0px;
   }
 
   .quoteBanner .image {
@@ -299,15 +336,20 @@ margin: 0;
     width: 100%;
   }
 
-  .quoteBanner .text {
-    width: 100%;
-    margin: 40px;
+  .quoteBanner .image img {
+    max-width: 400px;
+  }
+  .footer-hero.quoteBanner .text {
+    width: 80%;
+    margin: 0;
+    margin-top: 40px;
   }
 
   .quoteBanner .text h1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     letter-spacing: -0.4px;
-    line-height: 110%;
+    line-height: 120%;
+    font-weight: 400;
   }
 
   .quoteBanner .text p {
@@ -316,29 +358,20 @@ margin: 0;
   }
 
   .footer-hero.imageInBackground {
-    height: 100vh;
     margin: 0;
     padding: 0;
     position: relative;
   }
 
   .imageInBackground .text {
-    position: absolute;
-    top: 5%;
-    width: 70%;
+    width: 60%;
   }
-
   .imageInBackground .text h1 {
-    margin: 0;
-    margin-bottom: 10px;
     text-align: left;
   }
-
   .imageInBackground .text p {
-    font-size: 1.1rem;
     text-align: left;
   }
-
   .imageInBackground .image {
     height: 100%;
     max-width: none;
