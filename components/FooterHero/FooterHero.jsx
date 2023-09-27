@@ -27,8 +27,9 @@ const FooterHero = ({ id, alt, title, image, caption }) => {
                 Your browser does not support the video tag.
               </video>
             </div>
+            <div className={`${styles["overlay"]} `}> </div>
           </div>
-          <div className={`${styles["overlay"]} `}> </div>
+        
         </>
       ) : (
         <>
