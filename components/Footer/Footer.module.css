@@ -17,7 +17,7 @@ align-items: center;
 }
 
 .footer-container p{
-
+  font-weight: 300;
   height: fit-content;
   margin: 0;
   padding: 0;
@@ -27,6 +27,7 @@ align-items: center;
   padding: 0;
   margin: 0px 20px;
   height: fit-content;
+  wrap:nowrap;
 
 }
 
@@ -35,5 +36,20 @@ align-items: center;
   color: black;
   padding-right: 5px;
   padding-bottom: 0;
+
+}
+
+@media screen and (max-width: 480px) {
+  .footer-container{
+    flex-wrap: wrap;
+  }
+
+  .footer-container p{
+
+    height: fit-content;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+  }
 
 }

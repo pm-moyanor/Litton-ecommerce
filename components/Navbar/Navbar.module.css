@@ -151,6 +151,12 @@
   width: 15px;
 }
 
+
+
+@media screen and (max-width: 480px) {
+  
+}
+
 @keyframes dropRibbon {
   from {
     transform: translateY(-100%);

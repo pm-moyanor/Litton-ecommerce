@@ -389,7 +389,7 @@
 @media screen and (max-width: 480px) {
   .footer-hero {
     margin: 0;
-    padding: 0;
+    padding: 40px;
   }
 
   .image {
@@ -401,28 +401,34 @@
   }
 
   .text > p {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .footer-hero.quoteBanner {
-    border: 1px solid blue;
-    padding: 0;
+
+    padding: 100px 0px;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* height: 40vh; */
   }
 
   .quoteBanner .image {
     width: 100%;
+    max-width: none;
+  
   }
 
   .quoteBanner .text {
-    height: 200px;
-    align-items: end;
+    /* height: 100px; */
+    flex: 1;
+    align-items: center;
     margin: 0;
-    justify-content: center;
+ 
+    justify-content: flex-end;
     width: 100%;
+
   }
 
   .quoteBanner .text h1 {
@@ -441,7 +447,7 @@
     flex-direction: column-reverse;
     justify-content: space-between;
     align-items: center;
-    height: 130vh;
+    height: 60vh;
   }
 
   .imageInBackground .image {

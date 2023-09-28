@@ -13,7 +13,7 @@
 }
 
 .envelope-icon{
-    width: 100px;
+    width: 40px;
 
     margin-bottom: 10px;
     text-align: center;
@@ -70,27 +70,43 @@
 
 
 
+
+@media screen and (max-width: 1040px) {
+
+  .newsletter{
+    height: 80vh;
+  }
+  .envelope-icon {
+    width: 35px;
+    margin-bottom: 19px;
+    text-align: center;
+}
+}
+
 @media screen and (max-width: 748px) {
 
-
+.newsletter{
+  height: 60vh;
+}
 
 }
 
 @media screen and (max-width: 486px) {
 
   .newsletter{
-   height:80vh;
+   height:40vh;
    padding: 0px 30px
   }
   .title {
     font-size: 26px;
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
   }
 
-  .description {
-    font-size: 14px;
-font-weight: 300;
+ .newsletter .description {
+font-size: 14px;
+  font-weight: 200;
+  padding: 0px 5px;
   
   
   }
@@ -113,4 +129,10 @@ font-weight: 300;
    
     cursor: pointer;
   }
+  .envelope-icon{
+    width: 20px;
+
+    margin-bottom: 0;
+    text-align: center;
+}
  }

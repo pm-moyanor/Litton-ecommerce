@@ -7,7 +7,7 @@ const Newsletter = () => {
   return (
     <div className={styles["newsletter"]}>
       <div className={styles["envelope-icon"]}>
-        <FontAwesomeIcon icon={faEnvelope} size="xl" />
+        <FontAwesomeIcon icon={faEnvelope}  />
       </div>
 
       <h2 className={styles["title"]}>Join our List</h2>

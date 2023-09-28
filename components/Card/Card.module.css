@@ -7,7 +7,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
-
+  border: 1px solid red;
+ margin: 0px;
   padding: 20px;
 }
 
