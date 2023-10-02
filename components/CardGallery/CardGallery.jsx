@@ -1,46 +1,92 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Card from "../Card/Card";
 import Slider from "react-slick";
+
+import styles from "../CardGallery/CardGallery.module.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the CSS for styling
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./CardGallery.module.css";
 
-const settings = {
-  dots: true,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 3, // Number of items to show by default
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 768, 
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-};
-
-
-const CardGallery = ({ cards }) => {
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
   return (
-    <div className={styles["main-container"]}>
-      <div className={styles["title-container"]}>
-        <h2>Find your sound</h2>
-      </div>
-     
-        <Slider {...settings} className={styles["slider"]}>
-          {cards.slice(4, 10).map((card) => (
-            <Card key={card.id} product={card} />
+    <span
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        right: "-35px"
+      
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block" ,color: "green"}}
+      onClick={onClick}
+    ></div>
+  );
+}
+const CardGallery = ({ cards }) => {
+  const settings = {
+    dots: true,
+
+    speed: 300,
+    focusOnSelect: true,
+    infinite: true,
+    fade: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 4,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    <div className={styles["main-wrapper"]}>
+      <h1>Choose your sound</h1>
+      <div className={styles["carousel-wrapper"]}>
+        <Slider {...settings}>
+          {cards.slice(3, 13).map((card, index) => (
+            <div key={index}>
+              <Card product={card} />
+            </div>
           ))}
         </Slider>
-     
+      </div>
     </div>
   );
 };

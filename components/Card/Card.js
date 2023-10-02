@@ -130,7 +130,7 @@ export default function Card({ product, inShop }) {
                     }}
                     key={id + color.hex}
                   >
-                    {console.log(color.name)}
+             
                   </div>
                 )
             )}

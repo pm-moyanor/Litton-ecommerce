@@ -1,30 +1,28 @@
-.main-container {
-  background-color: #9e9e9e;
+.main-wrapper {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  flex-direction: column;
- 
-  height: 100vh;
-  width: 100%;
-  
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
-.title-container {
-  font-size: 2.4rem;
-  letter-spacing: -1px;
-  font-family: "Oswald", sans-serif;
+.carousel-wrapper {
+  height: 100%;
+  width: 600px;
+  /* border: 1px solid red; */
+  /* margin: 100px; */
+  padding: 100px;
+}
+
+
+
+.main-wrapper > h1 {
+  font-size: 6.9rem;
+  font-weight: 900;
+  line-height: 97%;
+  width: 40%;
+  letter-spacing: -6px;
+  margin: 0;
+  text-align: left;
   padding: 0;
-  margin-right: 210px;
 }
-
-.main-container .slider {
-  border: 1px solid red;
-  width: 100%;
-  padding-left: 10px;
- 
-
-}
-
-
-

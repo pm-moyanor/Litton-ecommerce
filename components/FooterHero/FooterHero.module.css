@@ -168,7 +168,7 @@
 /* Responsive Features */
 @media screen and (max-width: 1024px) {
   .footer-hero {
-    height: 70vh;
+    height: 90vh;
 
   }
 
@@ -226,7 +226,7 @@
   }
 
   .footer-hero.imageInBackground {
-    height: 70vh;
+    height: 90vh;
     margin: 0;
     width: 100%;
     padding: 0;
