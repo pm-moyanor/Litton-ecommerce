@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Audio Products E-Commerce Website
 
-## Getting Started
+This is an Audio Products E-Commerce Website built using Next.js. It features a home page, a shop page for browsing and purchasing audio products, and a contact page for customer inquiries. The key highlights of this project are responsive shop styling and payment integration.
 
-First, run the development server:
+### Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Features
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### 1. Product Listings
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Browse a wide range of audio products, including headphones, earphones and more. Filter and sort features.
+- View detailed product information, including product images, descriptions, prices, color options and availability.
 
-## Learn More
+#### 2. Shopping Cart
 
-To learn more about Next.js, take a look at the following resources:
+- Add products to your shopping cart.
+- View and manage items in your cart.
+- Adjust quantities and remove items as needed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### 3. Contact Page
 
-## Deploy on Vercel
+- A contact page where customers can reach out with inquiries, feedback, or support requests.
+- Contact form for sending messages directly to the support team.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Next.js**: A React framework for building efficient, server-rendered React applications.
+- **React**: A JavaScript library for building user interfaces.
+- **CSS**: Styling the website using CSS, including responsive design.
+- **Payment Gateway**: Integration with a trusted payment gateway for secure online payments.
+- **Git**: Version control for tracking changes and collaborating on the project.
+- **GitHub**: Hosting the project repository and managing code collaboration.
+- **Deployment Platform**: Host the website on platforms like Vercel, Netlify, or GitHub Pages.
+
+### Future Features (Planned)
+
+#### 4. Responsive Shop Styling
+
+- Implement responsive design to ensure the website adapts gracefully to various screen sizes and devices, such as mobile phones and tablets.
+- Enhance the user experience by optimizing the layout and styling for smaller screens.
+
+#### 5. Payment Integration
+
+- Integrate a secure and reliable payment gateway to enable customers to make purchases directly on the website.
+- Offer multiple payment options, such as credit/debit card payments and PayPal, for user convenience.
+- Ensure the safety of payment information by following industry best practices for payment processing.
+
+### Getting Started
+
+To get started with this project, follow these steps:
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/your-username/audio-products-ecommerce.git

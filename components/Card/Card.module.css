@@ -1,7 +1,8 @@
 .mainContainer {
-  height: 650px;
-  width: 550px;
+  height: 550px;
+  width: 450px;
   min-width: 400px;
+ 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
