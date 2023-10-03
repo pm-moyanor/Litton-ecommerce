@@ -2,15 +2,21 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  
+
   z-index: 1;
 
   transform: translateX(-50%) translateY(10px); /* Adjust the submenu position */
 }
 
+.submenuWrapper.submenuOpen {
+  transform: translateX(-50%) translateY(10px); /* Adjust the submenu position when open */
+}
+
+/* .submenuWrapper.submenuClosed {
+  display: none;
+} */
 
 .submenuUl {
-
   display: flex;
   flex-direction: row;
   /* justify-content: center; */
@@ -36,7 +42,7 @@
 
 .submenuLi * {
   color: black;
-  
+
   text-decoration: none;
   text-align: center;
 }
@@ -49,13 +55,12 @@
   margin-left: -10px; */
 }
 
-/* Ensure submenu items are vertically centered within submenuWrapper */
-.submenuWrapper .shopMenuMode   {
 
-position:static;
+.submenuWrapper .shopMenuMode {
+  position: static;
 
-padding: 0;
-left: 0;
-transform:translateX(-250px);
-
+  padding: 0;
+  left: 0;
+  transform: translateX(-250px);
 }
+

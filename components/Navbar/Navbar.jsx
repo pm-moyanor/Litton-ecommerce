@@ -22,17 +22,16 @@ export default function Navbar({ currentPage }) {
   const { cartState } = useCart();
   const isLayoutPage = currentPage === "layout";
 
-  // How many items in cart
+
   const countItems = (list) => {
     return list.reduce((totalCount, item) => totalCount + item.quantity, 0);
   };
 
   const handleShopClick = () => {
-    // Redirect to the shop page when SHOP is clicked
     router.push("/shop");
   };
 
-  // Function to handle window resize
+ 
   const handleWindowResize = () => {
     if (window.innerWidth < 768) {
       setIsMenuOpen(true);
@@ -40,7 +39,7 @@ export default function Navbar({ currentPage }) {
       setIsMenuOpen(false);
     }
   };
-
+//-----------------------------------------
   const renderMobileMenu = () => {
     return (
       <ul className={styles["mobileMenu"]}>
@@ -76,12 +75,12 @@ export default function Navbar({ currentPage }) {
       </ul>
     );
   };
-
-  // Add an event listener to handle window resize
+//------------------------------------------------------------
+  // event listener to handle window resize
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
 
-    // Clean up the event listener when the component unmounts
+    // Clean up event listener
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
@@ -136,9 +135,11 @@ export default function Navbar({ currentPage }) {
             {/* SHOP LINK */}
             <li
               onMouseEnter={() => {
+                console.log(isHovered)
                 if (isLayoutPage) setIsHovered(true);
               }}
               onMouseLeave={() => {
+                console.log(isHovered)
                 if (isLayoutPage) setIsHovered(false);
               }}
               onClick={handleShopClick}

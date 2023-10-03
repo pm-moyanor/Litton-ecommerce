@@ -55,7 +55,7 @@ export default function Card({ product, inShop }) {
               {colors.map(
                 (color) =>
                   color.inStock && (
-                    <>
+                    <div  key={id + color.hex + color.name}>
                       <div
                         style={{
                           backgroundColor: color.hex,
@@ -75,9 +75,10 @@ export default function Card({ product, inShop }) {
                               ? styles["color"]
                               : ""
                           }`}
+                          key={id + color.name}
                         ></div>
                       </div>
-                    </>
+                    </div>
                   )
               )}
             </div>

@@ -44,15 +44,15 @@ const CardGallery = ({ cards }) => {
     fade: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 1,
+    slidesToScroll: 1,
 
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 4,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -60,8 +60,8 @@ const CardGallery = ({ cards }) => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 4,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -81,7 +81,7 @@ const CardGallery = ({ cards }) => {
       <div className={styles["carousel-wrapper"]}>
         <Slider {...settings}>
           {cards.slice(3, 13).map((card, index) => (
-            <div key={index}>
+            <div key={card.name + index}>
               <Card product={card} />
             </div>
           ))}

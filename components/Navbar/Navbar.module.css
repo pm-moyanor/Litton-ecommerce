@@ -9,7 +9,8 @@
 }
 
 .navbarContainer.active {
-  height: 160px;
+  height: 180px;
+
 }
 
 .logoWrapper {
@@ -47,15 +48,15 @@
   margin-left: -50px;
 
   text-decoration: none;
-
 }
 
-.nav .open {
+.nav.open {
   display: none;
 }
 .nav {
   display: flex;
   align-items: center;
+  
 }
 .mobileMenu {
   list-style: none;
@@ -149,12 +150,6 @@
   padding-top: 1px;
   margin-left: 10px;
   width: 15px;
-}
-
-
-
-@media screen and (max-width: 480px) {
-  
 }
 
 @keyframes dropRibbon {
