@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "export": "next export",
+    "predeploy": "npm run export",
+    "deploy": "gh-pages -d out",
+    "dev": "next dev",
+
     "start": "next start",
     "lint": "next lint"
   },
+  "homepage": "https://github.com/pm-moyanor/ecommerce.git",
+
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
@@ -24,5 +30,8 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.8",
     "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }

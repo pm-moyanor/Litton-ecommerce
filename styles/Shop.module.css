@@ -5,11 +5,14 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
   padding-top:50px;
 
 
 }
-
+.container ul{
+  padding: 0;
+}
 
 .banner{
   width: 100%;
@@ -37,42 +40,39 @@ margin-bottom: 50px;
 
   
   margin: 0px 270px;
-  display: flex; /* Make the container a flex container */
-  flex-direction: row-reverse; /* Keep items in a row */
-  justify-content: space-between; /* Space items between each other */
+  display: flex;
+  flex-direction: row-reverse; 
+  justify-content: space-between;
   align-items:flex-start; 
 }
-/* .navWrapper:first-child{
-  align-self: center;
-  background-color: antiquewhite;
-} */
+
 
 
 .sortBlock {
-  display: inline-block; /* Ensures it only takes the necessary width */
-  position: relative; /* Needed for absolute positioning of dropdown */
+  display: inline-block; 
+  position: relative; 
 
 }
 
-/* Style the label */
+
 .sortLabel {
-  cursor: pointer; /* Change cursor to pointer on hover */
+  cursor: pointer; 
 
   margin-top: 50px;
 }
 
-/* Style the dropdown container */
-.sortDropdown {
-  display: none; /* Initially hidden */
-  position: absolute;
-  top: 100%; /* Position dropdown below the label */
-  right: 0;
-  background-color: #ffffff3a; /* Background color for the dropdown */
 
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow */
+.sortDropdown {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  right: 0;
+  background-color: #ffffff3a; 
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-/* Show the dropdown when the label is hovered */
+
 .sortBlock:hover .sortDropdown {
   display: block;
 }
@@ -96,9 +96,13 @@ margin-bottom: 50px;
   width: 150px;
   border: 1px solid black;
   background-color: transparent;
-  height: 50px;
   text-align: center;
   font-family: "Mulish",sans-serif;
+  height: 50px;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 40px 0px;
 }
 
 .navButton:hover{
@@ -106,22 +110,12 @@ margin-bottom: 50px;
   color: white;
 }
 
-.backToTop{
-  position: absolute;
-  border: 1px solid black;
-  background-color: transparent;
-  height: 50px;
-  text-align: center;
-  font-family: "Mulish",sans-serif;
-}
+
 
 .backToTop {
   position: fixed;
   bottom: 30px;
   right: 30px;
-
-
-  
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
