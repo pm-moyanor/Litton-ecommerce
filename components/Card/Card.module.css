@@ -128,7 +128,7 @@
 .colorOptionsContainer {
   margin-top: 20px;
   display: flex;
-
+  
   flex-direction: row;
   padding-top: 1cap;
   margin-bottom: 20px;
@@ -144,25 +144,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px rgb(171, 171, 171);
+
 }
 
-.color {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  padding: 1px;
-  border-radius: 50%;
-  border-inline: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
-  border: 2px solid rgb(24, 24, 24);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
 
 .descriptionContainer {
   padding: 40px 12px;

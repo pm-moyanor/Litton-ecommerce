@@ -7,7 +7,7 @@ export default function Card({ product, inShop }) {
   const [inShopState, setInShopState] = useState(inShop);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedColor, setSelectedColor] = useState({});
+  const [selectedColor, setSelectedColor] = useState(null);
 
   const { title, price, description, image, colors, id, inStock } = product;
 
@@ -55,30 +55,23 @@ export default function Card({ product, inShop }) {
               {colors.map(
                 (color) =>
                   color.inStock && (
-                    <div  key={id + color.hex + color.name}>
-                      <div
-                        style={{
-                          backgroundColor: color.hex,
-                      
-                        }}
-                        key={id + color.hex}
-                        onClick={() => {
-                          setSelectedColor({
-                            name: color.name,
-                            hex: color.hex,
-                          });
-                        }}
-                      >
-                        <div
-                          className={`${
-                            selectedColor.name === color.name
-                              ? styles["color"]
-                              : ""
-                          }`}
-                          key={id + color.name}
-                        ></div>
-                      </div>
-                    </div>
+                    <div
+                      style={{
+                        backgroundColor: color.hex,
+                        boxShadow:
+                          selectedColor === color
+                            ? "#1431ef 0px 0px 0px 1px"
+                            : "none",
+                      }}
+                      key={id + color.hex}
+                      onClick={() => {
+                        setSelectedColor(color);
+                        console.log(selectedColor, color);
+                      }}
+                      className={`${styles["color"]} ${
+                        selectedColor === color ? styles["selectedColor"] : ""
+                      }`}
+                    ></div>
                   )
               )}
             </div>
@@ -127,12 +120,9 @@ export default function Card({ product, inShop }) {
                   <div
                     style={{
                       backgroundColor: color.hex,
-                  
                     }}
                     key={id + color.hex}
-                  >
-             
-                  </div>
+                  ></div>
                 )
             )}
           </div>
