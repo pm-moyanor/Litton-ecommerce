@@ -135,11 +135,11 @@ export default function Navbar({ currentPage }) {
             {/* SHOP LINK */}
             <li
               onMouseEnter={() => {
-                console.log(isHovered)
+      
                 if (isLayoutPage) setIsHovered(true);
               }}
               onMouseLeave={() => {
-                console.log(isHovered)
+    
                 if (isLayoutPage) setIsHovered(false);
               }}
               onClick={handleShopClick}

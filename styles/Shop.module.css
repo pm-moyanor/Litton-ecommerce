@@ -6,21 +6,19 @@
   justify-content: space-around;
   align-items: center;
 
-  padding-top:50px;
-
-
+  padding-top: 50px;
 }
-.container ul{
+.container ul {
   padding: 0;
 }
 
-.banner{
+.banner {
   width: 100%;
   height: auto;
-margin-bottom: 50px;
+
 }
 
-.banner img{
+.banner img {
   width: 100%;
 }
 
@@ -34,70 +32,58 @@ margin-bottom: 50px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
- 
 }
-.navWrapper{
-
-  
-  margin: 0px 270px;
+.navWrapper {
+  height: 150px;
   display: flex;
-  flex-direction: row-reverse; 
-  justify-content: space-between;
-  align-items:flex-start; 
+  border-bottom: 0.5px solid grey;
+  justify-self: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
-
-
 
 .sortBlock {
-  display: inline-block; 
-  position: relative; 
-
+  position: relative;
 }
-
 
 .sortLabel {
-  cursor: pointer; 
-
-  margin-top: 50px;
+  cursor: pointer;
+  font-family: "Oswald",sans-serif;
 }
-
 
 .sortDropdown {
   display: none;
   position: absolute;
-  top: 100%; 
+  top: 100%;
   right: 0;
-  background-color: #ffffff3a; 
+  background-color: #ffffff3a;
 
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .sortBlock:hover .sortDropdown {
   display: block;
 }
 
-
-
-.sortBlock button{
+.sortBlock button {
   width: 140px;
   height: 40px;
   border: none;
-  font-family: "Mulish",sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 16px;
   background-color: transparent;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   text-align: right;
-
 }
 
-.navButton{
+.navButton {
   width: 150px;
   border: 1px solid black;
   background-color: transparent;
   text-align: center;
-  font-family: "Mulish",sans-serif;
+  font-family: "Mulish", sans-serif;
   height: 50px;
   font-size: 16px;
   padding: 10px 20px;
@@ -105,12 +91,10 @@ margin-bottom: 50px;
   margin: 40px 0px;
 }
 
-.navButton:hover{
+.navButton:hover {
   background-color: #515151;
   color: white;
 }
-
-
 
 .backToTop {
   position: fixed;
@@ -131,19 +115,27 @@ margin-bottom: 50px;
 .loader {
   width: 48px;
   height: 48px;
-  border: 5px solid #FFF;
+  border: 5px solid #fff;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  }
+}
+ 
 
-  @keyframes rotation {
+@media screen and (max-width: 780px){
+
+ 
+  
+}
+
+
+@keyframes rotation {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  } 
+}
