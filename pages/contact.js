@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import styles from "../styles/Contact.module.css";
 
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -28,6 +29,12 @@ export default function Contact() {
       message: "",
     });
   };
+
+
+
+
+
+
   return (
     <div>
       <Navbar />

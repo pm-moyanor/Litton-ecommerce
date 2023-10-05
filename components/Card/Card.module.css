@@ -35,11 +35,11 @@
 }
 
 .productImg {
-  width: 100%;
+  width: 80%;
 }
 
 .productImg img {
-  height: 60%;
+  width: 100% ;
 }
 
 .productInfo {
