@@ -20,9 +20,7 @@
 .contactInfo {
   flex-direction: column;
   display: flex;
-
   justify-content: space-between;
-
   margin: 1cap 0px; /* Add margin to create separation from the form */
 }
 
@@ -87,4 +85,95 @@
 
 .contactForm button:hover {
   background-color: #7d8085;
+}
+
+@media (max-width: 768px) {
+  .contactForm {
+    padding: 40px;
+    flex-direction: column;
+  }
+
+  .formContainer {
+    width: 80%;
+    margin: 0;
+    margin-top: 40px;
+    /* border: 1px solid rgb(195, 191, 191); */
+    padding: 20px;
+   max-width: 300px;
+align-self: center;
+  }
+  .contactForm form div {
+    margin-right: 20px;
+  }
+  .contactForm h2 {
+    font-size: 4rem;
+  }
+
+  .contactForm label {
+    font-size: 1rem;
+  }
+
+  .contactForm input,
+  .contactForm textarea {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 10px;
+
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .contactForm button {
+    font-size: 1rem;
+  }
+
+  .contactInfo > div {
+    margin: 0;
+    padding: 0;
+  }
+
+  .contactInfoItem > p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactForm {
+    padding: 20px;
+  }
+
+  .formContainer {
+    min-width: 250px;
+    padding: 10px;
+  }
+
+  .contactForm h2 {
+    font-size: 3rem;
+  }
+
+  .contactForm label {
+    font-size: 0.8rem;
+  }
+
+  .contactForm input,
+  .contactForm textarea {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .contactForm button {
+    font-size: 1rem;
+  }
+
+  .contactInfoItem > p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .contactForm p{
+    margin: 0;
+    margin-bottom: 20px;
+  }
 }
