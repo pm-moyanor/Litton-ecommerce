@@ -58,7 +58,7 @@ export default function Navbar({ currentPage }) {
         </li>
         <li className={styles["navLinkItem"]}>
           <Link
-            href="/layout"
+            href="/shop"
             style={{ color: "black", textDecoration: "none" }}
           >
             SHOP
@@ -66,7 +66,7 @@ export default function Navbar({ currentPage }) {
         </li>
         <li className={styles["navLinkItem"]}>
           <Link
-            href="/layout"
+            href="/contact"
             style={{ color: "black", textDecoration: "none" }}
           >
             CONTACT
@@ -93,7 +93,9 @@ export default function Navbar({ currentPage }) {
           isHovered ? styles["active"] : ""
         } `}
       >
-        <div className={styles["logoWrapper"]}>
+        <div className={styles["logoWrapper"]} 
+        onClick={()=> router.push('/layout')}
+        >
           <Image
             src="./litton-3.svg"
             alt="Picture of the author"

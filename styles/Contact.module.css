@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 20px;
+
 }
 
 .formContainer p {
@@ -70,7 +70,7 @@
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #969595;
-  border-radius: 4px; /* Add rounded corners */
+ 
 }
 
 .contactForm button {
@@ -97,20 +97,18 @@
     width: 80%;
     margin: 0;
     margin-top: 40px;
-    /* border: 1px solid rgb(195, 191, 191); */
+    border: 1px solid rgb(195, 191, 191);
     padding: 20px;
-   max-width: 300px;
-align-self: center;
+    max-width: 200px;
+   align-self: flex-start;
   }
-  .contactForm form div {
-    margin-right: 20px;
-  }
+
   .contactForm h2 {
     font-size: 4rem;
   }
 
   .contactForm label {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .contactForm input,
@@ -123,9 +121,12 @@ align-self: center;
     display: block;
     text-align: center;
   }
-
+.contactForm p{
+  font-size: 0.8rem;
+}
   .contactForm button {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    height: 40px;
   }
 
   .contactInfo > div {
@@ -172,7 +173,7 @@ align-self: center;
     margin: 0;
   }
 
-  .contactForm p{
+  .contactForm p {
     margin: 0;
     margin-bottom: 20px;
   }

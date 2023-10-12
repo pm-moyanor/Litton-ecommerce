@@ -36,10 +36,9 @@ This is an Audio Products E-Commerce Website built using Next.js. It features a 
 - **Next.js**: A React framework for building efficient, server-rendered React applications.
 - **React**: A JavaScript library for building user interfaces.
 - **CSS**: Styling the website using CSS, including responsive design.
-- **Payment Gateway**: Integration with a trusted payment gateway for secure online payments.
 - **Git**: Version control for tracking changes and collaborating on the project.
 - **GitHub**: Hosting the project repository and managing code collaboration.
-- **Deployment Platform**: Host the website on platforms like Vercel, Netlify, or GitHub Pages.
+
 
 ### Future Features (Planned)
 
