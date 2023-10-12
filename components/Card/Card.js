@@ -6,6 +6,7 @@ export default function Card({ product, inShop }) {
   const { dispatch } = useCart();
   const [inShopState, setInShopState] = useState(inShop);
   const [showPopup, setShowPopup] = useState(false);
+  const [showSelectColor, setShowSelectColor] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
 
@@ -15,7 +16,7 @@ export default function Card({ product, inShop }) {
 
   const handleAddToCart = async () => {
     if (!selectedColor) {
-      console.log("please select a color");
+      setShowSelectColor(true);
       return;
     }
 
@@ -66,6 +67,7 @@ export default function Card({ product, inShop }) {
                       key={id + color.hex}
                       onClick={() => {
                         setSelectedColor(color);
+                        setShowSelectColor(false);
                         console.log(selectedColor, color);
                       }}
                       className={`${styles["color"]} ${
@@ -91,14 +93,21 @@ export default function Card({ product, inShop }) {
               {isLoading ? (
                 <span className={styles["loader"]}></span>
               ) : (
-                <>
+                <div>
                   <p>Add to cart</p>
                   {showPopup && (
                     <div className={styles["popUpWrapper"]}>
                       <p>added to cart</p>
                     </div>
                   )}
-                </>
+                  {showSelectColor ? (
+                    <div className={styles["popUpWrapper"]}>
+                      <p>* please select a color</p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
               )}
             </button>
           </div>

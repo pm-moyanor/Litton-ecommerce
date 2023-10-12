@@ -42,7 +42,6 @@ export default function Shop() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -55,6 +54,7 @@ export default function Shop() {
 
   const handleAddToCart = (item) => {
     dispatch({ type: "ADD_TO_CART", payload: item.id });
+    console.log(item)
   };
 
   const filteredProducts = useMemo(() => {

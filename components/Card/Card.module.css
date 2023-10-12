@@ -39,7 +39,7 @@
 }
 
 .productImg img {
-  width: 100% ;
+  width: 100%;
 }
 
 .productInfo {
@@ -52,8 +52,6 @@
   justify-content: center;
   align-items: left;
   margin: 0px 10px;
-
-
 }
 
 .productInfo * {
@@ -102,22 +100,18 @@
   max-height: 450px;
   display: grid;
   gap: 20px;
-  justify-content:flex-start;
-  align-content:center;
-
+  justify-content: flex-start;
+  align-content: center;
 }
 
 .shopMode > .productInfo h4 {
   font-size: 2rem;
-
 }
 
 .productPrice {
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.5;
-
- 
 }
 
 .colorOptionsContainer {
@@ -145,7 +139,7 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 40px 12px;
- 
+
   max-width: 500px;
 }
 
@@ -153,7 +147,7 @@
   list-style-type: none;
   font-family: "Mulish", sans-serif;
   font-size: 18px;
- 
+
   list-style-position: outside;
   line-height: 1.567;
 }
@@ -181,9 +175,13 @@
   background-color: transparent;
   font-family: "Mulish", sans-serif;
   color: #161616;
-  font-size: 16px;
+
+  width: 100%;
+  font-size: 13px;
   position: absolute;
-  top: 30px;
+  text-align: left;
+  left: -20px;
+  top: 20px;
 }
 
 .loader {
@@ -216,10 +214,7 @@
     height: fit-content;
   }
 
- 
-
   .shopMode > .productInfo {
-   
     width: 70%;
     /* text-align: center; */
 
@@ -255,11 +250,11 @@
   }
 
   .descriptionContainer {
-    text-align:center;
-    margin: 10px ;
+    text-align: center;
+    margin: 10px;
   }
 
-  .descriptionContainer li{
+  .descriptionContainer li {
     list-style: none;
   }
 
@@ -270,17 +265,15 @@
 }
 
 @media screen and (max-width: 480px) {
- 
-
-  .mainContainer.shopMode{
-     min-width: 300px;
+  .mainContainer.shopMode {
+    min-width: 300px;
   }
-.shopMode .imgColorsContainer{
-  width: 50px;
-  padding: 0;
-}
-  .shopMode .productImg img{
-width: 90%;
+  .shopMode .imgColorsContainer {
+    width: 50px;
+    padding: 0;
+  }
+  .shopMode .productImg img {
+    width: 90%;
   }
 
   .shopMode > .productInfo {
@@ -302,15 +295,13 @@ width: 90%;
     font-size: 1rem;
   }
 
-  .descriptionContainer li{
+  .descriptionContainer li {
     font-size: 16px;
   }
- .shopMode .button{
-  width: 40%;
- }
+  .shopMode .button {
+    width: 40%;
+  }
 }
-
-
 
 @keyframes rotation {
   0% {
