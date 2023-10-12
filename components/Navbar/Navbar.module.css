@@ -6,11 +6,11 @@
   transition: height 0.3s ease;
   background-color: white;
   padding: 0px 20px;
+  align-items: flex-start;
 }
 
 .navbarContainer.active {
-  height: 180px;
-
+  height: 200px;
 }
 
 .logoWrapper {
@@ -36,12 +36,11 @@
   display: none;
 }
 
-
 .navLinks {
   display: flex;
   justify-content: space-between;
   width: 400px;
-  align-items: center;
+  align-items: flex-start;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   list-style: none;
@@ -56,13 +55,12 @@
   display: none;
 }
 
-.navLinks.open{
+.navLinks.open {
   display: none;
 }
 .nav {
   display: flex;
   align-items: center;
-  
 }
 .mobileMenu {
   list-style: none;
@@ -89,9 +87,11 @@
 }
 
 .navLinkItem {
+  position: sticky;
   border-bottom: 2px solid transparent;
   padding-bottom: 5px;
-  padding-top: 20px;
+  padding-top: 30px;
+
 }
 
 .navLinkItem a {
@@ -106,7 +106,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-right: 10px;
+  padding: 10px;
+  margin-top: 40px;
+  margin-bottom: 10px;
   align-items: center;
 }
 
@@ -123,8 +125,8 @@
 
 .cartIcon p {
   font-size: 16px;
-  margin: -2px;
-  font-weight: 500;
+  /* margin: -2px; */
+  font-weight: 600;
 }
 
 .blackRibbon {
@@ -137,7 +139,7 @@
 }
 
 .freeDeliveryContainer {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   background-color: black;
   height: 60px;
