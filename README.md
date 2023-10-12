@@ -6,9 +6,9 @@ This is an Audio Products E-Commerce Website built using Next.js. It features a 
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Deployment](#check-it-out)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ### Features
@@ -53,6 +53,10 @@ This is an Audio Products E-Commerce Website built using Next.js. It features a 
 - Offer multiple payment options, such as credit/debit card payments and PayPal, for user convenience.
 - Ensure the safety of payment information by following industry best practices for payment processing.
 
+#### Check It Out!
+
+You can see this project in action right here: [https://litton-ecommerce.netlify.app](https://litton-ecommerce.netlify.app) 🚀
+
 ### Getting Started
 
 To get started with this project, follow these steps:
@@ -61,3 +65,5 @@ To get started with this project, follow these steps:
 
    ```bash
    git clone https://github.com/your-username/audio-products-ecommerce.git
+
+2. Open http://localhost:3000 with your browser to see the result.
