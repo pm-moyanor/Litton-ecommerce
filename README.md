@@ -8,8 +8,7 @@ This is an Audio Products E-Commerce Website built using Next.js. It features a 
 - [Technologies Used](#technologies-used)
 - [Deployment](#check-it-out)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
-- [License](#license)
+
 
 ### Features
 
