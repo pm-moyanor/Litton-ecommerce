@@ -44,14 +44,16 @@
 
 .productInfo {
   font-family: "Mulish", sans-serif;
-  font-size: 22px;
+  /* font-size: 22px; */
   display: flex;
   width: 80%;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: left;
   margin: 0px 10px;
+
+
 }
 
 .productInfo * {
@@ -97,22 +99,25 @@
   margin-left: 50px;
   width: 45%;
   min-width: 350px;
-  max-height: 350px;
-  display: flex;
-  flex-direction: column;
+  max-height: 450px;
+  display: grid;
+  gap: 20px;
+  justify-content:flex-start;
+  align-content:center;
 
-  align-items: left;
 }
 
 .shopMode > .productInfo h4 {
   font-size: 2rem;
+
 }
 
 .productPrice {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 600;
   line-height: 1.5;
-  padding-bottom: 10px;
+
+ 
 }
 
 .colorOptionsContainer {
@@ -140,20 +145,22 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 40px 12px;
-  margin-left: 20px;
+ 
+  max-width: 500px;
 }
 
 .descriptionContainer li {
-  list-style-type: disc;
+  list-style-type: none;
   font-family: "Mulish", sans-serif;
   font-size: 18px;
+ 
   list-style-position: outside;
-  line-height: 1.467;
+  line-height: 1.567;
 }
 
 .button {
   font-family: "Oswald", sans-serif;
-  width: 50%;
+  width: 30%;
   border: none;
   color: #ffffff;
   background: #e01e3c;
@@ -163,6 +170,7 @@
   padding: 10px 20px;
   text-decoration: none;
   margin-top: 20px;
+  align-self: flex-end;
 }
 
 .popUpWrapper {
@@ -213,11 +221,11 @@
   .shopMode > .productInfo {
    
     width: 70%;
-    text-align: center;
+    /* text-align: center; */
 
     font-size: 18px;
     margin: 20px 10px 0px 10px;
-    /* border: 1px solid red; */
+    border: 1px solid red;
     justify-content: left;
   }
 
