@@ -1,7 +1,7 @@
 import { useCart } from "../CartContext";
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
-import products from "./data";
+import products from "../data";
 import styles from "../styles/Shop.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

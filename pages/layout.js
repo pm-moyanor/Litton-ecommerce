@@ -1,4 +1,4 @@
-import products from "./data";
+import products from "../data";
 import styles from "../styles/Layout.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
