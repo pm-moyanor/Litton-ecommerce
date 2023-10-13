@@ -10,7 +10,7 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
 
   const handleOptionChange = (option) => {
     setSelectedOption(option);
-    onShippingOptionChange(option); // Call the function with the selected option
+    onShippingOptionChange(option);
 
   };
 
@@ -63,7 +63,7 @@ const ShippingOptions = ({ onShippingOptionChange }) => {
   );
 };
 
-function ShippingInformation({ onShippingInfoChange, onNextStep }) {
+function ShippingInformation({ onShippingInfoChange, onNextStep, onShippingOptionChange }) {
   const [shippingInfo, setShippingInfo] = useState({
     name: "",
     address: "",
@@ -210,7 +210,7 @@ function ShippingInformation({ onShippingInfoChange, onNextStep }) {
               <p className={styles.errorMessage}>{errors.phone}</p>
             )}
         </div>
-          <ShippingOptions />
+        <ShippingOptions onShippingOptionChange={onShippingOptionChange} />
         <button className={styles.button} type="submit" onClick={handleSubmit}>Proceed to Payment</button>
       </form>
     </div>

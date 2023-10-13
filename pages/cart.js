@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../CartContext";
-import products from "../data"
+import products from "../data";
 import styles from "../styles/Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "../components/Navbar/Navbar";
@@ -18,7 +18,7 @@ export default function Cart() {
   const [isCheckout, setIsCheckout] = useState(false);
   const [formData, setFormData] = useState({
     cartItems: cartState.items,
-    selectedShippingOption: "",
+    selectedShippingOption: "standard",
     shippingInfo: {
       name: "",
       address: "",
@@ -61,7 +61,6 @@ export default function Cart() {
   // Function to update shipping information
 
   const handleShippingInfoChange = (newShippingInfo) => {
-    // Update the formData state by merging the new shipping information
     console.log("New Shipping Info:", newShippingInfo);
     setFormData((prevData) => ({
       ...prevData,
@@ -78,18 +77,16 @@ export default function Cart() {
   };
 
   const [currentStep, setCurrentStep] = useState("shipping");
-
-  const threeCards = products.slice(6, 10);
+;
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
       dispatch({ type: "DECREASE_QUANTITY", payload: item.id });
     }
   };
- 
-  const handleIncrease = (item) => {
 
-console.log(item)
+  const handleIncrease = (item) => {
+    console.log(item);
     dispatch({ type: "INCREASE_QUANTITY", payload: item.id });
   };
 
@@ -212,11 +209,9 @@ console.log(item)
 
                 {isCheckout ? (
                   <div className={styles["price-quantity-container"]}>
-            
                     <h4>${item.price}</h4>
                   </div>
                 ) : (
-                  
                   <div className={styles["price-quantity-container"]}>
                     <div className={styles["quantity-container"]}>
                       <button onClick={() => handleDecrease(item)}>-</button>
@@ -257,7 +252,7 @@ console.log(item)
             onClick={() => setIsCheckout(!isCheckout)}
           >
             <p>edit cart</p>
-            <FontAwesomeIcon icon={faPenToSquare} />
+            <FontAwesomeIcon icon={faPenToSquare} size="sm" />
           </div>
         )}
       </div>
@@ -269,17 +264,33 @@ console.log(item)
           <h4>Subtotal</h4>
           <p>${subtotal.toFixed(2)}</p>
         </div>
+        
+        {isCheckout ? (
+        formData.selectedShippingOption === "standard" ? (
+          <div className={styles["summary-detail"]}>
+            <h4>Standard Shipping</h4>
+            <p>Free</p>
+          </div>
+        ) : (
+          <div className={styles["summary-detail"]}>
+            <h4>Express Shipping</h4>
+            <p>$12.95</p>
+          </div>
+        )
+      ) : (
         <div className={styles["summary-detail"]}>
-          <h4>Standard Shipping</h4>
-          <p>Free</p>
+          <h4>Shipping</h4>
+          <p>--</p>
         </div>
+      )}
         <div className={styles["summary-detail"]}>
           <h4>Tax</h4>
           <p>${tax.toFixed(2)}</p>
         </div>
         <div className={styles["summary-detail"]}>
           <h4>Total</h4>
-          <p>${totalPrice}</p>
+          <p>${(parseFloat(totalPrice) + parseFloat(formData.shippingFee)).toFixed(2)}</p>
+
         </div>
       </div>
       {!isCheckout && (
@@ -336,7 +347,7 @@ console.log(item)
                       className={styles["edit-link-wrapper"]}
                     >
                       <p>edit</p>
-                      <FontAwesomeIcon icon={faPenToSquare} />
+                      <FontAwesomeIcon icon={faPenToSquare} size="sm" />
                     </div>
                   </div>
                   {currentStep === "shipping" && renderShippingStep()}
@@ -352,7 +363,7 @@ console.log(item)
                       className={styles["edit-link-wrapper"]}
                     >
                       <p>edit</p>
-                      <FontAwesomeIcon icon={faPenToSquare} />
+                      <FontAwesomeIcon icon={faPenToSquare} size="sm" />
                     </div>
                   </div>
                   {currentStep === "payment" && renderPaymentStep()}

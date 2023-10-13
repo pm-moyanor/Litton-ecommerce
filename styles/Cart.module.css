@@ -43,10 +43,13 @@
 .edit-link-wrapper {
   color: black;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 90px;
   text-decoration: none;
   align-items: center;
+}
+.edit-link-wrapper p{
+  margin-right: 5px;
 }
 
 .collapsed * {
