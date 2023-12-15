@@ -84,7 +84,7 @@
 }
 
 .shopMode .productImg {
-  min-width: 350px;
+  min-width: 250px;
   text-align: center;
   margin-top: 20px;
 }
@@ -246,7 +246,7 @@
   .shopMode .productImg {
     height: auto;
     min-width: none;
-    width: 50%;
+    width: 80%;
   }
   .shopMode .productImg img{
     width: 80%;
