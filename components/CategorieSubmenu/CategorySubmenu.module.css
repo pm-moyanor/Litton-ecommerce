@@ -82,15 +82,16 @@ top: 0;
 
   .submenuUl.shopMenuMode{
    
-    flex-wrap: wrap;
+   display: grid;
     justify-content: left;
   }
 
   .shopMenuMode .submenuLi{
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: left;
     margin-top: 0;
     margin-bottom: 5px;
+    padding: 2px;
   }
  
   

@@ -39,7 +39,7 @@ export default function Contact() {
     <div>
       <Navbar />
       <div className={styles["banner"]}>
-        <img src="./images/banner3.jpg.large.2x.jpg" alt="Banner" />
+        <img src="./images/banner3.jpg.large.2x.jpg" alt="Banner"   loading="lazy"/>
       </div>
       <div className={styles["contactForm"]}>
         <div className={styles["infoContainer"]}>

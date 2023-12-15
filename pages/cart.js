@@ -252,7 +252,9 @@ export default function Cart() {
             onClick={() => setIsCheckout(!isCheckout)}
           >
             <p>edit cart</p>
-            <FontAwesomeIcon icon={faPenToSquare} size="sm" />
+            <div style={{width:"20px"}}>
+                      <FontAwesomeIcon icon={faPenToSquare} size="xs" />
+                      </div>
           </div>
         )}
       </div>
@@ -347,7 +349,10 @@ export default function Cart() {
                       className={styles["edit-link-wrapper"]}
                     >
                       <p>edit</p>
-                      <FontAwesomeIcon icon={faPenToSquare} size="sm" />
+                      <div style={{width:"20px"}}>
+                      <FontAwesomeIcon icon={faPenToSquare} size="xs" />
+                      </div>
+               
                     </div>
                   </div>
                   {currentStep === "shipping" && renderShippingStep()}
@@ -363,7 +368,9 @@ export default function Cart() {
                       className={styles["edit-link-wrapper"]}
                     >
                       <p>edit</p>
-                      <FontAwesomeIcon icon={faPenToSquare} size="sm" />
+                      <div style={{width:"20px"}}>
+                      <FontAwesomeIcon icon={faPenToSquare} size="xs" />
+                      </div>
                     </div>
                   </div>
                   {currentStep === "payment" && renderPaymentStep()}

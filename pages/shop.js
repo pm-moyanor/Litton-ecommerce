@@ -20,7 +20,6 @@ export default function Shop() {
   const [totalProducts, setTotalProducts] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false); // To control the visibility of the "Back to Top" button
 
-
   const router = useRouter();
   const queryCategory = router.query.category;
 
@@ -54,7 +53,7 @@ export default function Shop() {
 
   const handleAddToCart = (item) => {
     dispatch({ type: "ADD_TO_CART", payload: item.id });
-    console.log(item)
+    console.log(item);
   };
 
   const filteredProducts = useMemo(() => {
@@ -93,7 +92,6 @@ export default function Shop() {
     setShuffledProducts(sorted);
   };
   const loadMoreProducts = () => {
- 
     setDisplayedProducts(displayedProducts + 3);
   };
 
@@ -121,7 +119,9 @@ export default function Shop() {
         <div className={styles["sortBlock"]}>
           <p className={styles["sortLabel"]}>
             Sort by
-            <FontAwesomeIcon icon={faSort} style={{padding: "0px 10px"}}/>
+            <div style={{ width: "12px",padding:0,display:"flex",marginLeft:"6px" }}>
+              <FontAwesomeIcon icon={faSort} />
+            </div>
           </p>
 
           <div className={styles["sortDropdown"]}>
@@ -152,15 +152,21 @@ export default function Shop() {
           ))}
         </ul>
         {displayedProducts < totalProducts ? (
-          <button className={styles[`${"navButton"}`]} onClick={loadMoreProducts}>Load More</button>
+          <button
+            className={styles[`${"navButton"}`]}
+            onClick={loadMoreProducts}
+          >
+            Load More
+          </button>
         ) : (
-          <button className={styles[`${"navButton"}`]} onClick={scrollToTop}>Back to top</button>
-        )
-      }
+          <button className={styles[`${"navButton"}`]} onClick={scrollToTop}>
+            Back to top
+          </button>
+        )}
 
-{showBackToTop && (
+        {showBackToTop && (
           <button className={styles["backToTop"]} onClick={scrollToTop}>
-            <FontAwesomeIcon icon={faArrowUp} style={{padding: "0px 10px"}}/>
+            <FontAwesomeIcon icon={faArrowUp} style={{ padding: "0px 10px" }} />
           </button>
         )}
       </div>

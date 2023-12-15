@@ -50,6 +50,10 @@
 .sortLabel {
   cursor: pointer;
   font-family: "Oswald",sans-serif;
+  display: flex;
+  width: 80px;
+  justify-content: center;
+  align-items: center;
 }
 
 .sortDropdown {

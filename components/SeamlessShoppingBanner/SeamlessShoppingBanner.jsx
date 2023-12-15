@@ -21,7 +21,7 @@ const SeamlessShoppingBanner = () => {
       
           <div className={styles.featureIconWrapper}>
            
-            <FontAwesomeIcon icon={faCube} size="1x" />
+            <FontAwesomeIcon icon={faCube} size="2x" />
             </div>
             <h3>Fast, Free Delivery</h3>
             <p>Enjoy free two-day delivery on most in-stock items, guaranteeing quick and convenient access to your favorite products. Additionally, our extensive selection ensures you'll find everything you need for your shopping needs, all with the benefit of fast, reliable shipping.</p>
@@ -42,7 +42,7 @@ const SeamlessShoppingBanner = () => {
             <div className={styles.featureIconWrapper}>
               <div></div>
              <div style={{width: "50px"}}>
-             <FontAwesomeIcon icon={faShop} size="sm"/>
+             <FontAwesomeIcon icon={faShop} size="2x"/>
              </div>
               
             </div>
@@ -73,7 +73,7 @@ const SeamlessShoppingBanner = () => {
               <div></div>
               <FontAwesomeIcon
                 icon={faTruckFast}
-                size="xl"
+                size="2x"
                 className={styles.featureIcon}
              
               />

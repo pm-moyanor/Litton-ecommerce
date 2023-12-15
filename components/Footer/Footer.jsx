@@ -14,6 +14,7 @@ export default function Footer() {
     <div className={styles["footer-container"]}>
       <p>©2023 Litton Headphones |  All rights reserved   </p>
       <div className={styles["footer-icons"]}>
+        
         <a
           href="https://www.instagram.com/official_instagram_account/"
           target="_blank"

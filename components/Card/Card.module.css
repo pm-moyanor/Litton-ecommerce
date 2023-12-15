@@ -209,25 +209,25 @@
 @media screen and (max-width: 780px) {
   .mainContainer.shopMode {
     align-items: center;
-    padding: 50px 0px;
+    padding: 40px 0px;
     flex-wrap: wrap;
-    /* border: 1px solid red; */
     max-height: none;
     height: fit-content;
   }
 
   .shopMode > .productInfo {
     width: 70%;
-    /* text-align: center; */
+    text-align: center;
 
     font-size: 18px;
     margin: 20px 10px 0px 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     justify-content: left;
   }
 
   .shopMode .productInfo h4 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+  padding-bottom: 0;
   }
 
   .productPrice {
@@ -235,22 +235,32 @@
   }
 
   .shopMode .imgColorsContainer {
-    height: auto;
-    width: 90%;
+
+    width: 80%;
     max-width: 400px;
-    padding: 10px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
   }
 
   .shopMode .productImg {
     height: auto;
-    width: 90%;
+    min-width: none;
+    width: 50%;
+  }
+  .shopMode .productImg img{
+    width: 80%;
   }
 
   .shopMode .colorOptionsContainer {
     width: 90%;
     max-width: 400px;
+  
   }
-
+.colorOptionsContainer > div{
+  width: 20px;
+  height: 20px;
+}
   .descriptionContainer {
     text-align: center;
     margin: 10px;
@@ -258,11 +268,14 @@
 
   .descriptionContainer li {
     list-style: none;
+    font-size: 16px;
   }
 
   .shopMode .button {
-    align-self: center;
-    margin-top: 20px;
+
+    margin-top: 10px;
+    font-size: 14px;
+    height: 40px;
   }
 }
 
@@ -274,9 +287,6 @@
     width: 50px;
     padding: 0;
   }
-  .shopMode .productImg img {
-    width: 90%;
-  }
 
   .shopMode > .productInfo {
     margin-left: 0;
@@ -285,7 +295,7 @@
   }
 
   .productInfo {
-    font-size: 16px;
+    font-size: 14px;
     margin: 10px 5px 0px 5px;
   }
 
@@ -294,15 +304,13 @@
   }
 
   .productPrice {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .descriptionContainer li {
     font-size: 16px;
   }
-  .shopMode .button {
-    width: 40%;
-  }
+
 }
 
 @keyframes rotation {
